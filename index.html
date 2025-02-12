@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Unit converter</title>
+  </head>
+  <body>
+    <header class="header"><h1>Unit Conversion</h1></header>
+    <main>
+      <section class="converter-section">
+        <nav>
+        <ul class="conversion-menu">
+            <li><button data-type="temperature">Temperature</button></li>
+            <li><button data-type="length">Length</button></li>
+            <li><button data-type="mass">Mass</button></li>
+            <li><button data-type="volume">Volume</button></li>
+            <li><button data-type="speed">Speed</button></li>
+          </ul>
+        </nav>
+        <form class="main-form">
+          <div class="form-group">
+            <label for="fromUnitInput" class="visually-hidden" aria-label="From unit">From</label>
+            <input type="number" id="fromUnitInput" placeholder="Enter value" />
+            <select id="fromUnitSelect" aria-label="Select from unit"></select>
+          </div>
+          <div class="equals">=</div>
+          <div class="form-group">
+            <label for="toUnitInput" class="visually-hidden" aria-label="To Unit">To</label>
+            <input type="text" id="toUnitInput" placeholder="Converted value" />
+            <select id="toUnitSelect" aria-label="Select to unit"></select>
+          </div>
+        </form>
+      </section>
+      <button class="submit-test-button">Test Btn</button>
+    </main>
+    <footer>
+      <p>&copy; 2025 Unit Converter</p>
+    </footer>
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
