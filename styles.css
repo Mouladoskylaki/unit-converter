@@ -25,20 +25,27 @@ html  {
     align-self: center;
     font-weight: bold;
 }
-
-.visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
   
 .submit-test-button {
     color: red;
     margin-top: 2rem;
+}
+
+/* Conversion result element */
+#conversion-formula {
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+#formula-text {
+    background-color: rgb(215, 197, 4);
+    color: black;
+    padding: 0.15rem;
+    border-radius: 0.2rem;
+}
+
+#conversion-operation {
+
 }

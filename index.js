@@ -1,24 +1,30 @@
 import { addInputListeners } from "./UI.js";
 import { selectedFormulaObj } from "./UI.js";
+import { updateFormulaDescription } from "./UI.js";
+import { updateConversionResultElem } from "./UI.js";
 
 const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
 const fromUnitSelect = document.getElementById("fromUnitSelect");
 const toUnitSelect = document.getElementById("toUnitSelect");
 
+//Convert a value from one unit to another
 function convertUnits(formulaObject, fromUnit, toUnit, value) {
   if (formulaObject[fromUnit] && formulaObject[fromUnit][toUnit]) {
-    return formulaObject[fromUnit][toUnit](value);
+    return formulaObject[fromUnit][toUnit].formula(value);
   } else {
     throw new Error(`Conversion from ${fromUnit} to ${toUnit} not supported.`);
   }
 }
 
+//Update conversion result
 export function updateConversionResult() {
   const fromValue = parseFloat(fromUnitInput.value);
 
   if (fromUnitInput.value.trim() === "") {
     toUnitInput.value = "";
+    updateFormulaDescription();
+    console.log('empty')
     return;
   }
 
@@ -28,11 +34,13 @@ export function updateConversionResult() {
   }
 
   if (fromUnitSelect.value === toUnitSelect.value) {
-    toUnitInput.value = fromValue;
-    if (!selectedFormulaObj) {
-      console.log("Select conversion formula");
-      toUnitInput.value = "";
-    }
+    console.warn("Same unit detected, swapping units.");
+    return;
+  }
+
+  if (!selectedFormulaObj) {
+    console.log("Select conversion formula");
+    toUnitInput.value = "";
     return;
   }
 
@@ -42,9 +50,11 @@ export function updateConversionResult() {
     toUnitSelect.value,
     fromValue
   );
-  const formattedResult = parseFloat(result.toPrecision(6));
 
+  const formattedResult = parseFloat(result.toPrecision(6));
   toUnitInput.value = formattedResult;
+  updateFormulaDescription();
+  updateConversionResultElem();
 }
 
 addInputListeners(

@@ -21,17 +21,25 @@
         </nav>
         <form class="main-form">
           <div class="form-group">
-            <label for="fromUnitInput" class="visually-hidden" aria-label="From unit">From</label>
-            <input type="number" id="fromUnitInput" placeholder="Enter value" />
+            <input type="number" id="fromUnitInput" aria-label="From unit" placeholder="Enter value" />
             <select id="fromUnitSelect" aria-label="Select from unit"></select>
           </div>
           <div class="equals">=</div>
           <div class="form-group">
-            <label for="toUnitInput" class="visually-hidden" aria-label="To Unit">To</label>
-            <input type="text" id="toUnitInput" placeholder="Converted value" />
+            <input type="text" id="toUnitInput" aria-label="To Unit" placeholder="Converted value" readonly/>
             <select id="toUnitSelect" aria-label="Select to unit"></select>
           </div>
         </form>
+        <section id="conversion-details">
+          <aside id="conversion-formula" role="note">
+            <p id="formula-text">Conversion formula</p>
+            <p id="conversion-operation"></p>
+          </aside>
+          <p id="conversion-result" role="status">
+          <strong id="result-label" style="color: #007bff;">Result:</strong>
+          <span id="result-vaule"></span>
+          </p>
+        </section>
       </section>
       <button class="submit-test-button">Test Btn</button>
     </main>
