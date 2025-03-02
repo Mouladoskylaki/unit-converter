@@ -4,6 +4,8 @@ import { selectedFormulaObj } from "./UI.js";
 import { updateFormulaDescription } from "./UI.js";
 import { updateConversionResultElem } from "./UI.js";
 import { conversionResultElem } from "./UI.js";
+import { formatResult } from "./utils.js";
+import { customPrecision } from "./customPrecision.js";
 
 const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
@@ -40,7 +42,7 @@ function convertUnits(formulaObject, fromUnit, toUnit, value) {
     return formulaObject[fromUnit][toUnit].formula(value);
   } else {
     console.warn(`Conversion from ${fromUnit} to ${toUnit} not supported.`);
-    return value
+    return 0;
   }
 }
 //Update conversion result
@@ -58,8 +60,18 @@ export function updateConversionResult() {
     return;
   }
 
+  const result = convertUnits(
+    selectedFormulaObj,
+    fromUnitSelect.value,
+    toUnitSelect.value,
+    fromValue
+  );
+
   if (fromUnitSelect.value === toUnitSelect.value) {
-    console.warn("fromUnitSelect - Same unit detected.");
+    console.warn("Same unit detected - Swapping units");
+    let temp = fromUnitInput.value;
+    fromUnitInput.value = toUnitInput.value;
+    toUnitInput.value = temp;
     toUnitSelect.value = fromTemp;
     fromUnitSelect.value = toTemp;
     fromTemp = fromUnitSelect.value;
@@ -69,23 +81,16 @@ export function updateConversionResult() {
     return;
   }
 
+let formattedResult = formatResult(result);
+
   if (!selectedFormulaObj) {
     console.log("Select conversion formula");
     toUnitInput.value = "";
     return;
   }
   
-  const result = convertUnits(
-    selectedFormulaObj,
-    fromUnitSelect.value,
-    toUnitSelect.value,
-    fromValue
-  );
-
-  const formattedResult =
-  result >= 1e9 || result <= -1e9 ? result.toExponential(5) : result.toLocaleString();
-  
   toUnitInput.value = formattedResult;
+  console.log(`Result: ${fromValue} ${fromUnitSelect.value} = ${formattedResult} ${toUnitSelect.value}`);
   updateFormulaDescription();
   updateConversionResultElem();
 }
@@ -96,14 +101,51 @@ addInputListeners(
   toUnitSelect,
   updateConversionResult
 );
+//////////////////////////////////////////////////////////
+
+export function generateConversions(units, customPrecision = {}) {
+  const result = {};
+  
+  for (const fromUnit in units) {
+    result[fromUnit] = {};
+    for (const toUnit in units) {
+      const exactFactor = units[fromUnit] / units[toUnit];
+      const precision = customPrecision[toUnit] || 2;
+      // Format the factor for display purposes only
+      const displayFactor = Number(exactFactor.toFixed(precision));
+
+      let operationWord, description, formula;
+      if (exactFactor === 1) {
+        operationWord = 'No conversion needed; value remains in';
+        description = `${operationWord} ${toUnit}.`;
+        formula = (value) => value; // Exact value, no operation needed
+      } else if (exactFactor > 1) {
+        operationWord = 'Multiply';
+        description = `${operationWord} the length value by ${displayFactor} to convert to ${toUnit}.`;
+        formula = (value) => value * exactFactor; // Use exact factor for calculation
+      } else {
+        // For division, we typically show the reciprocal factor (e.g., "divide by 2" instead of "multiply by 0.5")
+        const displayDivisor = Number((1 / exactFactor).toFixed(precision));
+        operationWord = 'Divide';
+        description = `${operationWord} the length value by ${displayDivisor} to convert to ${toUnit}.`;
+        formula = (value) => value / displayDivisor; // Use formatted divisor for consistency with description
+      }
+
+      result[fromUnit][toUnit] = {
+        formula: formula,
+        description: description
+      };
+    }   
+  }
+
+  return result;
+}
 
 //////////////////////////////////////////////////////////
 const btn = document.querySelector(".submit-test-button");
 btn.addEventListener("click", () => {
-    console.log("-button");
-    console.log("fromTemp:", fromTemp);
-    console.log("toTemp:", toTemp);
-    console.log("fromUnitSelect.value:", fromUnitSelect.value);
-    console.log("toUnitSelect.value:", toUnitSelect.value);
-    console.log("/button");
+  console.log(conversions);
+  console.log(conversions['chi']['meter'].description);
+  console.log(conversions["meter"]["zhang"].formula(1));
+  
 });

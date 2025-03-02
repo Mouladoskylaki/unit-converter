@@ -8,10 +8,12 @@
   </head>
   <body>
     <header class="header"><h1>Unit Conversion</h1></header>
+
     <main>
+      <h2 id="unit-converter-header">Essential Unit Conversions</h2>
       <section class="converter-section">
         <nav>
-        <ul class="conversion-menu">
+          <ul class="conversion-menu">
             <li><button data-type="temperature">Temperature</button></li>
             <li><button data-type="length">Length</button></li>
             <li><button data-type="mass">Mass</button></li>
@@ -21,12 +23,23 @@
         </nav>
         <form class="main-form">
           <div class="form-group">
-            <input type="number" id="fromUnitInput" aria-label="From unit" placeholder="Enter value" />
+            <input
+              type="number"
+              id="fromUnitInput"
+              aria-label="From unit"
+              placeholder="Enter value"
+            />
             <select id="fromUnitSelect" aria-label="Select from unit"></select>
           </div>
           <div class="equals">=</div>
           <div class="form-group">
-            <input type="text" id="toUnitInput" aria-label="To Unit" placeholder="Converted value" readonly/>
+            <input
+              type="text"
+              id="toUnitInput"
+              aria-label="To Unit"
+              placeholder="Converted value"
+              readonly
+            />
             <select id="toUnitSelect" aria-label="Select to unit"></select>
           </div>
         </form>
@@ -36,10 +49,32 @@
             <p id="conversion-operation"></p>
           </aside>
           <p id="conversion-result" role="status">
-          <strong id="result-label" style="color: #007bff;">Result:</strong>
-          <span id="result-vaule"></span>
+            <strong id="result-label" style="color: #007bff">Result:</strong>
+            <span id="result-value"></span>
           </p>
-        </section>      
+        </section>
+      </section>
+      <section class="popular-unit-conversions">
+        <h3>Popular unit conversions</h3>
+        <ul>
+          <li>
+            <a href="./lengthConvertors/meters-to-cm.html"
+              >Meters to Centimeters</a
+            >
+          </li>
+          <li><a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a></li>
+          <li><a href="lengthConvertors/cm-to-meters.html">Centimeters to Meters</a></li>
+        </ul>
+      </section>
+      <section class="complete-conversion-list">
+        <h3>Complete conversion list</h3>
+        <ul>
+          <li><a href="/common">Common Converters</a></li>
+          <li><a href="/engineering">Engineering Converters</a></li>
+          <li><a href="/heat">Heat Converters</a></li>
+          <li><a href="/fluids">Fluids Converters</a></li>
+          <li><a href="/light">Light Converters</a></li>
+        </ul>
       </section>
       <button class="submit-test-button">Test Btn</button>
     </main>

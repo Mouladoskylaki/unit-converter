@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Unit converter</title>
+  </head>
+  <body>
+    <header class="header"><h1><a href="../index.html" class="home">Unit Conversion</a></h1></header>
+
+    <main>
+      <h2 class="conversion-type-h2">Meter to Centimeter Calculator</h2>
+      <p class="conversion-description-p">
+        Enter a value below to convert meters [m] to centimeters [cm] or <a href="cm-to-meters.html" class="reverse-link">reverse the conversion</a>.
+      </p>
+      <section class="converter-section">
+        <form class="main-form">
+          <div class="form-group">
+            <input
+              type="number"
+              id="fromUnitInput"
+              aria-label="From unit"
+              placeholder="Enter value"
+            />
+            <label class="label-for-fromUnitInput" for="fromUnitInput"
+              >Meters [m]</label
+            >
+          </div>
+          <div class="equals">=</div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="toUnitInput"
+              aria-label="To Unit"
+              placeholder="Converted value"
+              readonly
+            />
+            <label class="label-for-toUnitInput" for="toUnitInput"
+              >Centimeters [cm]</label
+            >
+          </div>
+          <div class="reverse-conversion"><a href="cm-to-meters.html" class="reverse-icon">&#x21C5;</a></div>
+        </form>
+        <section id="conversion-details">
+          <aside id="conversion-formula" role="note">
+            <p id="formula-text">Conversion formula</p>
+            <p id="conversion-operation"></p>
+          </aside>
+          <p id="conversion-result" role="status">
+            <strong id="result-label" style="color: #007bff">Result:</strong>
+            <span id="result-value"></span>
+          </p>
+        </section>
+      </section>
+      <button class="submit-test-button">Test Btn</button>
+    </main>
+    <footer>
+      <p>&copy; 2025 Unit Converter</p>
+    </footer>
+    <script src="meters-to-cm.js"></script>
+  </body>
+</html>

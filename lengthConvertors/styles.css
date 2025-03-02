@@ -15,19 +15,39 @@ body {
 .header h1 {
   margin: 0;
 }
+
+.home {
+  text-decoration: none;
+  color: white;
+}
 /* Main */
 main {
   margin-left: 0.3rem;
   margin-right: 0.3rem;
-  display: grid;
-  width: 50%;
 }
 
-.converter-section {
-  border: 1px solid gray;
-  margin-bottom: 0.5rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+.reverse-link {
+  color: blue;
+}
+.reverse-link:hover {
+  text-decoration: none;
+}
+.reverse-conversion {
+  align-self: center;
+  justify-self: center;
+}
+.reverse-icon {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+
+.conversion-type-h2 {
+  margin-bottom: 0rem;
+}
+
+.conversion-description-p {
+  margin-top: 0rem;
 }
 
 .conversion-menu {
@@ -72,6 +92,15 @@ main {
   border-radius: 0.2rem;
 }
 
+.label-for-fromUnitInput,
+.label-for-toUnitInput {
+  background-color: white;
+  color: black;
+  width: 99.6%;
+  margin-left: 0.03rem;
+  font-size: 0.9rem;
+}
+
 #conversion-operation {
 }
 
@@ -82,10 +111,6 @@ main {
 /* Popular unit conversions */
 .popular-unit-conversions {
   background-color: rgb(128, 156, 147);
-}
-
-li {
-  list-style-type: none;
 }
 
 /* Complete conversion list */

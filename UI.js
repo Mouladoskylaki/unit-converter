@@ -1,18 +1,29 @@
 // UI.js
 import { updateConversionResult } from "./index.js";
+import { generateConversions } from "./index.js";
+import { customPrecision } from "./customPrecision.js";
 import { temperatureFormulas } from "./formulas/temperatureFormulas.js";
 import { lengthFormulas } from "./formulas/lengthFormulas.js";
-
+import { massFormulas } from "./formulas/massFormulas.js";
+import { volumeFormulas } from "./formulas/volumeFormulas.js";
+import { speedFormulasCommon } from "./formulas/speedFormulasCommon.js";
+import { speedFormulasFull } from "./formulas/formulasFull/speedFormulasFull.js";
+import { ancientGreekLengthFormulas } from "./formulas/ancientUnitFormulas/ancientGreekLengthFormulas.js";
+import { ancientRomanLengthFormulas } from "./formulas/ancientUnitFormulas/ancientRomanLengthFormulas.js";
+import { ancientEgyptianLengthFormulas } from "./formulas/ancientUnitFormulas/ancientEgyptianLengthFormulas.js";
+import { shangDynasty, songDynasty, zhouDynasty, qinDynasty, hanDynasty, tangDynasty, mingDynasty, qingDynasty } from "./formulas/ancientUnitFormulas/ancientChineseLengthFormulas.js";
 const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
 const fromUnitSelect = document.getElementById("fromUnitSelect");
 const toUnitSelect = document.getElementById("toUnitSelect");
 const menuButtons = document.querySelectorAll(".conversion-menu button");
-
-export const conversionResultElem = document.getElementById("result-vaule");
+export const conversionResultElem = document.getElementById("result-value");
 export let selectedFormulaObj;
 export let formulaDescription = document.getElementById("conversion-operation");
 
+// Formula Objects
+const ancChiShangDynasty = generateConversions(shangDynasty, customPrecision);
+const speedFormulasF = generateConversions(speedFormulasFull, customPrecision);
 // Populate select elements
 export const updateSelectOptions = (formulaObject) => {
   fromUnitSelect.innerHTML = "";
@@ -57,14 +68,34 @@ menuButtons.forEach((button) => {
       fromUnitInput.value = 1;
       updateConversionResult();
     } else if (selectedType === "length") {
-      updateSelectOptions(lengthFormulas);
-      selectedFormulaObj = lengthFormulas;
-      fromUnitSelect.value = "meters";
-      toUnitSelect.value = "centimeters";
+      updateSelectOptions(ancChiShangDynasty);
+      selectedFormulaObj = ancChiShangDynasty;
+      fromUnitSelect.value = "Meter [m]";
+      toUnitSelect.value = "Fen (分)";
       fromUnitInput.value = 1;
       updateConversionResult();
-    }
-
+    } else if (selectedType === "mass") {
+      updateSelectOptions(massFormulas);
+      selectedFormulaObj = massFormulas;
+      fromUnitSelect.value = "kilogram";
+      toUnitSelect.value = "pound";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "volume") {
+      updateSelectOptions(volumeFormulas);
+      selectedFormulaObj = volumeFormulas;
+      fromUnitSelect.value = "liter";
+      toUnitSelect.value = "milliliter";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "speed") {
+      updateSelectOptions(speedFormulasF);
+      selectedFormulaObj = speedFormulasF;
+      fromUnitSelect.value = "meter/second [m/s]";
+      toUnitSelect.value = "knot [kt, kn]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } 
     console.log(`Selected conversion type: ${selectedType}`);
   });
 });
@@ -96,7 +127,7 @@ export const updateFormulaDescription = () => {
   const description =
     formula && formula.description
       ? formula.description
-      : "No conversion required.";
+      : "No conversion.";
   formulaDescription.innerText = description;
 };
 
@@ -110,70 +141,3 @@ export const updateConversionResultElem = () => {
     toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)
   }`;
 };
-
-// export let fromTemp;
-// export let toTemp;
-// //
-// fromUnitSelect.addEventListener('focus', (event) => {
-//   if (fromUnitSelect.value === toUnitSelect.value) {
-//     console.log('Focus same');
-//     return;
-//   } else {
-//   fromTemp = fromUnitSelect.value;
-//   toTemp = toUnitSelect.value;
-//   console.log("-Focus");
-//   console.log("fromTemp:", fromTemp);
-//   console.log("toTemp:", toTemp);
-//   console.log("fromUnitSelect.value:", fromUnitSelect.value);
-//   console.log("toUnitSelect.value:", toUnitSelect.value);
-//   console.log('/focus');
-//   }
-// });
-
-// fromUnitSelect.addEventListener('change', () => {
-//   if (fromUnitSelect.value === toUnitSelect.value) {
-//     console.log('Change same');
-//     return;
-//   } else {
-//   fromTemp = fromUnitSelect.value;
-//   console.log("-Change");
-//   console.log("fromTemp:", fromTemp);
-//   console.log("toTemp:", toTemp);
-//   console.log("fromUnitSelect.value:", fromUnitSelect.value);
-//   console.log("toUnitSelect.value:", toUnitSelect.value);
-//   console.log("/Change");
-//   }
-// });
-// //
-// toUnitSelect.addEventListener('focus', (event) => {
-//   if (toUnitSelect.value === fromUnitSelect.value) {
-//     console.log('Focus same');
-//     return;
-//   } else {
-//   fromTemp = fromUnitSelect.value;
-//   toTemp = toUnitSelect.value;
-//   console.log("-Focus");
-//   console.log("fromTemp:", fromTemp);
-//   console.log("toTemp:", toTemp);
-//   console.log("toUnitSelect.value:", toUnitSelect.value);
-//   console.log("fromUnitSelect.value:", fromUnitSelect.value);
-//   console.log('/focus');
-//   }
-// });
-
-// toUnitSelect.addEventListener('change', () => {
-//   if (toUnitSelect.value === fromUnitSelect.value) {
-//     console.log('Change same');
-//     return;
-//   } else {
-//   toTemp = toUnitSelect.value;
-//   console.log("-Change");
-//   console.log("fromTemp:", fromTemp);
-//   console.log("toTemp:", toTemp);
-//   console.log("toUnitSelect.value:", toUnitSelect.value);
-//   console.log("fromUnitSelect.value:", fromUnitSelect.value);
-//   console.log("/Change");
-//   }
-// });
-
-
