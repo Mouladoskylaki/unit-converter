@@ -1,15 +1,334 @@
 // customPrecision.js
 export const customPrecision = {
-    "Fen (分)": 2,        
-    "Cun (寸)": 2,      
-    "Chi (尺)": 2,     
-    "Zhang (丈)": 2,     
-    "Bu (步)": 2,      
-    "Li (里)": 2,     
-    "Centimeter [cm]": 7,
-    "Meter [m]": 7,
-    "Kilometer [km]": 7,
-    "Inch [in]": 7,       
-    "Foot [ft]": 7,     
-    "Yard [yd]": 7       
-  };
+  // Length Units
+  length: {
+    // Metric Units (SI)
+    "meter [m]": 3,
+    "kilometer [km]": 3,
+    "decimeter [dm]": 3,
+    "centimeter [cm]": 3,
+    "millimeter [mm]": 3,
+    "micrometer [µm]": 4,
+    "micron [µ]": 4,
+    "nanometer [nm]": 4,
+    "picometer [pm]": 5,
+    "femtometer [fm]": 5,
+    "attometer [am]": 5,
+    "hectometer [hm]": 3,
+    "dekameter [dam]": 3,
+
+    // Large Metric Units
+    "exameter [Em]": 2,
+    "petameter [Pm]": 2,
+    "terameter [Tm]": 2,
+    "gigameter [Gm]": 2,
+    "megameter [Mm]": 2,
+
+    // Astronomical Units
+    "light year [ly]": 3,
+    "light month [lmo]": 3,
+    "light day [ld]": 3,
+    "light hour [lh]": 3,
+    "light minute [lmin]": 3,
+    "light second [ls]": 3,
+    "astronomical unit [AU]": 3,
+    "parsec [pc]": 3,
+    "kiloparsec [kpc]": 3,
+    "megaparsec [Mpc]": 3,
+    "Hubble length [DH]": 3,
+
+    // Imperial/US Units
+    "mile [mi]": 3,
+    "mile (statute) [mi]": 3,
+    "mile (US survey) [mi]": 3,
+    "mile (Roman) [mi]": 3,
+    "yard [yd]": 3,
+    "kiloyard [kyd]": 3,
+    "foot [ft]": 3,
+    "foot (US survey) [ft]": 3,
+    "inch [in]": 3,
+    "inch (US survey) [in]": 3,
+
+    // Engineering and Small Units
+    "thou [thou]": 4,
+    "mil [mil]": 4,
+    "microinch [µin]": 4,
+
+    // Nautical Units
+    "nautical mile (international) [nmi]": 3,
+    "nautical mile (UK) [nmi (UK)]": 3,
+    "cable length (international) [cable]": 3,
+    "cable length (UK) [cable (UK)]": 3,
+    "shackle [shackle]": 3,
+    "league [lea]": 3,
+    "league (statute) [lea]": 3,
+    "nautical league (int.) [nlea]": 3,
+    "nautical league (UK) [nlea (UK)]": 3,
+
+    // Land Survey Units
+    "Gunter's chain [ch]": 3,
+    "rood [rood]": 3,
+    "furlong [fur]": 3,
+    "furlong (US survey) [fur]": 3,
+    "chain [ch]": 3,
+    "chain (US survey) [ch]": 3,
+    "rod [rd]": 3,
+    "rod (US survey) [rd]": 3,
+    "perch [per]": 3,
+    "pole [pole]": 3,
+
+    // Maritime and Navigation Units
+    "fathom [ftm]": 3,
+    "fathom (US survey) [ftm]": 3,
+
+    // Traditional English Units
+    "ell [ell]": 3,
+    "link [li]": 3,
+    "link (US survey) [li]": 3,
+
+    // Historical and Traditional Units
+    "cubit (UK) [cbt]": 3,
+    "cubit (Greek) [cbt (Greek)]": 3,
+    "hand [h]": 3,
+    "span (cloth) [span]": 3,
+    "finger (cloth) [finger]": 3,
+    "nail (cloth) [nail]": 3,
+    "barleycorn [bc]": 3,
+
+    // Rope and Reed Measurements
+    "rope [rope]": 3,
+    "reed [reed]": 3,
+    "long reed [long reed]": 3,
+    "long cubit [long cbt]": 3,
+    "handbreadth [hand]": 3,
+    "fingerbreadth [finger]": 3,
+
+    // Atomic and Scientific Units
+    "angstrom [Å]": 4,
+    "X-unit [X]": 4,
+    "fermi [fm]": 4,
+    "a.u. of length [a.u.]": 4,
+    "Planck length [ℓₚ]": 5,
+    "Electron radius (classical) [r₉]": 4,
+    "Bohr radius [a₀]": 4,
+
+    // Typographical Units
+    "pica [P]": 3,
+    "point [pt]": 3,
+    "twip [twip]": 3,
+    "pixel (72 PPI) [px]": 3,
+    "pixel (96 PPI) [px]": 3,
+    "pixel (300 PPI) [px]": 3,
+    "em [em]": 3,
+    "en [en]": 3,
+    "didot point [dd]": 3,
+    "cicero [cc]": 3,
+
+    // Computer/IT Units
+    "rack unit [U]": 3,
+
+    // Other Regional and Historical Units
+    "arpent [arp]": 3,
+    "aln [aln]": 3,
+    "famn [famn]": 3,
+    "caliber [cal]": 3,
+    "centiinch [cin]": 3,
+    "ken [ken]": 3,
+    "Russian archin [archin]": 3,
+    "Roman actus [actus]": 3,
+    "vara de tarea [vara]": 3,
+    "vara conuquera [vara]": 3,
+    "vara castellana [vara]": 3,
+
+    // Natural Reference Units
+    "hair's breadth [hair]": 3,
+    "horse length [hl]": 2,
+    "football field [ff]": 2,
+    "Earth-Moon distance [EMd]": 2,
+
+    // Earth and Sun Related
+    "Earth's equatorial radius [R⊕]": 2,
+    "Earth's polar radius [R⊕ₚ]": 2,
+    "Earth's distance from sun [1 AU]": 2,
+    "Sun's radius [R☉]": 2,
+
+    // Ancient Egyptian Units
+    "royal cubit [royal cbt]": 2,
+    "egyptian palm [palm]": 2,
+    "egyptian digit [digit]": 2,
+
+    // Ancient Indian Units
+    "yojana [yojana]": 2,
+    "hasta [hasta]": 2,
+    "angula [angula]": 2,
+
+    // Biblical Units
+    "biblical cubit [bib cbt]": 2,
+    "ezekiel's reed [ez reed]": 2,
+
+    // Contemporary References
+    "olympic pool [pool]": 1,
+    "soccer field [soccer]": 1,
+    "tennis court [tennis]": 1,
+  },
+
+  // Mass Units
+  mass: {
+    "tonne [t]": 2,
+    "kilogram [kg]": 2,
+    "gram [g]": 3,
+    "milligram [mg]": 3,
+    "microgram [µg]": 4,
+    "imperialTon [long tn]": 2,
+    "usTon [short tn]": 2,
+    "stone [st]": 2,
+    "pound [lb]": 2,
+    "ounce [oz]": 2,
+    "carat [ct]": 2,
+    "atomicMassUnit [u]": 4,
+  },
+
+  // Speed Units
+  speed: {
+    // Standard Units
+    "meter/second [m/s]": 2,
+    "kilometer/hour [km/h]": 2,
+    "mile/hour [mi/h]": 2,
+    "meter/hour [m/h]": 2,
+    "meter/minute [m/min]": 2,
+
+    // Kilometer-based Units
+    "kilometer/minute [km/min]": 2,
+    "kilometer/second [km/s]": 2,
+
+    // Centimeter-based Units
+    "centimeter/hour [cm/h]": 2,
+    "centimeter/minute [cm/min]": 2,
+    "centimeter/second [cm/s]": 2,
+
+    // Millimeter-based Units
+    "millimeter/hour [mm/h]": 2,
+    "millimeter/minute [mm/min]": 2,
+    "millimeter/second [mm/s]": 2,
+
+    // Foot-based Units
+    "foot/hour [ft/h]": 2,
+    "foot/minute [ft/min]": 2,
+    "foot/second [ft/s]": 2,
+
+    // Yard-based Units
+    "yard/hour [yd/h]": 2,
+    "yard/minute [yd/min]": 2,
+    "yard/second [yd/s]": 2,
+
+    // Mile-based Units
+    "mile/minute [mi/min]": 2,
+    "mile/second [mi/s]": 2,
+
+    // Nautical Units
+    "knot [kt, kn]": 2,
+    "knot (UK) [kt (UK)]": 2,
+
+    // Specialized Units
+    "Speed of light in vacuum": 0,
+    "Cosmic speed - first": 0,
+    "Cosmic speed - second": 0,
+    "Cosmic speed - third": 0,
+    "Earth's speed": 0,
+    "Speed of sound in pure water": 0,
+    "Speed of sound in sea water (20°C, 10 m)": 0,
+    "Mach (20°C, 1 atm)": 1,
+  },
+
+  // Temperature Units
+  temperature: {
+    // Standard Units
+    "celsius [°C]": 2,
+    "fahrenheit [°F]": 2,
+    "kelvin [K]": 2,
+
+    // Additional Units
+    "rankine [°R]": 2,
+    "reaumur [°Ré]": 2,
+    "delisle [°De]": 2,
+    "newton [°N]": 2,
+    "romer [°Rø]": 2,
+    "gasMark [GM]": 0,
+    "its90 [ITS-90]": 2,
+  },
+
+  // Ancient Chinese Length ShowCase
+  ancientChineseLengthShowCase: {
+    // Modern Units
+    "Centimeter [cm]": 2,
+    "Meter [m]": 2,          
+    "Kilometer [km]": 2,
+    "Inch [in]": 2,     
+    "Foot [ft]": 2,     
+    "Yard [yd]": 2,
+    
+    // Shang Dynasty
+    "Fen (分) - Shang": 2,
+    "Cun (寸) - Shang": 2,
+    "Chi (尺) - Shang": 2,
+    "Zhang (丈) - Shang": 2,
+    "Bu (步) - Shang": 2,
+    "Li (里) - Shang": 2,
+    
+    // Zhou Dynasty
+    "Fen (分) - Zhou": 2,
+    "Cun (寸) - Zhou": 2,
+    "Chi (尺) - Zhou": 2,
+    "Zhang (丈) - Zhou": 2,
+    "Bu (步) - Zhou": 2,
+    "Li (里) - Zhou": 2,
+    
+    // Qin Dynasty
+    "Fen (分) - Qin": 2,
+    "Cun (寸) - Qin": 2,
+    "Chi (尺) - Qin": 2,
+    "Zhang (丈) - Qin": 2,
+    "Bu (步) - Qin": 2,
+    "Li (里) - Qin": 2,
+    
+    // Han Dynasty
+    "Fen (分) - Han": 2,
+    "Cun (寸) - Han": 2,
+    "Chi (尺) - Han": 2,
+    "Zhang (丈) - Han": 2,
+    "Bu (步) - Han": 2,
+    "Li (里) - Han": 2,
+    
+    // Tang Dynasty
+    "Fen (分) - Tang": 2,
+    "Cun (寸) - Tang": 2,
+    "Chi (尺) - Tang": 2,
+    "Zhang (丈) - Tang": 2,
+    "Bu (步) - Tang": 2,
+    "Li (里) - Tang": 2,
+    
+    // Song Dynasty
+    "Fen (分) - Song": 2,
+    "Cun (寸) - Song": 2,
+    "Chi (尺) - Song": 2,
+    "Zhang (丈) - Song": 2,
+    "Bu (步) - Song": 2,
+    "Li (里) - Song": 2,
+    
+    // Ming Dynasty
+    "Fen (分) - Ming": 2,
+    "Cun (寸) - Ming": 2,
+    "Chi (尺) - Ming": 2,
+    "Zhang (丈) - Ming": 2,
+    "Bu (步) - Ming": 2,
+    "Li (里) - Ming": 2,
+    
+    // Qing Dynasty
+    "Fen (分) - Qing": 2,
+    "Cun (寸) - Qing": 2,
+    "Chi (尺) - Qing": 2,
+    "Zhang (丈) - Qing": 2,
+    "Bu (步) - Qing": 2,
+    "Li (里) - Qing": 2
+  },
+};

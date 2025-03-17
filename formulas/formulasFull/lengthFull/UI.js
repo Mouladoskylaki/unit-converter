@@ -1,6 +1,6 @@
 // UI.js
 import { updateConversionResult } from "./index.js";
-import { addLink, removeLink } from "./utils.js";
+import { addLink, removeLink } from "../../../utils.js";
 
 const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
@@ -14,10 +14,7 @@ export let selectedFormulaObj;
 export let formulaDescription = document.getElementById("conversion-operation");
 
 // Formula Objects
-import { temperatureFormulas } from "./formulas/temperatureFormulas.js";
-import { lengthFormObj } from "./selectedFormulaObjects.js";
-import { speedFormFullObj } from "./selectedFormulaObjects.js";
-import { ancientChineseLengthFormObj } from "./selectedFormulaObjects.js";
+import { lengthFormFullObj } from "../../../selectedFormulaObjects.js"
 
 // Populate select elements
 export const updateSelectOptions = (formulaObject) => {
@@ -63,7 +60,6 @@ menuButtons.forEach((button) => {
     const selectedType = event.target.dataset.type;
     
     removeLink("link-to-full-anc-chinese-converter");
-    removeLink("link-to-full-anc-chinese-converter");
 
     if (selectedType === "temperature") {
       updateSelectOptions(temperatureFormulas);
@@ -78,12 +74,6 @@ menuButtons.forEach((button) => {
       fromUnitSelect.value = "meter [m]";
       toUnitSelect.value = "nanometer [nm]";
       fromUnitInput.value = 1;
-      addLink(
-        "link-to-full-length-convverter",
-        "Full Length Converter",
-        "./formulas/formulasFull/lengthFull/length-converter-full.html",
-        converterSection
-      )
       updateConversionResult();
     } else if (selectedType === "ancient-chinese") {
       addLink(
@@ -119,13 +109,13 @@ menuButtons.forEach((button) => {
 
 // On load conversion
 const initializeConversion = () => {
-  updateSelectOptions(lengthFormObj);
-  selectedFormulaObj = lengthFormObj;
+  updateSelectOptions(lengthFormFullObj);
+  selectedFormulaObj = lengthFormFullObj;
   fromUnitSelect.value = "meter [m]";
-  toUnitSelect.value = "nanometer [nm]";
+  toUnitSelect.value = "foot [ft]";
   fromUnitInput.value = 1;
   formulaDescription.innerText =
-    lengthFormObj[fromUnitSelect.value][toUnitSelect.value].description;
+  lengthFormFullObj[fromUnitSelect.value][toUnitSelect.value].description;
   updateConversionResult();
 };
 

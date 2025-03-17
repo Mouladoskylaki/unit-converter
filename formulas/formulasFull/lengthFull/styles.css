@@ -20,34 +20,21 @@ body {
   text-decoration: none;
   color: white;
 }
+
 /* Main */
 main {
   margin-left: 0.3rem;
   margin-right: 0.3rem;
+  display: grid;
+  width: 50%;
 }
 
-.reverse-link {
-  color: blue;
-}
-.reverse-link:hover {
-  text-decoration: none;
-}
-.reverse-conversion {
-  align-self: center;
-  justify-self: center;
-}
-.reverse-icon {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-}
-
-.conversion-type-h2 {
-  margin-bottom: 0rem;
-}
-
-.conversion-description-p {
-  margin-top: 0rem;
+.converter-section {
+  border: 1px solid gray;
+  margin-bottom: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 0.5rem;
 }
 
 .conversion-menu {
@@ -92,15 +79,6 @@ main {
   border-radius: 0.2rem;
 }
 
-.label-for-fromUnitInput,
-.label-for-toUnitInput {
-  background-color: white;
-  color: black;
-  width: 99.6%;
-  margin-left: 0.03rem;
-  font-size: 0.9rem;
-}
-
 #conversion-operation {
 }
 
@@ -113,8 +91,22 @@ main {
   background-color: rgb(128, 156, 147);
 }
 
+li {
+  list-style-type: none;
+}
+
 /* Complete conversion list */
 .complete-conversion-list {
+  margin-top: 0.5rem;
   background-color: rgb(93, 116, 104);
 }
 
+.link-to-full-anc-chinese-converter {
+  display: inline-block;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  color: blue;
+}
+.link-to-full-anc-chinese-converter:hover {
+  text-decoration: none;
+}
