@@ -102,7 +102,7 @@ main {
 /* Main Form Section */
 .main-form {
   display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin-bottom: 1rem;
   width: 100%;
@@ -113,6 +113,9 @@ main {
   display: grid;
   gap: 0.5rem;
   width: 100%;
+}
+.fromUnitInput-label, .toUnitInput-label {
+  font-weight: bold;
 }
 
 #fromUnitInput, #toUnitInput {
