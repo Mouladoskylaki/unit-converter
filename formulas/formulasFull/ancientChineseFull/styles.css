@@ -1,105 +1,354 @@
+/* =======================
+   Font Imports
+======================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+
+/* =======================
+   Global Styles
+======================= */
 html {
-  background-color: rgb(56, 56, 86);
+  background-color: #2A2A49;
   color: white;
-  font-family: sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
   margin: 0;
 }
-/* Header */
+
+/* =======================
+   Header Section
+======================= */
 .header {
-  background-color: black;
+  background-color: #1E1E2E;
+  padding: 0.5rem;
 }
 
 .header h1 {
   margin: 0;
 }
-/* Main */
+
+.home {
+  text-decoration: none;
+  color: white;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb, .breadcrumb-link {
+  color: #6272A4;
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.breadcrumb-current {
+  color: #6272A4;
+  font-size: 0.75rem;
+}
+
+/* =======================
+   Main Content Area
+======================= */
 main {
   margin-left: 0.3rem;
   margin-right: 0.3rem;
   display: grid;
-  width: 50%;
+  width: 600px;
 }
 
+#unit-converter-header {
+  margin-top: 1rem;
+  margin-bottom: 0;
+  background-color: rgb(232, 53, 53);
+  width: fit-content;
+  border-radius: 5px 5px 0 0;
+  padding: 10px 15px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+/* =======================
+   Converter Section
+======================= */
 .converter-section {
-  border: 1px solid gray;
-  margin-bottom: 0.5rem;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
+  background-color: #252836;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box; /* Important! */
 }
 
+/* Unit Type Selection */
+.conversion-nav {
+  padding: 0;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+/* Styling the select dropdown to match the tab appearance from the main page */
 .conversion-menu {
-  list-style-type: none;
-  padding-left: 0;
-  display: grid;
-  grid-auto-flow: column;
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #5E72BD;
+  color: white;
+  font-size: 16px;
+  height: 40px;
+  box-sizing: border-box;
+  appearance: auto; /* Maintains the select dropdown appearance */
 }
 
+/* Main Form Section */
 .main-form {
   display: grid;
-  grid-auto-flow: column;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 10px;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-group {
   display: grid;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+#fromUnitInput, #toUnitInput {
+  height: 40px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#fromUnitSelect, #toUnitSelect {
+  height: 40px;
+  background-color: #5E72BD;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .equals {
   justify-self: center;
   align-self: center;
   font-weight: bold;
+  font-size: 24px;
+  margin: 0 10px;
 }
 
-.submit-test-button {
-  color: red;
-  margin-top: 2rem;
+/* Conversion Details Section */
+#conversion-details {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Conversion result element */
 #conversion-formula {
+  background-color: #4B5584;
+  border-radius: 5px;
   display: flex;
-  gap: 0.2rem;
+  gap: 0.5rem;
   align-items: center;
-  font-size: 0.75rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 #formula-text {
-  background-color: rgb(215, 197, 4);
-  color: black;
-  padding: 0.15rem;
-  border-radius: 0.2rem;
-}
-
-#conversion-operation {
-}
-
-#conversion-result {
+  color: white;
   margin: 0;
 }
 
-/* Popular unit conversions */
-.popular-unit-conversions {
-  background-color: rgb(128, 156, 147);
+#conversion-operation {
+  margin: 0;
 }
 
-li {
+#conversion-result {
+  color: #50fa7b;
+  font-size: 18px;
+  margin: 0.5rem 0;
+}
+
+#result-label {
+  color: #50fa7b !important;
+}
+
+/* Scientific Notation Toggle */
+.toggle-sn-off {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.toggle-sn-off:hover {
+  color: gray;
+}
+
+.toggle-sn-on {
+  font-size: 1.5rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.toggle-sn-on:hover {
+  color: white;
+}
+
+/* =======================
+   Popular Unit Conversions Section
+======================= */
+.popular-unit-conversions {
+  background-color: #3A506B;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.popular-unit-conversions h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.popular-unit-conversions ul {
+  padding-left: 1.5rem;
+  margin-top: 0;
+}
+
+.popular-unit-conversions li {
+  margin-bottom: 0.5rem;
+  position: relative;
   list-style-type: none;
 }
 
-/* Complete conversion list */
-.complete-conversion-list {
-  margin-top: 0.5rem;
-  background-color: rgb(93, 116, 104);
+.popular-unit-conversions li::before {
+  content: "•";
+  color: #50fa7b;
+  position: absolute;
+  left: -1rem;
 }
 
-.link-to-full-anc-chinese-converter {
-  display: inline-block;
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
-  color: blue;
-}
-.link-to-full-anc-chinese-converter:hover {
+.popular-unit-conversions a {
+  color: #50fa7b;
   text-decoration: none;
+}
+
+.popular-unit-conversions a:hover {
+  text-decoration: underline;
+}
+
+/* =======================
+   Complete Conversion List Section
+======================= */
+.complete-conversion-list {
+  background-color: #3A506B;
+  border-radius: 5px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.complete-conversion-list h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+.complete-conversion-list ul {
+  padding-left: 1.5rem;
+  margin-top: 0;
+}
+
+.complete-conversion-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  list-style-type: none;
+}
+
+.complete-conversion-list li::before {
+  content: "•";
+  color: #50fa7b;
+  position: absolute;
+  left: -1rem;
+}
+
+.complete-conversion-list a {
+  color: #50fa7b;
+  text-decoration: none;
+}
+
+.complete-conversion-list a:hover {
+  text-decoration: underline;
+}
+
+/* Link to full converter */
+.link-to-full-length-converter {
+  display: block;
+  margin-top: 0.5rem;
+  color: #5086fa;
+  text-decoration: none;
+}
+
+.link-to-full-length-converter:hover {
+  text-decoration: underline;
+}
+
+/* =======================
+   Footer
+======================= */
+footer {
+  margin-top: 2rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: #1E1E2E;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* =======================
+   Responsive Design
+======================= */
+@media (max-width: 768px) {
+  main {
+    width: 95%;
+  }
+  
+  .main-form {
+    grid-template-columns: 1fr;
+  }
+  
+  .equals {
+    justify-self: center;
+    margin: 0.5rem 0;
+  }
+}
+
+/* =======================
+   Test Button (can be removed in production)
+======================= */
+.submit-test-button {
+  background-color: #333;
+  color: white;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.submit-test-button:hover {
+  background-color: #444;
 }

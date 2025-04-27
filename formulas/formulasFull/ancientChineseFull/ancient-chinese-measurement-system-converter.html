@@ -7,26 +7,30 @@
     <title>Unit converter</title>
   </head>
   <body>
-    <header class="header"><h1><a href="/index.html">Unit Conversion</a></h1></header>
-
+    <header class="header"><h1><a href="/index.html" class="home">Unit Conversion</a></h1>
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="/index.html" class="breadcrumb-link">Home</a> / 
+      <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Historical Converters</a> / 
+      <span class="breadcrumb-current">Ancient Chinese Converter</span>
+    </nav>
+    </header>
     <main>
-      <h2 id="unit-converter-header">Essential Unit Conversions</h2>
+      <h2 id="unit-converter-header">Ancient Chinese Converter</h2>
       <section class="converter-section">
-        <nav>
-          <ul class="conversion-menu">
-            <li><button data-type="length">Length</button></li>
-            <li><button data-type="weight">Weight</button></li>
-            <li><button data-type="volume">Volume</button></li>
-            <li><button data-type="area">Area</button></li>
-            <li><button data-type="time">Time</button></li>
-            <li><button data-type="grain">Grain</button></li>
-            <li><button data-type="astronomical">Astronomical</button></li>
-            <li><button data-type="music">Music</button></li>
-            <li><button data-type="medicine">Medicine</button></li>
-            <li><button data-type="construction">Construction</button></li>
-            <li><button data-type="navigation">Navigation</button></li>
-
-          </ul>
+        <nav aria-label="Unit conversion categories" class="conversion-nav">
+          <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+            <option data-type="length">Length</option>
+            <option data-type="weight">Weight</option>
+            <option data-type="volume">Volume</option>
+            <option data-type="area">Area</option>
+            <option data-type="time">Time</option>
+            <option data-type="grain">Grain</option>
+            <option data-type="astronomical">Astronomical</option>
+            <option data-type="music">Music</option>
+            <option data-type="medicine">Medicine</option>
+            <option data-type="construction">Construction</option>
+            <option data-type="navigation">Navigation</option>
+          </select>
         </nav>
         <form class="main-form">
           <div class="form-group">
@@ -52,11 +56,11 @@
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula</p>
+            <p id="formula-text">Conversion formula:</p>
             <p id="conversion-operation"></p>
           </aside>
           <p id="conversion-result" role="status">
-            <strong id="result-label" style="color: #007bff">Result:</strong>
+            <strong id="result-label" style="color: #50fa7b;">Result:</strong>
             <span id="result-value"></span>
           </p>
         </section>

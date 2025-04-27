@@ -1,11 +1,12 @@
 // UI.js
 import { updateConversionResult } from "./index.js";
+import { toggleSn } from "../../../utils.js";
 
 const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
 const fromUnitSelect = document.getElementById("fromUnitSelect");
 const toUnitSelect = document.getElementById("toUnitSelect");
-const menuButtons = document.querySelectorAll(".conversion-menu button");
+const selectOptions = document.querySelectorAll(".conversion-menu");
 
 export const conversionResultElem = document.getElementById("result-value");
 export let selectedFormulaObj;
@@ -62,9 +63,10 @@ export const addInputListeners = (
 };
 
 // Add click event listeners to each nav button
-menuButtons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const selectedType = event.target.dataset.type;
+selectOptions.forEach((option) => {
+  option.addEventListener("change", (event) => {
+    const selectedOption = event.target.selectedOptions[0]; // Get the selected <option>
+    const selectedType = selectedOption.dataset.type;
 
     if (selectedType === "length") {
       updateSelectOptions(ancientChineseFullLengthFormObj);
@@ -150,6 +152,7 @@ menuButtons.forEach((button) => {
 
 // On load conversion
 const initializeConversion = () => {
+  // document.querySelector('button[data-type="length"]').style.backgroundColor = 'red';
   updateSelectOptions(ancientChineseFullLengthFormObj);
   selectedFormulaObj = ancientChineseFullLengthFormObj;
   fromUnitSelect.value = "Chi (尺) - Ming";
@@ -186,5 +189,9 @@ export const updateConversionResultElem = () => {
   } = ${toUnitInput.value} ${
     toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)
   }`;
+
+  if (toUnitInput.value.includes('e')) {
+    toggleSn(conversionResultElem, fromUnitInput, toUnitInput, fromUnitSelectOption, toUnitSelectOption);
+  }
 };
 

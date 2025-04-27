@@ -65,6 +65,24 @@ main {
   padding: 0;
 }
 
+/* Unit Type Selection */
+.conversion-nav {
+  padding: 0;
+  margin-bottom: 0.3rem;
+}
+
+.conversion-menu {
+  width: 100%;
+  max-width: calc(100% - 1rem);
+  padding: 0.3rem;
+  border: none;
+  border-radius: 0.15rem;
+  background-color: #6272A4;
+  color: white;
+  box-sizing: border-box;
+  list-style-type: none;
+}
+
 /* Conversion Form */
 .main-form {
   padding: 0;
@@ -211,40 +229,4 @@ li a:hover {
 
 .submit-test-button:hover {
   background-color: #333;
-}
-
-/* Mobile responsive styles */
-@media (max-width: 768px) {
-  main {
-    width: 100%;
-    margin: 0;
-    padding: 0.5rem;
-  }
-  
-  .main-form {
-    grid-auto-flow: row;
-    gap: 0.5rem;
-  }
-  
-  .equals {
-    display: none;
-  }
-  
-  #fromUnitSelect, 
-  #toUnitSelect {
-    padding: 0.5rem;
-    margin-top: 0.3rem;
-    min-height: 44px;
-  }
-  
-  button, 
-  select, 
-  input {
-    min-height: 44px;
-  }
-  
-  li a {
-    padding: 0.5rem 0;
-    display: inline-block;
-  }
 }

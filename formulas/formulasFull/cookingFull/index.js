@@ -4,7 +4,7 @@ import { selectedFormulaObj } from "./UI.js";
 import { updateFormulaDescription } from "./UI.js";
 import { updateConversionResultElem } from "./UI.js";
 import { conversionResultElem } from "./UI.js";
-import { formatResult } from "./utils.js";
+import { formatResult } from "../../../utils.js";
 
 const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
@@ -84,7 +84,6 @@ export function updateConversionResult() {
 
   if (!selectedFormulaObj) {
     console.log("Select conversion formula");
-    
     toUnitInput.value = "";
     return;
   }

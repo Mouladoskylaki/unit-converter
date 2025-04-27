@@ -4,21 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Unit converter</title>
+    <title>Weight Converter</title>
   </head>
   <body>
     <header class="header">
-      <h1><a href="../../../index.html" class="home">Unit Conversion</a></h1>
+      <h1><a href="/index.html" class="home">Unit Conversion</a></h1>
       <nav class="breadcrumb" aria-label="breadcrumb">
         <a href="/index.html" class="breadcrumb-link">Home</a> / 
         <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Essential Converters</a> / 
-        <span class="breadcrumb-current">Length Converter</span>
+        <span class="breadcrumb-current">Weight Converter</span>
       </nav>
     </header>
 
     <main>
-      <h2 id="unit-converter-header">Length Converter</h2>
       <section class="converter-section">
+        <h2 id="unit-converter-header">Weight and Mass Converter</h2>
+        <nav aria-label="Unit conversion categories" class="conversion-nav">
+          <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+            <option data-type="standardWeight">Standard</option>
+            <option data-type="asianWeight">Asian</option>
+            <option data-type="historicalWeight">Historical</option>
+            <option data-type="scientificWeight">Scientific</option>
+            <option data-type="preciousMetal">Jewelry</option>
+            <option data-type="commercialWeight">Commercial</option>
+            <option data-type="referenceWeight">Reference Weights</option>
+          </select>
+        </nav>
         <form class="main-form">
           <div class="form-group">
             <input
@@ -43,7 +54,7 @@
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula</p>
+            <p id="formula-text">Conversion formula:</p>
             <p id="conversion-operation"></p>
           </aside>
           <p id="conversion-result" role="status">
@@ -53,15 +64,15 @@
         </section>
       </section>
       <section class="popular-unit-conversions">
-        <h3>Popular unit conversions</h3>
+        <h3>Popular weight conversions</h3>
         <ul>
           <li>
-            <a href="./lengthConvertors/meters-to-cm.html"
-              >Meters to Centimeters</a
+            <a href="./weightConversions/pounds-to-kg.html"
+              >Pounds to Kilograms</a
             >
           </li>
-          <li><a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a></li>
-          <li><a href="lengthConvertors/cm-to-meters.html">Centimeters to Meters</a></li>
+          <li><a href="./weightConversions/kg-to-pounds.html">Kilograms to Pounds</a></li>
+          <li><a href="./weightConversions/ounces-to-grams.html">Ounces to Grams</a></li>
         </ul>
       </section>
       <section class="complete-conversion-list">

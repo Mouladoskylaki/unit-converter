@@ -7,12 +7,17 @@
     <title>Unit converter</title>
   </head>
   <body>
-    <header class="header"><h1><a href="../index.html" class="home">Unit Conversion</a></h1></header>
+    <header class="header"><h1><a href='/index.html' class="home">Unit Conversion</a></h1></header>
 
     <main>
-      <h2 class="conversion-type-h2">Meter to Centimeter Calculator</h2>
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="/index.html" class="breadcrumb-link">Home</a> / 
+        <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Length Conversions</a> / 
+        <span class="breadcrumb-current">Convert cm to m</span>
+      </nav>
+      <h2 class="conversion-type-h2">Centimeter to Meter Calculator</h2>
       <p class="conversion-description-p">
-        Enter a value below to convert meters [m] to centimeters [cm] or <a href="cm-to-meters.html" class="reverse-link">reverse the conversion</a>.
+        Enter a value below to convert centimeters [cm] to meters [m] or or <a href="meters-to-cm.html" class="reverse-link">reverse the conversion</a>.
       </p>
       <section class="converter-section">
         <form class="main-form">
@@ -24,7 +29,7 @@
               placeholder="Enter value"
             />
             <label class="label-for-fromUnitInput" for="fromUnitInput"
-              >Meters [m]</label
+              >Centimeters [cm]</label
             >
           </div>
           <div class="equals">=</div>
@@ -37,10 +42,10 @@
               readonly
             />
             <label class="label-for-toUnitInput" for="toUnitInput"
-              >Centimeters [cm]</label
+              >Meters [m]</label
             >
           </div>
-          <div class="reverse-conversion"><a href="cm-to-meters.html" class="reverse-icon">&#x21C5;</a></div>
+          <div class="reverse-conversion"><a href="meters-to-cm.html" class="reverse-icon">&#x21C5;</a></div>
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
@@ -58,6 +63,6 @@
     <footer>
       <p>&copy; 2025 Unit Converter</p>
     </footer>
-    <script src="meters-to-cm.js"></script>
+    <script src="cm-to-meters.js"></script>
   </body>
 </html>

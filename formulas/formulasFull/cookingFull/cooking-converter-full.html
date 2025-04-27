@@ -8,17 +8,40 @@
   </head>
   <body>
     <header class="header">
-      <h1><a href="../../../index.html" class="home">Unit Conversion</a></h1>
+      <h1><a href="/index.html" class="home">Unit Conversion</a></h1>
       <nav class="breadcrumb" aria-label="breadcrumb">
         <a href="/index.html" class="breadcrumb-link">Home</a> / 
         <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Essential Converters</a> / 
-        <span class="breadcrumb-current">Length Converter</span>
+        <span class="breadcrumb-current">Cooking Converter</span>
       </nav>
     </header>
 
     <main>
-      <h2 id="unit-converter-header">Length Converter</h2>
       <section class="converter-section">
+        <h2 id="unit-converter-header">Cooking Converter</h2>
+        <nav aria-label="Unit conversion categories" class="conversion-nav">
+          <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+            <option data-type="volume">Volume</option>
+            <option data-type="liquids">Liquids</option>
+            <option data-type="butter">Butter</option>
+            <option data-type="flour">Flours</option>
+            <option data-type="sugar">Sugars</option>
+            <option data-type="oilfat">Oils/Fats</option>
+            <option data-type="nutseed">Nuts/Seeds</option>
+            <option data-type="dairyliquid">Dairy</option>
+            <option data-type="cheese">Cheese</option>
+            <option data-type="grain">Grains</option>
+            <option data-type="fruit">Fruits</option>
+            <option data-type="vegetable">Vegetables</option>
+            <option data-type="legume">Beans</option>
+            <option data-type="egg">Eggs</option>
+            <option data-type="yeast">Yeast</option>
+            <option data-type="pandimension">Pans</option>
+            <option data-type="bakingingredient">Baking</option>
+            <option data-type="spice">Spices</option>
+            <option data-type="liquidsweetener">Syrups</option>
+          </select>
+        </nav>
         <form class="main-form">
           <div class="form-group">
             <input
@@ -43,7 +66,7 @@
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula</p>
+            <p id="formula-text">Conversion formula:</p>
             <p id="conversion-operation"></p>
           </aside>
           <p id="conversion-result" role="status">

@@ -331,4 +331,69 @@ export const customPrecision = {
     "Bu (步) - Qing": 2,
     "Li (里) - Qing": 2
   },
+
+  digitalStorage: {
+  "byte [B]": 0, // Integer precision for bytes
+  "kilobyte [KB]": 2, // 2 decimal places for KB
+  "megabyte [MB]": 3, // 3 decimal places for MB
+  "gigabyte [GB]": 3, // 3 decimal places for GB
+  "terabyte [TB]": 4, // 4 decimal places for TB
+  "petabyte [PB]": 4, // 4 decimal places for PB
+  
+  // Bit Units
+  "bit [b]": 0, // Integer precision for bits
+  "kilobit [Kb]": 2, // 2 decimal places for Kb
+  "megabit [Mb]": 3, // 3 decimal places for Mb
+  "gigabit [Gb]": 3, // 3 decimal places for Gb
+  
+  // Memory Units
+  "nibble [nibble]": 1, // 1 decimal place for nibble
+  "word [word]": 0, // Integer precision for word
+  "doubleword [dword]": 0, // Integer precision for dword
+  "quadword [qword]": 0 // Integer precision for qword
+},
+
+// weightMassPrecision.js
+// Custom precision settings for weight/mass converter units
+
+weightMass: {
+  // Metric System Units
+  "kilogram [kg]": 2,      // Base unit
+  "gram [g]": 2,           // Common small metric unit
+  "milligram [mg]": 0,     // Very small values, whole numbers sufficient
+  "microgram [μg]": 0,     // Extremely small values, whole numbers sufficient
+  "metric ton (tonne) [t]": 3,  // Large values need more precision
+  "quintal [q]": 2,        // Medium precision for medium-sized unit
+  
+  // Imperial & US Customary Units
+  "pound [lb]": 2,         // Common imperial unit
+  "ounce [oz]": 2,         // Common small imperial unit
+  "stone [st]": 2,         // UK weight measurement
+  "ton (short) [ton, US ton]": 3,  // Large value needs more precision
+  "ton (long) [long tn, UK ton]": 3,  // Large value needs more precision
+  
+  // Common East Asian Units
+  "jin (Chinese pound) [jin]": 2,  // Common in East Asia
+  "liang (Chinese tael) [liang]": 2,  // Common in Chinese medicine/jewelry
+  "kan (Japanese) [kan]": 2,      // Traditional Japanese unit
+  "momme (Japanese) [momme]": 2,  // Used for pearls and silk
+  "tola (Indian) [tola]": 2,      // Used for gold in South Asia
+  
+  // Jeweler's & Precious Metal Units
+  "carat (metric) [ct]": 2,      // Jewelry measurement needs precision
+  "grain [gr]": 1,               // Very small unit
+  "troy ounce [oz t]": 2,        // Precious metal measurement
+  "pennyweight [dwt, pwt]": 2,   // Precious metal measurement
+  
+  // Historical Highlights
+  "drachma (Ancient Greek) [drachma]": 2,  // Historical unit
+  "talent (Ancient Greek) [talent]": 3,    // Large historical unit
+  "libra (Roman pound) [libra]": 2,        // Historical unit
+  "pood (Old Russian) [pood]": 2,          // Historical Russian unit
+  
+  // Scientific Units
+  "atomic mass unit [u, AMU]": 8,         // Extremely small, needs high precision
+  "earth mass [M⊕]": 10,                  // Extremely large, needs scientific notation
+  "solar mass [M☉]": 10                   // Extremely large, needs scientific notation
+}
 };

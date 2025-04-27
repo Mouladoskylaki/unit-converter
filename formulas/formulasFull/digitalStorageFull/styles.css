@@ -65,6 +65,23 @@ main {
   padding: 0;
 }
 
+/* Unit Type Selection */
+.conversion-nav {
+  padding: 0;
+  margin-bottom: 0.3rem;
+}
+
+.conversion-menu {
+  width: 100%;
+  max-width: calc(100% - 1rem);
+  padding: 0.3rem;
+  border: none;
+  border-radius: 0.15rem;
+  background-color: #6272A4;
+  color: white;
+  box-sizing: border-box;
+}
+
 /* Conversion Form */
 .main-form {
   padding: 0;
@@ -231,7 +248,8 @@ li a:hover {
   }
   
   #fromUnitSelect, 
-  #toUnitSelect {
+  #toUnitSelect,
+  .conversion-menu {
     padding: 0.5rem;
     margin-top: 0.3rem;
     min-height: 44px;

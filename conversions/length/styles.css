@@ -21,6 +21,15 @@ body {
   color: white;
 }
 /* Main */
+
+.breadcrumb .breadcrumb-link {
+  color: blue;
+}
+
+.breadcrumb .breadcrumb-link:hover {
+  text-decoration: none;
+}
+
 main {
   margin-left: 0.3rem;
   margin-right: 0.3rem;

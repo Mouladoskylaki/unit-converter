@@ -6,13 +6,22 @@ const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
 const fromUnitSelect = document.getElementById("fromUnitSelect");
 const toUnitSelect = document.getElementById("toUnitSelect");
+const selectOptions = document.querySelectorAll(".conversion-menu");
 
 export const conversionResultElem = document.getElementById("result-value");
 export let selectedFormulaObj;
 export let formulaDescription = document.getElementById("conversion-operation");
 
-// Formula Objects
-import { lengthFormFullObj } from "../../../selectedFormulaObjects.js"
+// Weight Formula Objects
+import { 
+  standardWeightObj, 
+  asianWeightObj, 
+  historicalWeightObj, 
+  scientificWeightObj, 
+  preciousMetalObj, 
+  commercialWeightObj, 
+  referenceWeightObj,
+} from "./selectedFomulaObjects.js";
 
 // Populate select elements
 export const updateSelectOptions = (formulaObject) => {
@@ -40,6 +49,66 @@ export const updateSelectOptions = (formulaObject) => {
   });
 };
 
+// Add click event listeners to each nav button
+selectOptions.forEach((option) => {
+  option.addEventListener("click", (event) => {
+    const selectedOption = event.target.selectedOptions[0]; // Get the selected <option>
+    const selectedType = selectedOption.dataset.type;
+
+    if (selectedType === "standardWeight") {
+      updateSelectOptions(standardWeightObj);
+      selectedFormulaObj = standardWeightObj;
+      fromUnitSelect.value = "kilogram [kg]";
+      toUnitSelect.value = "pound [lb]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "asianWeight") {
+      updateSelectOptions(asianWeightObj);
+      selectedFormulaObj = asianWeightObj;
+      fromUnitSelect.value = "jin (Chinese pound) [jin]";
+      toUnitSelect.value = "kilogram [kg]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "historicalWeight") {
+      updateSelectOptions(historicalWeightObj);
+      selectedFormulaObj = historicalWeightObj;
+      fromUnitSelect.value = "libra (Roman pound) [libra]";
+      toUnitSelect.value = "pound [lb]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "scientificWeight") {
+      updateSelectOptions(scientificWeightObj);
+      selectedFormulaObj = scientificWeightObj;
+      fromUnitSelect.value = "kilogram [kg]";
+      toUnitSelect.value = "atomic mass unit [u, AMU]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "preciousMetal") {
+      updateSelectOptions(preciousMetalObj);
+      selectedFormulaObj = preciousMetalObj;
+      fromUnitSelect.value = "carat (metric) [ct]";
+      toUnitSelect.value = "gram [g]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "commercialWeight") {
+      updateSelectOptions(commercialWeightObj);
+      selectedFormulaObj = commercialWeightObj;
+      fromUnitSelect.value = "pound [lb]";
+      toUnitSelect.value = "kilogram [kg]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "referenceWeight") {
+      updateSelectOptions(referenceWeightObj);
+      selectedFormulaObj = referenceWeightObj;
+      fromUnitSelect.value = "apple [apple]";
+      toUnitSelect.value = "kilogram [kg]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    }
+    console.log(`Selected conversion type: ${selectedType}`);
+  });
+});
+
 // Add input listeners
 export const addInputListeners = (
   fromUnitInput,
@@ -54,13 +123,13 @@ export const addInputListeners = (
 
 // On load conversion
 const initializeConversion = () => {
-  updateSelectOptions(lengthFormFullObj);
-  selectedFormulaObj = lengthFormFullObj;
-  fromUnitSelect.value = "meter [m]";
-  toUnitSelect.value = "foot [ft]";
-  fromUnitInput.value = 1;
+  updateSelectOptions(standardWeightObj);
+  selectedFormulaObj = standardWeightObj;
+  fromUnitSelect.value = "pound [lb]";
+  toUnitSelect.value = "kilogram [kg]";
+  fromUnitInput.value = 10;
   formulaDescription.innerText =
-  lengthFormFullObj[fromUnitSelect.value][toUnitSelect.value].description;
+  standardWeightObj[fromUnitSelect.value][toUnitSelect.value].description;
   updateConversionResult();
 };
 

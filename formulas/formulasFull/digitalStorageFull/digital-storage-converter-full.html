@@ -8,17 +8,31 @@
   </head>
   <body>
     <header class="header">
-      <h1><a href="../../../index.html" class="home">Unit Conversion</a></h1>
+      <h1><a href="/index.html" class="home">Unit Conversion</a></h1>
       <nav class="breadcrumb" aria-label="breadcrumb">
         <a href="/index.html" class="breadcrumb-link">Home</a> / 
-        <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Essential Converters</a> / 
-        <span class="breadcrumb-current">Length Converter</span>
+        <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Digital Converters</a> / 
+        <span class="breadcrumb-current">Digital Storage Converter</span>
       </nav>
     </header>
 
     <main>
-      <h2 id="unit-converter-header">Length Converter</h2>
       <section class="converter-section">
+        <h2 id="unit-converter-header">Digital Storage Converter</h2>
+        <nav aria-label="Unit conversion categories" class="conversion-nav">
+          <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+            <option data-type="standardstorage">Standard Storage</option>
+            <option data-type="bitbased">Bit-Based Units</option>
+            <option data-type="datatransfer">Data Transfer</option>
+            <option data-type="connectionspeed">Connection Speed</option>
+            <option data-type="computermemory">Computer Memory</option>
+            <option data-type="diskstructure">Disk Structure</option>
+            <option data-type="storagemedia">Storage Media</option>
+            <option data-type="historicalmedia">Historical Media</option>
+            <option data-type="practicalstorage">Practical Storage</option>
+            <option data-type="transfertime">Transfer Time</option>
+          </select>
+        </nav>
         <form class="main-form">
           <div class="form-group">
             <input
@@ -43,11 +57,11 @@
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula</p>
+            <p id="formula-text">Conversion formula:</p>
             <p id="conversion-operation"></p>
           </aside>
           <p id="conversion-result" role="status">
-            <strong id="result-label" style="color: #50fa7b">Result:</strong>
+            <strong id="result-label" style="color: #50fa7b;">Result:</strong>
             <span id="result-value"></span>
           </p>
         </section>
@@ -56,12 +70,10 @@
         <h3>Popular unit conversions</h3>
         <ul>
           <li>
-            <a href="./lengthConvertors/meters-to-cm.html"
-              >Meters to Centimeters</a
-            >
+            <a href="./digital-converters/bytes-to-kb.html">Bytes to Kilobytes</a>
           </li>
-          <li><a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a></li>
-          <li><a href="lengthConvertors/cm-to-meters.html">Centimeters to Meters</a></li>
+          <li><a href="./digital-converters/gb-to-mb.html">Gigabytes to Megabytes</a></li>
+          <li><a href="./digital-converters/mb-to-kb.html">Megabytes to Kilobytes</a></li>
         </ul>
       </section>
       <section class="complete-conversion-list">
@@ -71,7 +83,7 @@
           <li><a href="/ancient">Ancient Unit Converters</a></li>
           <li><a href="/heat">Heat Converters</a></li>
           <li><a href="/fluids">Fluids Converters</a></li>
-          <li><a href="/light">Light Converters</a></li>
+          <li><a href="/digital">Digital Converters</a></li>
         </ul>
       </section>
       <button class="submit-test-button">Test Btn</button>

@@ -56,7 +56,41 @@ export function formatResult(result) {
   }
 
   return formattedResult;
-};
+}
+
+// Function to make scientific notation more user-friendly
+export function userFriendlyFormat(formattedResult) {
+  // If the result is already not in scientific notation, return as is
+  if (!formattedResult.includes("e")) {
+    return formattedResult;
+  }
+
+  // Parse the number to work with it
+  const number = parseFloat(formattedResult);
+  const absNumber = Math.abs(number);
+
+  // Format with commas for large numbers
+  const standardFormat = number.toLocaleString("en-US", {
+    maximumFractionDigits: absNumber < 0.001 ? 10 : 2,
+  });
+
+  // Add verbal approximation for very large or small numbers
+  if (absNumber >= 1e6 || absNumber < 0.001) {
+    let approx;
+    if (absNumber >= 1e15) approx = `${(number / 1e15).toFixed(2)} quadrillion`;
+    else if (absNumber >= 1e12) approx = `${(number / 1e12).toFixed(2)} trillion`;
+    else if (absNumber >= 1e9) approx = `${(number / 1e9).toFixed(2)} billion`;
+    else if (absNumber >= 1e6) approx = `${(number / 1e6).toFixed(2)} million`;
+    else if (absNumber < 1e-9) approx = `${(number * 1e12).toFixed(2)} trillionths`;
+    else if (absNumber < 1e-6) approx = `${(number * 1e9).toFixed(2)} billionths`;
+    else if (absNumber < 1e-3) approx = `${(number * 1e6).toFixed(2)} millionths`;
+
+    return `≈ ${approx}`;
+  }
+
+  // For more moderate scientific notation values
+  return `${standardFormat}`;
+}
 
 export function generateConversions(
   units,
@@ -136,4 +170,69 @@ export const removeLink = (className) => {
   if (existingLink) {
     existingLink.remove();
   }
+};
+
+export const toggleSn = (conversionResultElem, fromUnitInput, toUnitInput, fromUnitSelectOption, toUnitSelectOption) => {
+  // Remove any existing toggle buttons first
+  const existingToggles = conversionResultElem.querySelectorAll('.toggle-sn-off, .toggle-sn-on');
+  existingToggles.forEach(toggle => toggle.remove());
+  
+  // Create the toggle elements
+  const scientificNotationOff = document.createElement('span');
+  const scientificNotationOn = document.createElement('span');
+  scientificNotationOff.classList.add('toggle-sn-off');
+  scientificNotationOn.classList.add('toggle-sn-on');
+  scientificNotationOff.title = "Show approximate value";
+  scientificNotationOn.title = "Show scientific notation";
+  scientificNotationOff.innerHTML = ' ℯ';
+  scientificNotationOn.innerHTML = ' ℯ';
+  
+  // Toggle to user-friendly format
+  scientificNotationOff.addEventListener('click', () => {
+    const userFriendlyResult = userFriendlyFormat(toUnitInput.value);
+    // Create base text without the toggle button
+    const baseText = `${fromUnitInput.value} ${
+      fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)
+    } ${userFriendlyResult} ${
+      toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)}`;
+    
+    conversionResultElem.innerText = baseText;
+    conversionResultElem.appendChild(scientificNotationOn);
+  });
+  
+  // Toggle back to scientific notation
+  scientificNotationOn.addEventListener('click', () => {
+    const baseText = `${fromUnitInput.value} ${
+      fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)
+    } = ${toUnitInput.value} ${
+      toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)
+    }`;
+    
+    conversionResultElem.innerText = baseText;
+    conversionResultElem.appendChild(scientificNotationOff);
+  });
+  
+  // Add the initial toggle button
+  conversionResultElem.appendChild(scientificNotationOff);
+};
+
+export const displayDropDown = (dropDownElem) => {
+  const button = dropDownElem.querySelector(".dropdown-button");
+  const menu = dropDownElem.querySelector(".dropdown-menu");
+
+  document.addEventListener("click", (event) => {
+    if (
+      menu.classList.contains("visible") &&
+      !menu.contains(event.target) &&
+      !button.contains(event.target)
+    ) {
+      menu.classList.remove("visible");
+      console.log("hiding menu");
+    }
+  });
+
+  button.addEventListener("click", (event) => {
+    event.stopPropagation();
+    menu.classList.toggle("visible");
+  });
 };
