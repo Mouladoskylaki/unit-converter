@@ -342,9 +342,10 @@ footer {
   }
 
   .fromInput-wrapper {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 4fr;
     align-items: center;
-    gap: 0.3rem;
+    /* gap: 0.3rem; */
   }
 
   .from-label-input, .to-label-input {
@@ -357,8 +358,8 @@ footer {
   }
 
   .fromSelect-wrapper, .toSelect-wrapper {
-    display: flex;
-    /* grid-template-columns: 1fr 4fr; */
+    display: grid;
+    grid-template-columns: 1fr 4fr;
     align-items: center;
   }
 
