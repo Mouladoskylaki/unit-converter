@@ -114,8 +114,16 @@ main {
   gap: 0.5rem;
   width: 100%;
 }
-.fromUnitInput-label, .toUnitInput-label {
+.from-label-input, .to-label-input {
   font-weight: bold;
+}
+
+.from-label-input-mobile {
+  display: none;
+}
+
+.from-label-select, .to-label-select {
+  display: none;
 }
 
 #fromUnitInput, #toUnitInput {
@@ -332,10 +340,38 @@ footer {
   .main-form {
     grid-template-columns: 1fr;
   }
+
+  .fromInput-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .from-label-input, .to-label-input {
+    display: none;
+  }
+
+  .from-label-input-mobile {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .fromSelect-wrapper, .toSelect-wrapper {
+    display: flex;
+    /* grid-template-columns: 1fr 4fr; */
+    align-items: center;
+  }
+
+
   
-  .equals {
-    justify-self: center;
-    margin: 0.5rem 0;
+  .from-label-select, .to-label-select {
+    display: inline-block;
+    margin-right: 0.3rem;
+    font-weight: bold;
+  }
+
+  #toUnitInput {
+    display: none;
   }
 }
 

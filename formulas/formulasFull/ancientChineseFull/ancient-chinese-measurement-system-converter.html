@@ -34,26 +34,35 @@
         </nav>
         <form class="main-form">
           <div class="form-group">
-            <label class="fromUnitInput-label" for="fromUnitInput">From:</label>
-            <input
-              type="number"
-              id="fromUnitInput"
-              aria-label="From unit"
-              placeholder="Enter value"
-            />
-            <select id="fromUnitSelect" aria-label="Select from unit"></select>
+              <label class="from-label-input" for="fromUnitInput">From:</label>
+              <div class="fromInput-wrapper">
+                <label for="fromUnitInput" class="from-label-input-mobile">Amount:</label>
+                <input
+                  type="number"
+                  id="fromUnitInput"
+                  aria-label="From unit"
+                  placeholder="Enter value"
+                />
+              </div>
+            <div class="fromSelect-wrapper">
+              <label for="fromUnitSelect" class="from-label-select">From:</label>
+              <select id="fromUnitSelect" aria-label="Select from unit"></select>
+            </div>
           </div>
           <!-- <div class="equals">=</div> -->
           <div class="form-group">
-            <label class="toUnitInput-label" for="toUnitInput">To:</label>
-            <input
-              type="text"
-              id="toUnitInput"
-              aria-label="To Unit"
-              placeholder="Converted value"
-              readonly
-            />
-            <select id="toUnitSelect" aria-label="Select to unit"></select>
+              <label class="to-label-input" for="toUnitInput">To:</label>
+              <input
+                type="text"
+                id="toUnitInput"
+                aria-label="To Unit"
+                placeholder="Converted value"
+                readonly
+              />
+            <div class="toSelect-wrapper">
+              <label for="toUnitSelect" class="to-label-select">To:</label>
+              <select id="toUnitSelect" aria-label="Select to unit"></select>
+            </div>
           </div>
         </form>
         <section id="conversion-details">
