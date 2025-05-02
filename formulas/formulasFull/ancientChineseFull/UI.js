@@ -181,17 +181,36 @@ export const updateFormulaDescription = () => {
 };
 
 // Update conversion-result element
+// Update conversion-result element with improved styling
 export const updateConversionResultElem = () => {
   let fromUnitSelectOption = fromUnitSelect.value;
   let toUnitSelectOption = toUnitSelect.value;
-  conversionResultElem.innerText = `${fromUnitInput.value} ${
-    fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)
-  } = ${toUnitInput.value} ${
-    toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)
-  }`;
+  
+  // Format the result with proper styling
+  // Wrap numbers in <strong> tags for bold styling
+  const resultHtml = `
+    <strong>${fromUnitInput.value}</strong> 
+    ${fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)} 
+    = 
+    <strong>${toUnitInput.value}</strong> 
+    ${toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)}
+  `;
+  
+  conversionResultElem.innerHTML = resultHtml;
+
+  // Add animation effect when the result updates
+  const resultElement = document.getElementById('conversion-result');
+  resultElement.classList.add('updated');
+  
+  // Remove the class after animation completes
+  setTimeout(() => {
+    resultElement.classList.remove('updated');
+  }, 100);
 
   if (toUnitInput.value.includes('e')) {
     toggleSn(conversionResultElem, fromUnitInput, toUnitInput, fromUnitSelectOption, toUnitSelectOption);
   }
 };
+
+
 

@@ -18,19 +18,22 @@
       <h2 id="unit-converter-header">Ancient Chinese Converter</h2>
       <section class="converter-section">
         <nav aria-label="Unit conversion categories" class="conversion-nav">
-          <select id="conversion-type-select" class="conversion-menu" name="conversionType">
-            <option data-type="length">Length</option>
-            <option data-type="weight">Weight</option>
-            <option data-type="volume">Volume</option>
-            <option data-type="area">Area</option>
-            <option data-type="time">Time</option>
-            <option data-type="grain">Grain</option>
-            <option data-type="astronomical">Astronomical</option>
-            <option data-type="music">Music</option>
-            <option data-type="medicine">Medicine</option>
-            <option data-type="construction">Construction</option>
-            <option data-type="navigation">Navigation</option>
-          </select>
+          <div class="conversionType-wrapper">
+            <label for="conversion-type-select" class="type-label-select">Unit type:</label>
+            <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+              <option data-type="length">Length</option>
+              <option data-type="weight">Weight</option>
+              <option data-type="volume">Volume</option>
+              <option data-type="area">Area</option>
+              <option data-type="time">Time</option>
+              <option data-type="grain">Grain</option>
+              <option data-type="astronomical">Astronomical</option>
+              <option data-type="music">Music</option>
+              <option data-type="medicine">Medicine</option>
+              <option data-type="construction">Construction</option>
+              <option data-type="navigation">Navigation</option>
+            </select>
+          </div>
         </nav>
         <form class="main-form">
           <div class="form-group">
@@ -67,11 +70,11 @@
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula:</p>
+            <p id="formula-text"></p>
             <p id="conversion-operation"></p>
           </aside>
-          <p id="conversion-result" role="status">
-            <strong id="result-label" style="color: #50fa7b;">Result:</strong>
+          <p id="conversion-result" role="status" aria-live="polite">
+            <span id="result-label">Result:</span>
             <span id="result-value"></span>
           </p>
         </section>

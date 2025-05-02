@@ -33,7 +33,6 @@ body {
   color: white;
 }
 
-/* Breadcrumb Navigation */
 .breadcrumb, .breadcrumb-link {
   color: #6272A4;
   text-decoration: none;
@@ -49,7 +48,7 @@ body {
    Main Content Area
 ======================= */
 main {
-  margin-left: 0.3rem;
+  margin-left: 0.5rem;
   margin-right: 0.3rem;
   display: grid;
   width: 600px;
@@ -58,7 +57,7 @@ main {
 #unit-converter-header {
   margin-top: 1rem;
   margin-bottom: 0;
-  background-color: rgb(232, 53, 53);
+  background-color: #e14242; /* Refined red - slightly deeper but still vibrant */
   width: fit-content;
   border-radius: 5px 5px 0 0;
   padding: 10px 15px;
@@ -72,39 +71,41 @@ main {
 .converter-section {
   background-color: #252836;
   border-radius: 5px;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   padding: 1rem;
   width: 100%;
-  box-sizing: border-box; /* Important! */
+  box-sizing: border-box;
 }
 
-/* Unit Type Selection */
 .conversion-nav {
   padding: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   width: 100%;
 }
 
-/* Styling the select dropdown to match the tab appearance from the main page */
 .conversion-menu {
   width: 100%;
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  background-color: #5E72BD;
+  background-color: #5468bd; /* Slightly refined blue */
   color: white;
   font-size: 16px;
   height: 40px;
   box-sizing: border-box;
-  appearance: auto; /* Maintains the select dropdown appearance */
+  appearance: auto;
 }
 
-/* Main Form Section */
+.conversion-menu:focus {
+  outline: 2px solid rgba(94, 114, 189, 0.5);
+  outline-offset: -1px;
+}
+
 .main-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 1rem;
+  gap: 12px;
+  margin-bottom: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -114,6 +115,11 @@ main {
   gap: 0.5rem;
   width: 100%;
 }
+
+.type-label-select {
+  display: none;
+}
+
 .from-label-input, .to-label-input {
   font-weight: bold;
 }
@@ -136,9 +142,14 @@ main {
   box-sizing: border-box;
 }
 
+#fromUnitInput:focus, #toUnitInput:focus {
+  outline: 2px solid rgba(84, 104, 189, 0.6);
+  outline-offset: -1px;
+}
+
 #fromUnitSelect, #toUnitSelect {
   height: 40px;
-  background-color: #5E72BD;
+  background-color: #5468bd; /* Slightly refined blue - matches conversion-menu */
   color: white;
   border: none;
   border-radius: 5px;
@@ -146,6 +157,11 @@ main {
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
+}
+
+#fromUnitSelect:focus, #toUnitSelect:focus {
+  outline: 2px solid rgba(84, 104, 189, 0.6);
+  outline-offset: -1px;
 }
 
 .equals {
@@ -156,7 +172,9 @@ main {
   margin: 0 10px;
 }
 
-/* Conversion Details Section */
+/* =======================
+   Conversion Details Section
+======================= */
 #conversion-details {
   width: 100%;
   box-sizing: border-box;
@@ -165,16 +183,21 @@ main {
 }
 
 #conversion-formula {
-  background-color: #4B5584;
+  background-color: #3F4873; /* Slightly darker for better contrast */
   border-radius: 5px;
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+#formula-text::before {
+  content: "Conversion formula:";
+  font-weight: bold;
 }
 
 #formula-text {
@@ -187,16 +210,30 @@ main {
 }
 
 #conversion-result {
-  color: #50fa7b;
-  font-size: 18px;
+  color: #4dffaa; /* Adjusted green with better contrast ratio */
+  font-size: 1.05rem;
   margin: 0.5rem 0;
+  padding: 0.6rem;
+  background-color: rgba(77, 255, 170, 0.1); /* Matching background */
+  border-radius: 5px;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  transition: background-color 0.15s linear;
+}
+
+#conversion-result.updated {
+  background-color: rgba(77, 255, 170, 0.4); /* Matching background for updated state */
 }
 
 #result-label {
-  color: #50fa7b !important;
+  color: #4dffaa !important; /* Matching green */
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-/* Scientific Notation Toggle */
 .toggle-sn-off {
   font-size: 1.5rem;
   cursor: pointer;
@@ -220,10 +257,10 @@ main {
    Popular Unit Conversions Section
 ======================= */
 .popular-unit-conversions {
-  background-color: #3A506B;
+  background-color: #3A4968; /* Slightly refined blue for better contrast */
   border-radius: 5px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -246,13 +283,13 @@ main {
 
 .popular-unit-conversions li::before {
   content: "•";
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   position: absolute;
   left: -1rem;
 }
 
 .popular-unit-conversions a {
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   text-decoration: none;
 }
 
@@ -264,10 +301,10 @@ main {
    Complete Conversion List Section
 ======================= */
 .complete-conversion-list {
-  background-color: #3A506B;
+  background-color: #3A4968; /* Matching the popular-unit-conversions section */
   border-radius: 5px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -290,13 +327,13 @@ main {
 
 .complete-conversion-list li::before {
   content: "•";
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   position: absolute;
   left: -1rem;
 }
 
 .complete-conversion-list a {
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   text-decoration: none;
 }
 
@@ -304,7 +341,6 @@ main {
   text-decoration: underline;
 }
 
-/* Link to full converter */
 .link-to-full-length-converter {
   display: block;
   margin-top: 0.5rem;
@@ -335,17 +371,34 @@ footer {
 @media (max-width: 768px) {
   main {
     width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
   }
   
   .main-form {
     grid-template-columns: 1fr;
   }
 
+  .conversion-nav {
+    margin-bottom: 1rem;
+  }
+
   .fromInput-wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
-    /* gap: 0.3rem; */
+  }
+  
+  .conversionType-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+  }
+
+  .type-label-select {
+    display: inline;
+    font-weight: bold;
   }
 
   .from-label-input, .to-label-input {
@@ -362,8 +415,6 @@ footer {
     grid-template-columns: 1fr 4fr;
     align-items: center;
   }
-
-
   
   .from-label-select, .to-label-select {
     display: inline-block;
@@ -373,6 +424,14 @@ footer {
 
   #toUnitInput {
     display: none;
+  }
+
+  #formula-text::before {
+    content: "Formula:";
+  }
+  
+  .form-group + .form-group {
+    margin-top: 0.75rem;
   }
 }
 
@@ -391,4 +450,14 @@ footer {
 
 .submit-test-button:hover {
   background-color: #444;
+}
+
+
+/* Breadcrumb and home link effects */
+.breadcrumb-link, .home {
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover, .home:hover {
+  color: #a5b4e2; /* More noticeable color shift */
 }
