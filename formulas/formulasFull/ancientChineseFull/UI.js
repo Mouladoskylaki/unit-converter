@@ -212,5 +212,48 @@ export const updateConversionResultElem = () => {
   }
 };
 
+// Add this code to your index.js file
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Get the input field
+  const fromUnitInput = document.getElementById('fromUnitInput');
+  
+  // Get the converter section to calculate its height
+  const converterSection = document.querySelector('.converter-section');
+  
+  // Function to check if the device is mobile (based on screen width)
+  function isMobileDevice() {
+    return window.innerWidth <= 768; // Using the same breakpoint as your CSS media query
+  }
+  
+  // Add focus event listener to the input field
+  fromUnitInput.addEventListener('focus', function() {
+    // Only apply scroll behavior on mobile devices
+    if (isMobileDevice()) {
+      // Small delay to ensure the virtual keyboard has been triggered
+      setTimeout(function() {
+        // Calculate the position we need to scroll to
+        // This will position the converter section at the top of the viewport
+        const scrollPosition = converterSection.getBoundingClientRect().top + window.pageYOffset - 10;
+        
+        // Smooth scroll to that position
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: 'smooth'
+        });
+      }, 300); // 300ms delay should be enough for most devices
+    }
+  });
+  
+  // Optional: Add a click event listener to the body to handle taps outside the input (mobile only)
+  document.body.addEventListener('click', function(event) {
+    if (isMobileDevice()) {
+      // If the click is not on the input or its children
+      if (!event.target.closest('#fromUnitInput')) {
+        // Remove focus from the input
+        fromUnitInput.blur();
+      }
+    }
+  });
+});
 
