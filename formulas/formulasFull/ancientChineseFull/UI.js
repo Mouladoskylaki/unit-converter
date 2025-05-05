@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         // Calculate the position we need to scroll to
         // This will position the converter section at the top of the viewport
-        const scrollPosition = converterSection.getBoundingClientRect().top + window.pageYOffset - 10;
+        const scrollPosition = converterSection.getBoundingClientRect().top + window.pageYOffset - 45;
         
         // Smooth scroll to that position
         window.scrollTo({
