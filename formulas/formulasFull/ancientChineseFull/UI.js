@@ -32,6 +32,7 @@ export const updateSelectOptions = (formulaObject) => {
   units.forEach((unit) => {
     if (unit.startsWith("group_")) {
       const group = document.createElement("optgroup");
+      group.classList.add('group');
       group.label = unit.substring(6);
       fromUnitSelect.appendChild(group);
       toUnitSelect.appendChild(group.cloneNode());
@@ -181,13 +182,10 @@ export const updateFormulaDescription = () => {
 };
 
 // Update conversion-result element
-// Update conversion-result element with improved styling
 export const updateConversionResultElem = () => {
   let fromUnitSelectOption = fromUnitSelect.value;
   let toUnitSelectOption = toUnitSelect.value;
-  
-  // Format the result with proper styling
-  // Wrap numbers in <strong> tags for bold styling
+
   const resultHtml = `
     <strong>${fromUnitInput.value}</strong> 
     ${fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)} 
@@ -198,11 +196,9 @@ export const updateConversionResultElem = () => {
   
   conversionResultElem.innerHTML = resultHtml;
 
-  // Add animation effect when the result updates
   const resultElement = document.getElementById('conversion-result');
   resultElement.classList.add('updated');
   
-  // Remove the class after animation completes
   setTimeout(() => {
     resultElement.classList.remove('updated');
   }, 100);
@@ -212,45 +208,32 @@ export const updateConversionResultElem = () => {
   }
 };
 
-// Add this code to your index.js file
+// Mobile Autoscroll
 
 document.addEventListener('DOMContentLoaded', function() {
-  // Get the input field
   const fromUnitInput = document.getElementById('fromUnitInput');
-  
-  // Get the converter section to calculate its height
   const converterSection = document.querySelector('.converter-section');
   
-  // Function to check if the device is mobile (based on screen width)
   function isMobileDevice() {
-    return window.innerWidth <= 768; // Using the same breakpoint as your CSS media query
+    return window.innerWidth <= 768;
   }
   
-  // Add focus event listener to the input field
   fromUnitInput.addEventListener('focus', function() {
-    // Only apply scroll behavior on mobile devices
     if (isMobileDevice()) {
-      // Small delay to ensure the virtual keyboard has been triggered
       setTimeout(function() {
-        // Calculate the position we need to scroll to
-        // This will position the converter section at the top of the viewport
-        const scrollPosition = converterSection.getBoundingClientRect().top + window.pageYOffset - 45;
+        const scrollPosition = converterSection.getBoundingClientRect().top + window.pageYOffset - 50;
         
-        // Smooth scroll to that position
         window.scrollTo({
           top: scrollPosition,
           behavior: 'smooth'
         });
-      }, 300); // 300ms delay should be enough for most devices
+      }, 300);
     }
   });
   
-  // Optional: Add a click event listener to the body to handle taps outside the input (mobile only)
   document.body.addEventListener('click', function(event) {
     if (isMobileDevice()) {
-      // If the click is not on the input or its children
       if (!event.target.closest('#fromUnitInput')) {
-        // Remove focus from the input
         fromUnitInput.blur();
       }
     }

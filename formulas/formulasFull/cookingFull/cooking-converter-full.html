@@ -17,43 +17,54 @@
     </header>
 
     <main>
+      <h2 id="unit-converter-header">Cooking Converter</h2>
       <section class="converter-section">
-        <h2 id="unit-converter-header">Cooking Converter</h2>
         <nav aria-label="Unit conversion categories" class="conversion-nav">
-          <select id="conversion-type-select" class="conversion-menu" name="conversionType">
-            <option data-type="volume">Volume</option>
-            <option data-type="liquids">Liquids</option>
-            <option data-type="butter">Butter</option>
-            <option data-type="flour">Flours</option>
-            <option data-type="sugar">Sugars</option>
-            <option data-type="oilfat">Oils/Fats</option>
-            <option data-type="nutseed">Nuts/Seeds</option>
-            <option data-type="dairyliquid">Dairy</option>
-            <option data-type="cheese">Cheese</option>
-            <option data-type="grain">Grains</option>
-            <option data-type="fruit">Fruits</option>
-            <option data-type="vegetable">Vegetables</option>
-            <option data-type="legume">Beans</option>
-            <option data-type="egg">Eggs</option>
-            <option data-type="yeast">Yeast</option>
-            <option data-type="pandimension">Pans</option>
-            <option data-type="bakingingredient">Baking</option>
-            <option data-type="spice">Spices</option>
-            <option data-type="liquidsweetener">Syrups</option>
-          </select>
+          <div class="conversionType-wrapper">
+            <label for="conversion-type-select" class="type-label-select">Type:</label>
+            <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+              <option data-type="volume">Volume</option>
+              <option data-type="liquids">Liquids</option>
+              <option data-type="butter">Butter</option>
+              <option data-type="flour">Flours</option>
+              <option data-type="sugar">Sugars</option>
+              <option data-type="oilfat">Oils/Fats</option>
+              <option data-type="nutseed">Nuts/Seeds</option>
+              <option data-type="dairyliquid">Dairy</option>
+              <option data-type="cheese">Cheese</option>
+              <option data-type="grain">Grains</option>
+              <option data-type="fruit">Fruits</option>
+              <option data-type="vegetable">Vegetables</option>
+              <option data-type="legume">Beans</option>
+              <option data-type="egg">Eggs</option>
+              <option data-type="yeast">Yeast</option>
+              <option data-type="pandimension">Pans</option>
+              <option data-type="bakingingredient">Baking</option>
+              <option data-type="spice">Spices</option>
+              <option data-type="liquidsweetener">Syrups</option>
+            </select>
+          </div>
         </nav>
         <form class="main-form">
           <div class="form-group">
-            <input
-              type="number"
-              id="fromUnitInput"
-              aria-label="From unit"
-              placeholder="Enter value"
-            />
-            <select id="fromUnitSelect" aria-label="Select from unit"></select>
+            <label class="from-label-input" for="fromUnitInput">From:</label>
+            <div class="fromInput-wrapper">
+              <label for="fromUnitInput" class="from-label-input-mobile">Amount:</label>
+              <input
+                type="number"
+                id="fromUnitInput"
+                aria-label="From unit"
+                placeholder="Enter value"
+              />
+            </div>
+            <div class="fromSelect-wrapper">
+              <label for="fromUnitSelect" class="from-label-select">From:</label>
+              <select id="fromUnitSelect" aria-label="Select from unit"></select>
+            </div>
           </div>
-          <div class="equals">=</div>
+          <!-- <div class="equals">=</div> -->
           <div class="form-group">
+            <label class="to-label-input" for="toUnitInput">To:</label>
             <input
               type="text"
               id="toUnitInput"
@@ -61,16 +72,19 @@
               placeholder="Converted value"
               readonly
             />
-            <select id="toUnitSelect" aria-label="Select to unit"></select>
+            <div class="toSelect-wrapper">
+              <label for="toUnitSelect" class="to-label-select">To:</label>
+              <select id="toUnitSelect" aria-label="Select to unit"></select>
+            </div>
           </div>
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula:</p>
+            <p id="formula-text"></p>
             <p id="conversion-operation"></p>
           </aside>
-          <p id="conversion-result" role="status">
-            <strong id="result-label" style="color: #50fa7b">Result:</strong>
+          <p id="conversion-result" role="status" aria-live="polite">
+            <span id="result-label">Result:</span>
             <span id="result-value"></span>
           </p>
         </section>

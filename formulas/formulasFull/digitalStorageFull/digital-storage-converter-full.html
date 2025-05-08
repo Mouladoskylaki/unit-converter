@@ -8,43 +8,53 @@
   </head>
   <body>
     <header class="header">
-      <h1><a href="/index.html" class="home">Unit Conversion</a></h1>
+      <h1><a href="../../../index.html" class="home">Unit Conversion</a></h1>
       <nav class="breadcrumb" aria-label="breadcrumb">
-        <a href="/index.html" class="breadcrumb-link">Home</a> / 
+        <a href="../../../index.html" class="breadcrumb-link">Home</a> / 
         <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Digital Converters</a> / 
         <span class="breadcrumb-current">Digital Storage Converter</span>
       </nav>
     </header>
 
     <main>
+      <h2 id="unit-converter-header">Digital Storage Converter</h2>
       <section class="converter-section">
-        <h2 id="unit-converter-header">Digital Storage Converter</h2>
         <nav aria-label="Unit conversion categories" class="conversion-nav">
-          <select id="conversion-type-select" class="conversion-menu" name="conversionType">
-            <option data-type="standardstorage">Standard Storage</option>
-            <option data-type="bitbased">Bit-Based Units</option>
-            <option data-type="datatransfer">Data Transfer</option>
-            <option data-type="connectionspeed">Connection Speed</option>
-            <option data-type="computermemory">Computer Memory</option>
-            <option data-type="diskstructure">Disk Structure</option>
-            <option data-type="storagemedia">Storage Media</option>
-            <option data-type="historicalmedia">Historical Media</option>
-            <option data-type="practicalstorage">Practical Storage</option>
-            <option data-type="transfertime">Transfer Time</option>
-          </select>
+          <div class="conversionType-wrapper">
+            <label for="conversion-type-select" class="type-label-select">Type:</label>
+            <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+              <option data-type="standardstorage">Standard Storage</option>
+              <option data-type="bitbased">Bit-Based Units</option>
+              <option data-type="datatransfer">Data Transfer</option>
+              <option data-type="connectionspeed">Connection Speed</option>
+              <option data-type="computermemory">Computer Memory</option>
+              <option data-type="diskstructure">Disk Structure</option>
+              <option data-type="storagemedia">Storage Media</option>
+              <option data-type="historicalmedia">Historical Media</option>
+              <option data-type="practicalstorage">Practical Storage</option>
+              <option data-type="transfertime">Transfer Time</option>
+            </select>
+          </div>
         </nav>
         <form class="main-form">
           <div class="form-group">
-            <input
-              type="number"
-              id="fromUnitInput"
-              aria-label="From unit"
-              placeholder="Enter value"
-            />
-            <select id="fromUnitSelect" aria-label="Select from unit"></select>
+            <label class="from-label-input" for="fromUnitInput">From:</label>
+            <div class="fromInput-wrapper">
+              <label for="fromUnitInput" class="from-label-input-mobile">Amount:</label>
+              <input
+                type="number"
+                id="fromUnitInput"
+                aria-label="From unit"
+                placeholder="Enter value"
+              />
+            </div>
+            <div class="fromSelect-wrapper">
+              <label for="fromUnitSelect" class="from-label-select">From:</label>
+              <select id="fromUnitSelect" aria-label="Select from unit"></select>
+            </div>
           </div>
-          <div class="equals">=</div>
           <div class="form-group">
+            <label class="to-label-input" for="toUnitInput">To:</label>
             <input
               type="text"
               id="toUnitInput"
@@ -52,16 +62,19 @@
               placeholder="Converted value"
               readonly
             />
-            <select id="toUnitSelect" aria-label="Select to unit"></select>
+            <div class="toSelect-wrapper">
+              <label for="toUnitSelect" class="to-label-select">To:</label>
+              <select id="toUnitSelect" aria-label="Select to unit"></select>
+            </div>
           </div>
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula:</p>
+            <p id="formula-text"></p>
             <p id="conversion-operation"></p>
           </aside>
-          <p id="conversion-result" role="status">
-            <strong id="result-label" style="color: #50fa7b;">Result:</strong>
+          <p id="conversion-result" role="status" aria-live="polite">
+            <span id="result-label">Result:</span>
             <span id="result-value"></span>
           </p>
         </section>
@@ -83,7 +96,7 @@
           <li><a href="/ancient">Ancient Unit Converters</a></li>
           <li><a href="/heat">Heat Converters</a></li>
           <li><a href="/fluids">Fluids Converters</a></li>
-          <li><a href="/digital">Digital Converters</a></li>
+          <li><a href="/light">Light Converters</a></li>
         </ul>
       </section>
       <button class="submit-test-button">Test Btn</button>

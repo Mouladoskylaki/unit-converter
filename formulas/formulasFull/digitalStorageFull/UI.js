@@ -32,6 +32,7 @@ export const updateSelectOptions = (formulaObject) => {
   units.forEach((unit) => {
     if (unit.startsWith("group_")) {
       const group = document.createElement("optgroup");
+      group.classList.add('group');
       group.label = unit.substring(6);
       fromUnitSelect.appendChild(group);
       toUnitSelect.appendChild(group.cloneNode());
