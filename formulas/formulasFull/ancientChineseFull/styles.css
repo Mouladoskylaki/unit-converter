@@ -432,7 +432,11 @@ footer {
   }
   
   .form-group + .form-group {
-    margin-top: 0.75rem;
+    margin-top: -0.25rem;
+  }
+
+  #conversion-formula {
+    margin-bottom: 0rem;
   }
 }
 
@@ -465,6 +469,6 @@ footer {
 
 .group {
   color: rgb(42, 40, 40);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-style: italic;
 }

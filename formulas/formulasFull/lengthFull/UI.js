@@ -22,6 +22,7 @@ export const updateSelectOptions = (formulaObject) => {
   units.forEach((unit) => {
     if (unit.startsWith("group_")) {
       const group = document.createElement("optgroup");
+      group.classList.add('group');
       group.label = unit.substring(6);
       fromUnitSelect.appendChild(group);
       toUnitSelect.appendChild(group.cloneNode());
@@ -85,13 +86,57 @@ export const updateFormulaDescription = () => {
 export const updateConversionResultElem = () => {
   let fromUnitSelectOption = fromUnitSelect.value;
   let toUnitSelectOption = toUnitSelect.value;
-  conversionResultElem.innerText = `${fromUnitInput.value} ${
-    fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)
-  } = ${toUnitInput.value} ${
-    toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)
-  }`;
+
+  const resultHtml = `
+    <strong>${fromUnitInput.value}</strong> 
+    ${fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)} 
+    = 
+    <strong>${toUnitInput.value}</strong> 
+    ${toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)}
+  `;
+  
+  conversionResultElem.innerHTML = resultHtml;
+
+  const resultElement = document.getElementById('conversion-result');
+  resultElement.classList.add('updated');
+  
+  setTimeout(() => {
+    resultElement.classList.remove('updated');
+  }, 100);
 
   if (toUnitInput.value.includes('e')) {
     toggleSn(conversionResultElem, fromUnitInput, toUnitInput, fromUnitSelectOption, toUnitSelectOption);
   }
 };
+
+// Mobile Autoscroll
+document.addEventListener('DOMContentLoaded', function() {
+  const fromUnitInput = document.getElementById('fromUnitInput');
+  const converterSection = document.querySelector('.converter-section');
+  
+  function isMobileDevice() {
+    return window.innerWidth <= 768;
+  }
+  
+  fromUnitInput.addEventListener('focus', function() {
+    if (isMobileDevice()) {
+      setTimeout(function() {
+        const scrollPosition = converterSection.getBoundingClientRect().top + window.pageYOffset - 50;
+        
+        window.scrollTo({
+          top: scrollPosition,
+          behavior: 'smooth'
+        });
+      }, 300);
+    }
+  });
+  
+  document.body.addEventListener('click', function(event) {
+    if (isMobileDevice()) {
+      if (!event.target.closest('#fromUnitInput')) {
+        fromUnitInput.blur();
+      }
+    }
+  });
+});
+

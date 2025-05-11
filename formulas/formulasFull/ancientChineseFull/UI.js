@@ -28,16 +28,20 @@ import { ancientChineseNavigationFormObj } from "./ancientChineseSelectedFormula
 export const updateSelectOptions = (formulaObject) => {
   fromUnitSelect.innerHTML = "";
   toUnitSelect.innerHTML = "";
+
   const units = Object.keys(formulaObject);
+
   units.forEach((unit) => {
     if (unit.startsWith("group_")) {
       const group = document.createElement("optgroup");
       group.classList.add('group');
-      group.label = unit.substring(6);
+      // Add arrow directly in the label text
+      group.label = `› ${unit.substring(6)}`;  // Add the arrow directly to the label text
       fromUnitSelect.appendChild(group);
       toUnitSelect.appendChild(group.cloneNode());
       return;
     }
+
     const fromOption = document.createElement("option");
     fromOption.value = unit;
     fromOption.textContent = unit.charAt(0).toUpperCase() + unit.slice(1);
@@ -50,6 +54,17 @@ export const updateSelectOptions = (formulaObject) => {
     toUnitSelect.appendChild(toOption);
   });
 };
+
+// Event listener for resizing
+window.addEventListener('resize', () => {
+  updateSelectOptions(selectedFormulaObj);  // Reapply the update whenever the window is resized
+});
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  updateSelectOptions(ancientChineseFullLengthFormObj);  // Initialize with your formula object
+});
+
 
 // Add inpput listeners
 export const addInputListeners = (
