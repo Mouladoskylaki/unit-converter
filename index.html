@@ -13,14 +13,14 @@
       <h2 id="unit-converter-header">Essential Unit Conversions</h2>
       <nav class="main-nav">
         <ul class="conversion-menu">
-          <li><button data-type="length">Length</button></li>
+          <li><button class="tab" data-type="length">Length</button></li>
           <li><button data-type="temperature">Temperature</button></li>
           <li><button data-type="weight">Weight</button></li>
           <li><button data-type="volume">Volume</button></li>
           <li><button data-type="area">Area</button></li>
           <li><button data-type="time">Time</button></li>
           <div class="dropdown">
-            <button class="dropdown-button">Specialized</button>
+            <button class="dropdown-button">More</button>
             <ul class="dropdown-menu">
                 <li><button data-type="cooking">Cooking</button></li>
                 <li><button data-type="digital-storage">Data Strorage</button></li>
@@ -33,35 +33,44 @@
       <section class="converter-section">
         <form class="main-form">
           <div class="form-group">
-            <label class="fromUnitInput-label" for="fromUnitInput">From:</label>
-            <input
-              type="number"
-              id="fromUnitInput"
-              aria-label="From unit"
-              placeholder="Enter value"
-            />
-            <select id="fromUnitSelect" aria-label="Select from unit"></select>
+              <label class="from-label-input" for="fromUnitInput">From:</label>
+              <div class="fromInput-wrapper">
+                <label for="fromUnitInput" class="from-label-input-mobile">Amount:</label>
+                <input
+                  type="number"
+                  id="fromUnitInput"
+                  aria-label="From unit"
+                  placeholder="Enter value"
+                />
+              </div>
+            <div class="fromSelect-wrapper">
+              <label for="fromUnitSelect" class="from-label-select">From:</label>
+              <select id="fromUnitSelect" aria-label="Select from unit"></select>
+            </div>
           </div>
           <!-- <div class="equals">=</div> -->
           <div class="form-group">
-            <Label class="toUnitInput-label" for="toUnitInput">To:</Label>
-            <input
-              type="text"
-              id="toUnitInput"
-              aria-label="To Unit"
-              placeholder="Converted value"
-              readonly
-            />
-            <select id="toUnitSelect" aria-label="Select to unit"></select>
+              <label class="to-label-input" for="toUnitInput">To:</label>
+              <input
+                type="text"
+                id="toUnitInput"
+                aria-label="To Unit"
+                placeholder="Converted value"
+                readonly
+              />
+            <div class="toSelect-wrapper">
+              <label for="toUnitSelect" class="to-label-select">To:</label>
+              <select id="toUnitSelect" aria-label="Select to unit"></select>
+            </div>
           </div>
         </form>
         <section id="conversion-details">
           <aside id="conversion-formula" role="note">
-            <p id="formula-text">Conversion formula</p>
+            <p id="formula-text"></p>
             <p id="conversion-operation"></p>
           </aside>
-          <p id="conversion-result" role="status">
-            <strong id="result-label" style="color: #007bff">Result:</strong>
+          <p id="conversion-result" role="status" aria-live="polite">
+            <span id="result-label">Result:</span>
             <span id="result-value"></span>
           </p>
         </section>

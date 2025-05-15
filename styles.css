@@ -17,7 +17,7 @@ body {
 }
 
 /* =======================
-   Header
+   Header Section
 ======================= */
 .header {
   background-color: #1E1E2E;
@@ -37,43 +37,34 @@ body {
    Main Content Area
 ======================= */
 main {
-  margin-left: 0.3rem; /* Return to left alignment */
+  margin-left: 0.5rem;
   margin-right: 0.3rem;
   display: grid;
   width: 600px;
-  /* max-width: 60vw; */
 }
 
 #unit-converter-header {
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  width: fit-content;
+  border-radius: 5px 5px 0 0;
 }
 
-/* ===== Converter Section ===== */
-.converter-section {
-  background-color: #252836;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  width: 100%;
-  box-sizing: border-box; /* Important! */
-}
-
-/* ===== Conversion Menu ===== */
-.main-nav {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-}
-
+/* Main-nav */
 .conversion-menu {
-  display: flex;
-  /* flex-wrap: wrap; */
-  list-style: none;
+  width: 100%;
   padding: 0;
   margin: 0;
-  gap: 4px;
-  width: 100%;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  height: 40px;
   box-sizing: border-box;
+  appearance: auto;
+  display: flex;
+  list-style: none;
+  gap: 4px;
 }
 
 .conversion-menu li {
@@ -81,30 +72,38 @@ main {
   list-style-type: none;
 }
 
+.conversion-menu:focus {
+  outline: 2px solid rgba(94, 114, 189, 0.5);
+  outline-offset: -1px;
+}
+
+/* ===== Conversion Menu ===== */
+
+
 /* Override any existing button styles */
 .conversion-menu button,
 button[data-type] {
-  background-color: #373C58 !important;
-  color: white !important;
-  border: none !important;
-  padding: 10px 15px !important;
-  font-size: 16px !important;
-  cursor: pointer !important;
-  border-radius: 5px 5px 0 0 !important;
-  transition: background-color 0.2s !important;
-  min-height: 40px !important;
+  background-color: #373C58;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px 5px 0 0;
+  transition: background-color 0.2s;
+  min-height: 40px;
 }
 
 .conversion-menu button:hover,
 button[data-type]:hover {
-  background-color: #4B5584 !important;
+  background-color: #4B5584;
 }
 
 /* Active button style */
 .conversion-menu button.active,
 button[data-type].active {
-  background-color: rgb(232, 53, 53) !important; /* Red color for active tab */
-  color: white !important;
+  background-color: rgb(232, 53, 53); /* Red color for active tab */
+  color: white;
 }
 
 /* ===== Dropdown Menu ===== */
@@ -113,8 +112,8 @@ button[data-type].active {
 }
 
 .dropdown-button {
-  background-color: #373C58 !important;
-  color: white !important;
+  background-color: #373C58;
+  color: white;
   border: none;
   padding: 10px 15px;
   font-size: 16px;
@@ -124,7 +123,7 @@ button[data-type].active {
 }
 
 .dropdown-button:hover {
-  background-color: #4B5584 !important;
+  background-color: #4B5584;
 }
 
 .dropdown-menu {
@@ -148,25 +147,36 @@ button[data-type].active {
 .dropdown-menu button {
   width: 100%;
   text-align: left;
-  background-color: transparent !important;
-  color: white !important;
-  border: none !important;
-  padding: 8px 15px !important;
-  font-size: 14px !important;
-  cursor: pointer !important;
-  border-radius: 0 !important;
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 0;
 }
 
 .dropdown-menu button:hover {
-  background-color: #4B5584 !important;
+  background-color: #4B5584;
 }
 
-/* ===== Main Form Section ===== */
+/* =======================
+   Converter Section
+======================= */
+.converter-section {
+  background-color: #252836;
+  border-radius: 5px;
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 .main-form {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 1rem;
+  gap: 12px;
+  margin-bottom: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -174,9 +184,24 @@ button[data-type].active {
 .form-group {
   display: grid;
   gap: 0.5rem;
+  width: 100%;
 }
-.fromUnitInput-label, .toUnitInput-label {
+
+.type-label-select {
+  display: none;
+  /* white-space: nowrap; */
+}
+
+.from-label-input, .to-label-input {
   font-weight: bold;
+}
+
+.from-label-input-mobile {
+  display: none;
+}
+
+.from-label-select, .to-label-select {
+  display: none;
 }
 
 #fromUnitInput, #toUnitInput {
@@ -189,9 +214,14 @@ button[data-type].active {
   box-sizing: border-box;
 }
 
+#fromUnitInput:focus, #toUnitInput:focus {
+  outline: 2px solid rgba(84, 104, 189, 0.6);
+  outline-offset: -1px;
+}
+
 #fromUnitSelect, #toUnitSelect {
   height: 40px;
-  background-color: #5E72BD;
+  background-color: #5468bd; /* Slightly refined blue - matches conversion-menu */
   color: white;
   border: none;
   border-radius: 5px;
@@ -199,6 +229,11 @@ button[data-type].active {
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
+}
+
+#fromUnitSelect:focus, #toUnitSelect:focus {
+  outline: 2px solid rgba(84, 104, 189, 0.6);
+  outline-offset: -1px;
 }
 
 .equals {
@@ -209,23 +244,32 @@ button[data-type].active {
   margin: 0 10px;
 }
 
-/* ===== Conversion Details Section ===== */
-.conversion-details {
+/* =======================
+   Conversion Details Section
+======================= */
+#conversion-details {
   width: 100%;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 #conversion-formula {
-  background-color: #4B5584;
+  background-color: #3F4873; /* Slightly darker for better contrast */
   border-radius: 5px;
   display: flex;
   gap: 0.5rem;
   align-items: center;
-  padding: 0.5rem 0.5rem;
-  margin-bottom: 1rem;
-  font-size: 14px;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+#formula-text::before {
+  content: "Conversion formula:";
+  font-weight: bold;
 }
 
 #formula-text {
@@ -238,46 +282,57 @@ button[data-type].active {
 }
 
 #conversion-result {
-  color: #50fa7b;
-  font-size: 18px;
+  color: #4dffaa; /* Adjusted green with better contrast ratio */
+  font-size: 1.05rem;
   margin: 0.5rem 0;
-  width: 100%;
-  box-sizing: border-box;
+  padding: 0.6rem;
+  background-color: rgba(77, 255, 170, 0.1); /* Matching background */
+  border-radius: 5px;
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  transition: background-color 0.15s linear;
+}
+
+#conversion-result.updated {
+  background-color: rgba(77, 255, 170, 0.4); /* Matching background for updated state */
 }
 
 #result-label {
-  color: #50fa7b !important;
+  color: #4dffaa; /* Matching green */
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-/* ===== Conversion List Links ===== */
-.link-to-full-anc-chinese-converter,
-.link-to-full-length-converter,
-.link-to-full-cooking-converter,
-.link-to-full-digital-storage-converter,
-.link-to-full-mass-weight-converter {
-  display: inline-block;
-  margin-top: 0.3rem;
-  margin-bottom: 0.3rem;
-  color: #5086fa;
-  text-decoration: none;
+.toggle-sn-off {
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-.link-to-full-anc-chinese-converter:hover,
-.link-to-full-length-converter:hover,
-.link-to-full-cooking-converter:hover,
-.link-to-full-digital-storage-converter:hover,
-.link-to-full-mass-weight-converter:hover {
-  text-decoration: underline;
+.toggle-sn-off:hover {
+  color: gray;
+}
+
+.toggle-sn-on {
+  font-size: 1.5rem;
+  color: gray;
+  cursor: pointer;
+}
+
+.toggle-sn-on:hover {
+  color: white;
 }
 
 /* =======================
    Popular Unit Conversions Section
 ======================= */
 .popular-unit-conversions {
-  background-color: #3A506B;
+  background-color: #3A4968; /* Slightly refined blue for better contrast */
   border-radius: 5px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -300,13 +355,13 @@ button[data-type].active {
 
 .popular-unit-conversions li::before {
   content: "•";
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   position: absolute;
   left: -1rem;
 }
 
 .popular-unit-conversions a {
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   text-decoration: none;
 }
 
@@ -318,10 +373,10 @@ button[data-type].active {
    Complete Conversion List Section
 ======================= */
 .complete-conversion-list {
-  background-color: #3A506B;
+  background-color: #3A4968; /* Matching the popular-unit-conversions section */
   border-radius: 5px;
   padding: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -344,17 +399,28 @@ button[data-type].active {
 
 .complete-conversion-list li::before {
   content: "•";
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   position: absolute;
   left: -1rem;
 }
 
 .complete-conversion-list a {
-  color: #50fa7b;
+  color: #4dffaa; /* Matching green */
   text-decoration: none;
 }
 
 .complete-conversion-list a:hover {
+  text-decoration: underline;
+}
+
+.link-to-full-length-converter {
+  display: block;
+  margin-top: 0.5rem;
+  color: #5086fa;
+  text-decoration: none;
+}
+
+.link-to-full-length-converter:hover {
   text-decoration: underline;
 }
 
@@ -374,32 +440,122 @@ footer {
 /* =======================
    Responsive Design
 ======================= */
-@media (max-width: 600px) {
-  body {
-    font-size: 14px;
-    padding: 20px;
+@media (max-width: 768px) {
+  main {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+  }
+  
+  .main-form {
+    grid-template-columns: 1fr;
   }
 
-  h1 {
-    font-size: 28px;
-    margin-bottom: 15px;
+  .conversion-nav {
+    margin-bottom: 1rem;
   }
 
-  p {
-    font-size: 16px;
-    line-height: 1.4;
+  .fromInput-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+  }
+  
+  .conversionType-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
   }
 
-  .button {
-    display: block;
+  .type-label-select {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .from-label-input, .to-label-input {
+    display: none;
+  }
+
+  .from-label-input-mobile {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .fromSelect-wrapper, .toSelect-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+  }
+  
+  .from-label-select, .to-label-select {
+    display: inline-block;
+    margin-right: 0.3rem;
+    font-weight: bold;
+  }
+
+  #toUnitInput {
+    display: none;
+  }
+
+  #formula-text::before {
+    content: "Formula:";
+  }
+  
+  .form-group + .form-group {
+    margin-top: -0.25rem;
+  }
+
+  #conversion-formula {
+    margin-bottom: 0rem;
+  }
+
+/* Make all tabs equal width in the conversion menu */
+.conversion-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.conversion-menu li,
+.dropdown {
+  flex: 1;
+  text-align: center;
+}
+
+.conversion-menu button,
+button[data-type],
+.dropdown-button {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+  padding: 3px;
+  font-size: 13px;
+  white-space: nowrap;
+  font-weight: bold;
+  /* min-height: 30px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  .dropdown .dropdown-button {
+    font-size: 12px;
+  }
+
+/* Specific mobile adjustments */
+  .main-nav {
     width: 100%;
-    padding: 14px 0;
-    font-size: 16px;
-    margin: 10px 0 0 0;
   }
-
-  .container {
-    width: 90%;
+  
+  .conversion-menu {
+    flex-wrap: nowrap;
+  }
+  
+  /* Ensure dropdown menu appears properly */
+  .dropdown-menu {
+    width: 100%;
+    left: 0;
   }
 }
 
