@@ -65,6 +65,7 @@ main {
   display: flex;
   list-style: none;
   gap: 4px;
+  justify-content: space-around;
 }
 
 .conversion-menu li {
@@ -106,59 +107,6 @@ button[data-type].active {
   color: white;
 }
 
-/* ===== Dropdown Menu ===== */
-.dropdown {
-  position: relative;
-}
-
-.dropdown-button {
-  background-color: #373C58;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px 5px 0 0;
-  min-height: 40px;
-}
-
-.dropdown-button:hover {
-  background-color: #4B5584;
-}
-
-.dropdown-menu {
-  display: none;
-  position: absolute;
-  background-color: #333333;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 0 0 5px 5px;
-  top: 40px;
-  left: 0;
-  padding: 8px 0;
-}
-
-.dropdown:hover .dropdown-menu,
-.dropdown-menu.visible {
-  display: block;
-}
-
-.dropdown-menu button {
-  width: 100%;
-  text-align: left;
-  background-color: transparent;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  font-size: 14px;
-  cursor: pointer;
-  border-radius: 0;
-}
-
-.dropdown-menu button:hover {
-  background-color: #4B5584;
-}
 
 /* =======================
    Converter Section
@@ -325,6 +273,16 @@ button[data-type].active {
   color: white;
 }
 
+/* Dropdown Menus */
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.visible {
+  display: grid;
+  gap: 1rem;
+}
+
 /* =======================
    Popular Unit Conversions Section
 ======================= */
@@ -480,6 +438,7 @@ footer {
   .from-label-input-mobile {
     display: inline;
     font-weight: bold;
+    font-size: 0.9rem;
   }
 
   .fromSelect-wrapper, .toSelect-wrapper {
@@ -492,6 +451,7 @@ footer {
     display: inline-block;
     margin-right: 0.3rem;
     font-weight: bold;
+    font-size: 0.9rem;
   }
 
   #toUnitInput {
@@ -517,15 +477,13 @@ footer {
   width: 100%;
 }
 
-.conversion-menu li,
-.dropdown {
+.conversion-menu li {
   flex: 1;
   text-align: center;
 }
 
 .conversion-menu button,
-button[data-type],
-.dropdown-button {
+button[data-type] {
   width: 100%;
   text-align: center;
   justify-content: center;
@@ -539,10 +497,6 @@ button[data-type],
   justify-content: center;
 }
 
-  .dropdown .dropdown-button {
-    font-size: 12px;
-  }
-
 /* Specific mobile adjustments */
   .main-nav {
     width: 100%;
@@ -551,12 +505,7 @@ button[data-type],
   .conversion-menu {
     flex-wrap: nowrap;
   }
-  
-  /* Ensure dropdown menu appears properly */
-  .dropdown-menu {
-    width: 100%;
-    left: 0;
-  }
+
 }
 
 /* =======================

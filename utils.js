@@ -236,6 +236,3 @@ export const displayDropDown = (dropDownElem) => {
     menu.classList.toggle("visible");
   });
 };
-
-
-
