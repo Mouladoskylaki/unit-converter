@@ -105,7 +105,7 @@ addInputListeners(
 );
 
 //////////////////////////////////////////////////////////
-const btn = document.querySelector(".submit-test-button");
-btn.addEventListener("click", () => {
-  console.log(selectedFormulaObj)
-});
+// const btn = document.querySelector(".submit-test-button");
+// btn.addEventListener("click", () => {
+//   console.log(selectedFormulaObj)
+// });

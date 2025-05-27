@@ -250,4 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // DropDown Menu
 const dropdown = document.querySelector('.dropdown');
+const dropdown02 = document.querySelector('.dropdown02');
 displayDropDown(dropdown);
+displayDropDown(dropdown02);

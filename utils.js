@@ -216,23 +216,49 @@ export const toggleSn = (conversionResultElem, fromUnitInput, toUnitInput, fromU
   conversionResultElem.appendChild(scientificNotationOff);
 };
 
-export const displayDropDown = (dropDownElem) => {
-  const button = dropDownElem.querySelector(".dropdown-button");
-  const menu = dropDownElem.querySelector(".dropdown-menu");
-
+// Updated displayDropDown function to handle all dropdowns
+export const displayDropDown = () => {
+  const dropdowns = document.querySelectorAll('.dropdown');
+  
+  // Add one global click listener to handle all dropdown menus
   document.addEventListener("click", (event) => {
-    if (
-      menu.classList.contains("visible") &&
-      !menu.contains(event.target) &&
-      !button.contains(event.target)
-    ) {
-      menu.classList.remove("visible");
-      console.log("hiding menu");
+    dropdowns.forEach(dropdown => {
+      const menu = dropdown.querySelector(".dropdown-menu");
+      const button = dropdown.querySelector(".dropdown-button");
+      
+      if (menu && menu.classList.contains("visible") && 
+          !menu.contains(event.target) && 
+          !button.contains(event.target)) {
+        menu.classList.remove("visible");
+      }
+    });
+  });
+  
+  // Add click listeners to each dropdown button
+  dropdowns.forEach(dropdown => {
+    const button = dropdown.querySelector(".dropdown-button");
+    const menu = dropdown.querySelector(".dropdown-menu");
+    
+    if (button && menu) {
+      button.addEventListener("click", (event) => {
+        event.stopPropagation();
+        menu.classList.toggle("visible");
+        
+        // Close other open dropdowns
+        dropdowns.forEach(otherDropdown => {
+          if (otherDropdown !== dropdown) {
+            const otherMenu = otherDropdown.querySelector(".dropdown-menu");
+            if (otherMenu && otherMenu.classList.contains("visible")) {
+              otherMenu.classList.remove("visible");
+            }
+          }
+        });
+      });
     }
   });
-
-  button.addEventListener("click", (event) => {
-    event.stopPropagation();
-    menu.classList.toggle("visible");
-  });
 };
+
+// Initialize dropdowns when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  displayDropDown();
+});

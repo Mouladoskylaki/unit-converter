@@ -9,33 +9,24 @@
   <body>
     <header class="header"><h1><a class="home" href="./index.html">Unit Conversion</a></h1></header>
 
-    <main>
-      <h2 id="unit-converter-header">Essential Unit Conversions</h2>
-      <nav class="main-nav">
-        <ul class="conversion-menu">
-          <li><button class="tab" data-type="length">Length</button></li>
-          <li><button data-type="temperature">Temperature</button></li>
-          <li><button data-type="weight">Weight</button></li>
-          <li><button data-type="volume">Volume</button></li>
-          <li><button data-type="area">Area</button></li>
-          <li><button data-type="time">Time</button></li>
-          <li><button data-type="digital-storage">Data</button></li>
-
-          
-          <!-- <div class="dropdown">
-            <button class="dropdown-button">More</button>
-            <ul class="dropdown-menu">
-                <li><button data-type="cooking">Cooking</button></li>
-                <li><button data-type="digital-storage">Data Strorage</button></li>
-                <li><button data-type="ancient-chinese">Ancient Chinese</button></li>
-                <li><button data-type="">View All...</button></li>
-            </ul>
-        </div>  -->
-        </ul>
-      </nav>
-      <section class="converter-section">
-        <form class="main-form">
-          <div class="form-group">
+    <div class="page-container">
+      <main class="main-content">
+        <h2 id="unit-converter-header">Essential Unit Conversions</h2>
+        <nav class="main-nav">
+          <ul class="conversion-menu">
+            <li><button class="tab active" data-type="length">Length</button></li>
+            <li><button data-type="temperature">Temperature</button></li>
+            <li><button data-type="weight">Weight</button></li>
+            <li><button data-type="volume">Volume</button></li>
+            <li><button data-type="area">Area</button></li>
+            <li><button data-type="time">Time</button></li>
+            <li><button data-type="digital-storage">Data</button></li>
+          </ul>
+        </nav>
+        <section class="converter-section">
+          <!-- Keep your existing converter form here -->
+          <form class="main-form">
+            <div class="form-group">
               <label class="from-label-input" for="fromUnitInput">From:</label>
               <div class="fromInput-wrapper">
                 <label for="fromUnitInput" class="from-label-input-mobile">Amount:</label>
@@ -46,13 +37,12 @@
                   placeholder="Enter value"
                 />
               </div>
-            <div class="fromSelect-wrapper">
-              <label for="fromUnitSelect" class="from-label-select">From:</label>
-              <select id="fromUnitSelect" aria-label="Select from unit"></select>
+              <div class="fromSelect-wrapper">
+                <label for="fromUnitSelect" class="from-label-select">From:</label>
+                <select id="fromUnitSelect" aria-label="Select from unit"></select>
+              </div>
             </div>
-          </div>
-          <!-- <div class="equals">=</div> -->
-          <div class="form-group">
+            <div class="form-group">
               <label class="to-label-input" for="toUnitInput">To:</label>
               <input
                 type="text"
@@ -61,65 +51,100 @@
                 placeholder="Converted value"
                 readonly
               />
-            <div class="toSelect-wrapper">
-              <label for="toUnitSelect" class="to-label-select">To:</label>
-              <select id="toUnitSelect" aria-label="Select to unit"></select>
+              <div class="toSelect-wrapper">
+                <label for="toUnitSelect" class="to-label-select">To:</label>
+                <select id="toUnitSelect" aria-label="Select to unit"></select>
+              </div>
             </div>
-          </div>
-        </form>
-        <section id="conversion-details">
-          <aside id="conversion-formula" role="note">
-            <p id="formula-text"></p>
-            <p id="conversion-operation"></p>
-          </aside>
-          <p id="conversion-result" role="status" aria-live="polite">
-            <span id="result-label">Result:</span>
-            <span id="result-value"></span>
-          </p>
+          </form>
+          <section id="conversion-details">
+            <aside id="conversion-formula" role="note">
+              <p id="formula-text"></p>
+              <p id="conversion-operation"></p>
+            </aside>
+            <p id="conversion-result" role="status" aria-live="polite">
+              <span id="result-label">Result:</span>
+              <span id="result-value"></span>
+            </p>
+          </section>
         </section>
-      </section>
-      <section class="popular-unit-conversions">
-        <h3>Popular unit conversions</h3>
-        <ul>
-          <li><a href="./conversions/length/meters-to-cm.html">Meters to Centimeters</a></li>
-          <li><a href="./conversions/length/cm-to-meters.html">Centimeters to Meters</a></li>
-          <li><a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a></li>
-        </ul>
-      </section>
-      <section class="complete-conversion-list">
-        <h3>Complete conversion list</h3>
-        <ul>
-          <li><a href="/common">Common Converters</a></li>
-          <li><a href="/ancient">Ancient Unit Converters</a></li>
-          <li><a href="/heat">Heat Converters</a></li>
-          <li><a href="/fluids">Fluids Converters</a></li>
-          <li><a href="/light">Light Converters</a></li>
-        </ul>
-      </section>
-      <button class="submit-test-button">Test Btn</button>
-    </main>
-              <div class="dropdown">
-            <button class="dropdown-button">Essential Converters</button>
+        <section class="popular-unit-conversions">
+          <h3>Popular unit conversions</h3>
+          <ul>
+            <li><a href="./conversions/length/meters-to-cm.html">Meters to Centimeters</a></li>
+            <li><a href="./conversions/length/cm-to-meters.html">Centimeters to Meters</a></li>
+            <li><a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a></li>
+          </ul>
+        </section>
+        <section class="complete-conversion-list">
+          <h3>Complete conversion list</h3>
+          <ul>
+            <li><a href="/common">Common Converters</a></li>
+            <li><a href="/ancient">Ancient Unit Converters</a></li>
+            <li><a href="/heat">Heat Converters</a></li>
+            <li><a href="/fluids">Fluids Converters</a></li>
+            <li><a href="/light">Light Converters</a></li>
+          </ul>
+        </section>
+      </main>
+
+      <aside class="sidebar">
+        <h2 class="sidebar-title">Converter Library</h2>
+        <div class="all-converters-container">
+          <div class="dropdown">
+            <button class="dropdown-button">Essential Converters<span class="dropdown-arrow">⌵</span></button>
             <ul class="dropdown-menu">
-                <li><button data-type="cooking">Length</button></li>
-                <li><button data-type="digital-storage">Volume</button></li>
-                <li><button data-type="ancient-chinese">Area</button></li>
-                <li><button data-type="">Energy</button></li>
-                <li><button data-type="">Force</button></li>
-                <li><button data-type="">Speed</button></li>
-                <li><button data-type="">Fuel Consumption</button></li>
-                <li><button data-type="">Data Storage</button></li>
-                <li><button data-type="">Weight/Mass</button></li>
-                <li><button data-type="">Temperature</button></li>
-                <li><button data-type="">Pressure</button></li>
-                <li><button data-type="">Power</button></li>
-                <li><button data-type="">Time</button></li>
-                <li><button data-type="">Angle</button></li>
-                <li><button data-type="">Numbers</button></li>
-                <li><button data-type="">Volume - Dry</button></li>
-                <li><button data-type="">Case</button></li>
+              <li><a href="./formulas/formulasFull/lengthFull/length-converter-full.html">Length</a></li>
+              <li><a href="">Weight & Mass</a></li>
+              <li><a href="">Temperature</a></li>
+              <li><a href="">Volume</a></li>
+              <li><a href="">Area</a></li>
+              <li><a href="">Speed</a></li>
+              <li><a href="">Time</a></li>
+              <li><a href="">Digital Storage</a></li>
+              <li><a href="">Energy</a></li>
+              <li><a href="">Power</a></li>
+              <li><a href="">Pressure</a></li>
+              <li><a href="">Force</a></li>
+              <li><a href="">Angles</a></li>
+              <li><a href="">Fuel Economy</a></li>
+              <li><a href="">Number Systems</a></li>
+              <li><a href="">Dry Volume</a></li>
+              <li><a href="">Text Case</a></li>
             </ul>
-        </div> 
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-button">Technical Converters<span class="dropdown-arrow">⌵</span></button>
+            <ul class="dropdown-menu">
+              <li><a href="">Pressure</a></li>
+              <li><a href="">Energy</a></li>
+              <li><a href="">Power</a></li>
+              <li><a href="">Force</a></li>
+              <li><a href="">Torque</a></li>
+              <li><a href="">Density</a></li>
+              <li><a href="">Temperature</a></li>
+              <li><a href="">Volume</a></li>
+              <li><a href="">Area</a></li>
+              <li><a href="">Speed</a></li>
+              <li><a href="">Acceleration</a></li>
+              <li><a href="">Angular Velocity</a></li>
+              <li><a href="">Angular Acceleration</a></li>
+              <li><a href="">Angles</a></li>
+              <li><a href="">Time</a></li>
+              <li><a href="">Fuel Economy</a></li>
+              <li><a href="./formulas/formulasFull/digitalStorageFull/digital-storage-converter-full.html">Digital Storage</a></li>
+              <li><a href="">Dry Volume</a></li>
+              <li><a href="">Specific Volume</a></li>
+              <li><a href="">Moment of Inertia</a></li>
+              <li><a href="">Moment of Force</a></li>
+              <li><a href="">Currency</a></li>
+            </ul>
+          </div>
+          <!-- Add more dropdown categories here as needed -->
+        </div>
+      </aside>
+    </div>
+
     <footer>
       <p>&copy; 2025 Unit Converter</p>
     </footer>
