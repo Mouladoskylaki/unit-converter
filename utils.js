@@ -78,12 +78,16 @@ export function userFriendlyFormat(formattedResult) {
   if (absNumber >= 1e6 || absNumber < 0.001) {
     let approx;
     if (absNumber >= 1e15) approx = `${(number / 1e15).toFixed(2)} quadrillion`;
-    else if (absNumber >= 1e12) approx = `${(number / 1e12).toFixed(2)} trillion`;
+    else if (absNumber >= 1e12)
+      approx = `${(number / 1e12).toFixed(2)} trillion`;
     else if (absNumber >= 1e9) approx = `${(number / 1e9).toFixed(2)} billion`;
     else if (absNumber >= 1e6) approx = `${(number / 1e6).toFixed(2)} million`;
-    else if (absNumber < 1e-9) approx = `${(number * 1e12).toFixed(2)} trillionths`;
-    else if (absNumber < 1e-6) approx = `${(number * 1e9).toFixed(2)} billionths`;
-    else if (absNumber < 1e-3) approx = `${(number * 1e6).toFixed(2)} millionths`;
+    else if (absNumber < 1e-9)
+      approx = `${(number * 1e12).toFixed(2)} trillionths`;
+    else if (absNumber < 1e-6)
+      approx = `${(number * 1e9).toFixed(2)} billionths`;
+    else if (absNumber < 1e-3)
+      approx = `${(number * 1e6).toFixed(2)} millionths`;
 
     return `≈ ${approx}`;
   }
@@ -172,80 +176,94 @@ export const removeLink = (className) => {
   }
 };
 
-export const toggleSn = (conversionResultElem, fromUnitInput, toUnitInput, fromUnitSelectOption, toUnitSelectOption) => {
+export const toggleSn = (
+  conversionResultElem,
+  fromUnitInput,
+  toUnitInput,
+  fromUnitSelectOption,
+  toUnitSelectOption
+) => {
   // Remove any existing toggle buttons first
-  const existingToggles = conversionResultElem.querySelectorAll('.toggle-sn-off, .toggle-sn-on');
-  existingToggles.forEach(toggle => toggle.remove());
-  
+  const existingToggles = conversionResultElem.querySelectorAll(
+    ".toggle-sn-off, .toggle-sn-on"
+  );
+  existingToggles.forEach((toggle) => toggle.remove());
+
   // Create the toggle elements
-  const scientificNotationOff = document.createElement('span');
-  const scientificNotationOn = document.createElement('span');
-  scientificNotationOff.classList.add('toggle-sn-off');
-  scientificNotationOn.classList.add('toggle-sn-on');
+  const scientificNotationOff = document.createElement("span");
+  const scientificNotationOn = document.createElement("span");
+  scientificNotationOff.classList.add("toggle-sn-off");
+  scientificNotationOn.classList.add("toggle-sn-on");
   scientificNotationOff.title = "Show approximate value";
   scientificNotationOn.title = "Show scientific notation";
-  scientificNotationOff.innerHTML = ' ℯ';
-  scientificNotationOn.innerHTML = ' ℯ';
-  
+  scientificNotationOff.innerHTML = " ℯ";
+  scientificNotationOn.innerHTML = " ℯ";
+
   // Toggle to user-friendly format
-  scientificNotationOff.addEventListener('click', () => {
+  scientificNotationOff.addEventListener("click", () => {
     const userFriendlyResult = userFriendlyFormat(toUnitInput.value);
     // Create base text without the toggle button
     const baseText = `${fromUnitInput.value} ${
-      fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)
+      fromUnitSelectOption.charAt(0).toUpperCase() +
+      fromUnitSelectOption.slice(1)
     } ${userFriendlyResult} ${
-      toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)}`;
-    
+      toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)
+    }`;
+
     conversionResultElem.innerText = baseText;
     conversionResultElem.appendChild(scientificNotationOn);
   });
-  
+
   // Toggle back to scientific notation
-  scientificNotationOn.addEventListener('click', () => {
+  scientificNotationOn.addEventListener("click", () => {
     const baseText = `${fromUnitInput.value} ${
-      fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)
+      fromUnitSelectOption.charAt(0).toUpperCase() +
+      fromUnitSelectOption.slice(1)
     } = ${toUnitInput.value} ${
       toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)
     }`;
-    
+
     conversionResultElem.innerText = baseText;
     conversionResultElem.appendChild(scientificNotationOff);
   });
-  
+
   // Add the initial toggle button
   conversionResultElem.appendChild(scientificNotationOff);
 };
 
 // Updated displayDropDown function to handle all dropdowns
 export const displayDropDown = () => {
-  const dropdowns = document.querySelectorAll('.dropdown');
-  
+  const dropdowns = document.querySelectorAll(".dropdown");
+
   // Add one global click listener to handle all dropdown menus
   document.addEventListener("click", (event) => {
-    dropdowns.forEach(dropdown => {
+    dropdowns.forEach((dropdown) => {
       const menu = dropdown.querySelector(".dropdown-menu");
       const button = dropdown.querySelector(".dropdown-button");
-      
-      if (menu && menu.classList.contains("visible") && 
-          !menu.contains(event.target) && 
-          !button.contains(event.target)) {
+
+      if (
+        menu &&
+        menu.classList.contains("visible") &&
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+      ) {
         menu.classList.remove("visible");
       }
     });
   });
-  
+
   // Add click listeners to each dropdown button
-  dropdowns.forEach(dropdown => {
+  dropdowns.forEach((dropdown) => {
     const button = dropdown.querySelector(".dropdown-button");
     const menu = dropdown.querySelector(".dropdown-menu");
-    
+
     if (button && menu) {
       button.addEventListener("click", (event) => {
         event.stopPropagation();
         menu.classList.toggle("visible");
-        
+
         // Close other open dropdowns
-        dropdowns.forEach(otherDropdown => {
+        dropdowns.forEach((otherDropdown) => {
           if (otherDropdown !== dropdown) {
             const otherMenu = otherDropdown.querySelector(".dropdown-menu");
             if (otherMenu && otherMenu.classList.contains("visible")) {
@@ -259,6 +277,20 @@ export const displayDropDown = () => {
 };
 
 // Initialize dropdowns when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   displayDropDown();
 });
+
+// Check if the sidebar is open and the click is outside both the sidebar and menu button
+export const closeSideBarOutside = (sidebar, menuButton, main) => {
+  document.addEventListener("click", function (event) {
+    if (
+      sidebar.classList.contains("visible") &&
+      !sidebar.contains(event.target) &&
+      !menuButton.contains(event.target)
+    ) {
+      sidebar.classList.remove("visible");
+      main.classList.remove("main-visible"); // if you blur main content
+    }
+  });
+};

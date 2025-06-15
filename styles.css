@@ -1,15 +1,15 @@
 /* =======================
    Font Imports
 ======================= */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
 
 /* =======================
    Global Styles
 ======================= */
 html {
-  background-color: #2A2A49;
+  background-color: #2a2a49;
   color: white;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 body {
@@ -20,12 +20,16 @@ body {
    Header Section
 ======================= */
 .header {
-  background-color: #1E1E2E;
+  background-color: #1e1e2e;
   padding: 0.5rem;
 }
 
 .header h1 {
   margin: 0;
+}
+
+.menu-button {
+  display: none;
 }
 
 .home {
@@ -93,10 +97,9 @@ main {
 
 /* ===== Conversion Menu ===== */
 
-
 /* Override any existing button styles */
 .conversion-menu button {
-  background-color: #373C58;
+  background-color: #373c58;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -110,7 +113,7 @@ main {
 
 .conversion-menu button:hover,
 button[data-type]:hover {
-  background-color: #4B5584;
+  background-color: #4b5584;
 }
 
 /* Active button style */
@@ -119,7 +122,6 @@ button[data-type].active {
   background-color: rgb(232, 53, 53); /* Red color for active tab */
   color: white;
 }
-
 
 /* =======================
    Converter Section
@@ -153,7 +155,8 @@ button[data-type].active {
   /* white-space: nowrap; */
 }
 
-.from-label-input, .to-label-input {
+.from-label-input,
+.to-label-input {
   font-weight: bold;
 }
 
@@ -161,11 +164,13 @@ button[data-type].active {
   display: none;
 }
 
-.from-label-select, .to-label-select {
+.from-label-select,
+.to-label-select {
   display: none;
 }
 
-#fromUnitInput, #toUnitInput {
+#fromUnitInput,
+#toUnitInput {
   height: 40px;
   padding: 0 10px;
   border: none;
@@ -175,12 +180,14 @@ button[data-type].active {
   box-sizing: border-box;
 }
 
-#fromUnitInput:focus, #toUnitInput:focus {
+#fromUnitInput:focus,
+#toUnitInput:focus {
   outline: 2px solid rgba(84, 104, 189, 0.6);
   outline-offset: -1px;
 }
 
-#fromUnitSelect, #toUnitSelect {
+#fromUnitSelect,
+#toUnitSelect {
   height: 40px;
   background-color: #5468bd; /* Slightly refined blue - matches conversion-menu */
   color: white;
@@ -192,7 +199,8 @@ button[data-type].active {
   box-sizing: border-box;
 }
 
-#fromUnitSelect:focus, #toUnitSelect:focus {
+#fromUnitSelect:focus,
+#toUnitSelect:focus {
   outline: 2px solid rgba(84, 104, 189, 0.6);
   outline-offset: -1px;
 }
@@ -216,7 +224,7 @@ button[data-type].active {
 }
 
 #conversion-formula {
-  background-color: #3F4873; /* Slightly darker for better contrast */
+  background-color: #3f4873; /* Slightly darker for better contrast */
   border-radius: 5px;
   display: flex;
   gap: 0.5rem;
@@ -256,7 +264,12 @@ button[data-type].active {
 }
 
 #conversion-result.updated {
-  background-color: rgba(77, 255, 170, 0.4); /* Matching background for updated state */
+  background-color: rgba(
+    77,
+    255,
+    170,
+    0.4
+  ); /* Matching background for updated state */
 }
 
 #result-label {
@@ -307,7 +320,7 @@ button[data-type].active {
 .sidebar-title {
   margin-top: 0;
   color: white;
-  background-color: #373C58;
+  background-color: #373c58;
   padding-top: 10px;
   padding-bottom: 10px;
   padding-left: 10px;
@@ -316,7 +329,7 @@ button[data-type].active {
   font-weight: 400;
   border-radius: 5px 5px 0 0;
   margin-bottom: 0px;
-  width: 100%
+  width: 100%;
 }
 
 .dropdown {
@@ -356,7 +369,6 @@ button[data-type].active {
   letter-spacing: 0.01rem;
 }
 
-
 .dropdown-arrow {
   justify-self: end;
 }
@@ -380,7 +392,7 @@ button[data-type].active {
 
 .dropdown-menu li {
   padding: 0;
-  margin: 0.2rem
+  margin: 0.2rem;
 }
 
 .dropdown-menu {
@@ -392,12 +404,11 @@ button[data-type].active {
   gap: 0rem;
 }
 
-
 /* =======================
    Popular Unit Conversions Section
 ======================= */
 .popular-unit-conversions {
-  background-color: #3A4968; /* Slightly refined blue for better contrast */
+  background-color: #3a4968; /* Slightly refined blue for better contrast */
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -441,7 +452,7 @@ button[data-type].active {
    Complete Conversion List Section
 ======================= */
 .complete-conversion-list {
-  background-color: #3A4968; /* Matching the popular-unit-conversions section */
+  background-color: #3a4968; /* Matching the popular-unit-conversions section */
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -481,7 +492,7 @@ button[data-type].active {
   text-decoration: underline;
 }
 
-.link-to-full-length-converter {
+/* .link-to-full-length-converter {
   display: block;
   margin-top: 0.5rem;
   color: #5086fa;
@@ -490,7 +501,48 @@ button[data-type].active {
 
 .link-to-full-length-converter:hover {
   text-decoration: underline;
+} */
+/* CSS-Only Minimal Link with Icon */
+/* Option 3: Chevron Right */
+.link-to-full-length-converter {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid #3f4873;
+  color: white;
+  padding: 0.5rem 0.7rem;
+  margin-top: 0.15rem;
+  border-radius: 6px;
+  text-decoration: none;
+  background: transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-size: 0.9rem;
 }
+
+.link-to-full-length-converter::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #3f4873;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.link-to-full-length-converter:hover::before {
+  left: 0;
+}
+
+.link-to-full-length-converter:hover {
+  color: white;
+  transform: translateX(0.01px);
+}
+
+
 
 /* =======================
    Footer
@@ -499,7 +551,7 @@ footer {
   margin-top: 2rem;
   padding: 1rem;
   text-align: center;
-  background-color: #1E1E2E;
+  background-color: #1e1e2e;
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
@@ -509,85 +561,134 @@ footer {
    Responsive Design
 ======================= */
 @media (max-width: 768px) {
+  main.main-visible {
+    filter: blur(3px);
+    content: "";
+    pointer-events: none;
+  }
+
+  .header {
+    display: grid;
+    grid-template-columns: 1fr 10fr;
+    gap: 0.3rem;
+    padding-left: 0.1rem;
+  }
+
+  .menu-button {
+    display: block;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 1.9rem;
+    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+  }
+
+  .home {
+    justify-self: center;
+    align-self: center;
+  }
 
   .page-container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 4fr 1fr;
-    margin-left: 0.2rem;
+    grid-template-rows: auto auto;
+    margin: 0 auto; /* Center the container */
+    padding: 0 1rem; /* Add padding instead of margins */
+    max-width: 100%; /* Ensure it doesn't exceed viewport */
+    box-sizing: border-box;
   }
-  
+
+  .main-content {
+    padding-right: 0; /* Remove the padding that might cause offset */
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto; /* Center the main content */
+  }
+
   .sidebar {
-    width: 96%;
-    margin: 0 auto; /* Center the sidebar */
-    padding: 0;
+    display: none;
+    width: 100%;
+    margin: 0 auto 0 auto; /* Center the sidebar with top margin */
     max-width: 600px;
     justify-self: center;
-    padding-right: 1rem;
+    background-color: #252836;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar.visible {
+    display: block;
+    position: absolute;
+    left: 0;
+    animation: fadeInScale 0.2s ease-out forwards;
+    /* background: green; */
+  }
+
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scaleY(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
+
+  .sidebar-title-container {
+    display: grid;
+    grid-template-columns: 10fr auto;
   }
 
   .sidebar-title {
-    width: 100%;
-    box-sizing: border-box;
-    margin-left: 0; /* Reset any existing margins */
-    margin-right: 0;
+    width: 125%;
+    background-color: #1e1e2e;
+    border-radius: 0%;
+    border-top: 1px solid white;
+    font-weight: bold;
+    padding-bottom: 0.3rem;
+    padding-left: 0.7rem;
   }
 
-  .dropdown {
-    position: relative;
-    margin-bottom: 10px;
-    width: 100%;
+  .close-menu {
+    align-self: end;
+    justify-self: start;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: none;
+    margin-right: 0.4rem;
+    padding-left: 1rem;
   }
 
-    /* Position dropdown menu absolutely to prevent layout shifts */
-    .dropdown-menu {
-      position: absolute;
-      top: 100%; /* Position right below the button */
-      left: 0;
-      right: 0;
-      z-index: 1000; /* Ensure it appears above other content */
-      background-color: rgb(63, 72, 115);
-      border-radius: 0.3rem;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
-      display: none; /* Hidden by default */
-    }
-  
-    .dropdown-menu.visible {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0rem;
-    }
-  
-    /* Ensure dropdown items are properly styled */
-    .dropdown-menu li {
-      padding: 0;
-      margin: 0.2rem;
-    }
-  
-    .dropdown-menu a {
-      color: white;
-      text-decoration: none;
-      width: 100%;
-      text-align: left;
-      border-radius: 0.2rem;
-      font-size: 0.85rem;
-      padding: 0.3rem;
-      display: block;
-      box-sizing: border-box;
-      overflow: hidden;
-    }
-  
-    .dropdown-menu a:hover {
-      background-color: rgb(232, 53, 53);
-      letter-spacing: 0.01rem;
-    }
+  main {
+    width: 100%;
+    margin: 0 auto; /* Center main element */
+    max-width: 600px;
+  }
 
   .all-converters-container {
+    /* display: none; */
     width: 100%;
     box-sizing: border-box;
-    margin: 0; /* Remove the auto margins that are causing offset */
-    position: relative; /* Change from absolute to relative */
+    margin: 0;
+    position: relative;
+    background-color: #1e1e2e;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    left: 0; /* Reset any positioning */
+    padding-top: 0.4rem;
   }
+
+  /* .all-converters-container.visible {
+    display: block;
+  } */
 
   main {
     width: 96%;
@@ -595,7 +696,7 @@ footer {
     margin-right: auto;
     max-width: 600px;
   }
-  
+
   .main-form {
     grid-template-columns: 1fr;
   }
@@ -609,7 +710,7 @@ footer {
     grid-template-columns: 1fr 4fr;
     align-items: center;
   }
-  
+
   .conversionType-wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
@@ -621,7 +722,8 @@ footer {
     font-weight: bold;
   }
 
-  .from-label-input, .to-label-input {
+  .from-label-input,
+  .to-label-input {
     display: none;
   }
 
@@ -631,13 +733,15 @@ footer {
     font-size: 0.9rem;
   }
 
-  .fromSelect-wrapper, .toSelect-wrapper {
+  .fromSelect-wrapper,
+  .toSelect-wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
   }
-  
-  .from-label-select, .to-label-select {
+
+  .from-label-select,
+  .to-label-select {
     display: inline-block;
     margin-right: 0.3rem;
     font-weight: bold;
@@ -651,7 +755,7 @@ footer {
   #formula-text::before {
     content: "Formula:";
   }
-  
+
   .form-group + .form-group {
     margin-top: -0.25rem;
   }
@@ -660,42 +764,45 @@ footer {
     margin-bottom: 0rem;
   }
 
-/* Make all tabs equal width in the conversion menu */
-.conversion-menu {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
+  /* Make all tabs equal width in the conversion menu */
+  .conversion-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 
-.conversion-menu li {
-  flex: 1;
-  text-align: center;
-}
+  .conversion-menu li {
+    flex: 1;
+    text-align: center;
+  }
 
-.conversion-menu button,
-button[data-type] {
-  width: 100%;
-  text-align: center;
-  justify-content: center;
-  padding: 3px;
-  font-size: 13px;
-  white-space: nowrap;
-  font-weight: bold;
-  /* min-height: 30px; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .conversion-menu button,
+  button[data-type] {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 3px;
+    font-size: 13px;
+    white-space: nowrap;
+    font-weight: bold;
+    /* min-height: 30px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-/* Specific mobile adjustments */
+  /* Specific mobile adjustments */
   .main-nav {
     width: 100%;
   }
-  
+
   .conversion-menu {
     flex-wrap: nowrap;
   }
-
+  
+ .link-to-full-length-converter {
+  margin-top: 0;
+ }
 }
 
 /* =======================

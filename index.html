@@ -7,7 +7,12 @@
     <title>Unit converter</title>
   </head>
   <body>
-    <header class="header"><h1><a class="home" href="./index.html">Unit Conversion</a></h1></header>
+    <header class="header">
+      <button class="menu-button" id="menuButton" aria-label="Open menu">
+        ☰
+      </button>
+      <h1><a class="home" href="./index.html">Unit Conversion</a></h1>
+    </header>
 
     <div class="page-container">
       <main class="main-content">
@@ -89,7 +94,10 @@
       </main>
 
       <aside class="sidebar">
-        <h2 class="sidebar-title">Converter Library</h2>
+        <div class="sidebar-title-container">
+          <h2 class="sidebar-title">Converter Library</h2>
+          <button class="close-menu">&times;</button>
+        </div>
         <div class="all-converters-container">
           <div class="dropdown">
             <button class="dropdown-button">Essential Converters<span class="dropdown-arrow">⌵</span></button>

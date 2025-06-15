@@ -3,6 +3,7 @@ import { updateConversionResult } from "./index.js";
 import { addLink, removeLink } from "./utils.js";
 import { toggleSn } from "./utils.js";
 import { displayDropDown } from "./utils.js";
+import { closeSideBarOutside } from "./utils.js";
 
 const fromUnitInput = document.getElementById("fromUnitInput");
 const toUnitInput = document.getElementById("toUnitInput");
@@ -10,6 +11,10 @@ const fromUnitSelect = document.getElementById("fromUnitSelect");
 const toUnitSelect = document.getElementById("toUnitSelect");
 const menuButtons = document.querySelectorAll(".conversion-menu button");
 const converterSection = document.querySelector(".converter-section");
+const menuButton = document.querySelector(".menu-button");
+const convertersContainer = document.querySelector(".all-converters-container");
+const sidebar = document.querySelector(".sidebar");
+const main = document.querySelector(".main-content");
 
 export const conversionResultElem = document.getElementById("result-value");
 export let selectedFormulaObj;
@@ -66,10 +71,10 @@ menuButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
     const selectedType = event.target.dataset.type;
     menuButtons.forEach((btn) => {
-      btn.classList.remove('active');
-    })
-    event.target.classList.add('active');
-    
+      btn.classList.remove("active");
+    });
+    event.target.classList.add("active");
+
     removeLink("link-to-full-length-converter");
     removeLink("link-to-full-anc-chinese-converter");
     removeLink("link-to-full-cooking-converter");
@@ -89,7 +94,7 @@ menuButtons.forEach((button) => {
         "Full Length Converter",
         "./formulas/formulasFull/lengthFull/length-converter-full.html",
         converterSection
-      )
+      );
       updateSelectOptions(lengthFormObj);
       selectedFormulaObj = lengthFormObj;
       fromUnitSelect.value = "meter [m]";
@@ -155,7 +160,7 @@ menuButtons.forEach((button) => {
 
 // On load conversion
 const initializeConversion = () => {
-  document.querySelector('button[data-type="length"]').classList.add('active');
+  document.querySelector('button[data-type="length"]').classList.add("active");
   updateSelectOptions(lengthFormObj);
   selectedFormulaObj = lengthFormObj;
   fromUnitSelect.value = "meter [m]";
@@ -169,7 +174,7 @@ const initializeConversion = () => {
     "Full Length Converter",
     "./formulas/formulasFull/lengthFull/length-converter-full.html",
     converterSection
-  )
+  );
 };
 
 document.addEventListener("DOMContentLoaded", initializeConversion);
@@ -196,52 +201,63 @@ export const updateConversionResultElem = () => {
 
   const resultHtml = `
     <strong>${fromUnitInput.value}</strong> 
-    ${fromUnitSelectOption.charAt(0).toUpperCase() + fromUnitSelectOption.slice(1)} 
+    ${
+      fromUnitSelectOption.charAt(0).toUpperCase() +
+      fromUnitSelectOption.slice(1)
+    } 
     = 
     <strong>${toUnitInput.value}</strong> 
     ${toUnitSelectOption.charAt(0).toUpperCase() + toUnitSelectOption.slice(1)}
   `;
-  
+
   conversionResultElem.innerHTML = resultHtml;
 
-  const resultElement = document.getElementById('conversion-result');
-  resultElement.classList.add('updated');
-  
+  const resultElement = document.getElementById("conversion-result");
+  resultElement.classList.add("updated");
+
   setTimeout(() => {
-    resultElement.classList.remove('updated');
+    resultElement.classList.remove("updated");
   }, 100);
 
-  if (toUnitInput.value.includes('e')) {
-    toggleSn(conversionResultElem, fromUnitInput, toUnitInput, fromUnitSelectOption, toUnitSelectOption);
+  if (toUnitInput.value.includes("e")) {
+    toggleSn(
+      conversionResultElem,
+      fromUnitInput,
+      toUnitInput,
+      fromUnitSelectOption,
+      toUnitSelectOption
+    );
   }
 };
 
 // Mobile Autoscroll
+document.addEventListener("DOMContentLoaded", function () {
+  const fromUnitInput = document.getElementById("fromUnitInput");
+  const converterSection = document.querySelector(".converter-section");
 
-document.addEventListener('DOMContentLoaded', function() {
-  const fromUnitInput = document.getElementById('fromUnitInput');
-  const converterSection = document.querySelector('.converter-section');
-  
   function isMobileDevice() {
     return window.innerWidth <= 768;
   }
-  
-  fromUnitInput.addEventListener('focus', function() {
+
+  fromUnitInput.addEventListener("focus", function () {
     if (isMobileDevice()) {
-      setTimeout(function() {
-        const scrollPosition = converterSection.getBoundingClientRect().top + window.pageYOffset - 50;
-        
+      setTimeout(function () {
+        const scrollPosition =
+          converterSection.getBoundingClientRect().top +
+          window.pageYOffset -
+          50;
+
         window.scrollTo({
           top: scrollPosition,
-          behavior: 'smooth'
+          behavior: "smooth",
         });
       }, 300);
     }
   });
-  
-  document.body.addEventListener('click', function(event) {
+
+  document.body.addEventListener("click", function (event) {
     if (isMobileDevice()) {
-      if (!event.target.closest('#fromUnitInput')) {
+      if (!event.target.closest("#fromUnitInput")) {
         fromUnitInput.blur();
       }
     }
@@ -249,7 +265,22 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // DropDown Menu
-const dropdown = document.querySelector('.dropdown');
-const dropdown02 = document.querySelector('.dropdown02');
+const dropdown = document.querySelector(".dropdown");
+const dropdown02 = document.querySelector(".dropdown02");
 displayDropDown(dropdown);
 displayDropDown(dropdown02);
+
+// Menu Button Toggle Visible
+menuButton.addEventListener("click", () => {
+  sidebar.classList.toggle("visible");
+  main.classList.toggle("main-visible");
+});
+
+// Close Menu Mobile X Button
+document.querySelector(".close-menu").addEventListener("click", () => {
+  sidebar.classList.remove("visible");
+  main.classList.remove("main-visible");
+});
+
+// Check if the sidebar is open and the click is outside both the sidebar and menu button
+closeSideBarOutside(sidebar, menuButton, main);
