@@ -395,5 +395,125 @@ weightMass: {
   "atomic mass unit [u, AMU]": 8,         // Extremely small, needs high precision
   "earth mass [M⊕]": 10,                  // Extremely large, needs scientific notation
   "solar mass [M☉]": 10                   // Extremely large, needs scientific notation
+},
+
+volume: {
+  // Metric System Units - Practical Range
+  "liter [L]": 2,                    // Base unit, common precision
+  "milliliter [mL]": 1,              // Small volumes, moderate precision
+  "cubic meter [m³]": 3,             // Large volumes need more precision
+  "cubic centimeter [cm³]": 1,       // Small volumes, moderate precision
+  "kiloliter [kL]": 3,               // Large volumes need more precision
+  "hectoliter [hL]": 2,              // Medium-large volumes
+  "deciliter [dL]": 2,               // Common in recipes and medicine
+
+  // US Customary Units - Liquid
+  "gallon (US liquid) [gal]": 3,     // Common large unit, needs precision
+  "quart (US liquid) [qt]": 2,       // Common cooking unit
+  "pint (US liquid) [pt]": 2,        // Common cooking unit
+  "cup (US) [cup]": 2,               // Common cooking unit
+  "fluid ounce (US) [fl oz]": 2,     // Common small liquid measurement
+  "tablespoon (US) [tbsp]": 2,       // Cooking precision needed
+  "teaspoon (US) [tsp]": 2,          // Cooking precision needed
+
+  // Imperial Units - Liquid
+  "gallon (Imperial) [gal, UK]": 3,  // Large unit, needs precision
+  "quart (Imperial) [qt, UK]": 2,    // Medium unit
+  "pint (Imperial) [pt, UK]": 2,     // Common pub/cooking unit
+  "fluid ounce (Imperial) [fl oz, UK]": 2,  // Small liquid measurement
+  "tablespoon (Imperial) [tbsp, UK]": 2,    // Cooking precision
+
+  // Cooking & Kitchen Units
+  "cup (metric) [cup, metric]": 2,   // International cooking
+  "tablespoon (metric) [tbsp, metric]": 2,  // Cooking precision needed
+  "teaspoon (metric) [tsp, metric]": 2,     // Cooking precision needed
+
+  // Common Volume Units
+  "cubic inch [in³]": 2,             // Engineering/mechanical precision
+  "cubic foot [ft³]": 2,             // Construction/engineering precision
+  "cubic yard [yd³]": 2,             // Construction precision
+
+  // Industrial Units - Practical Scale
+  "barrel (oil) [bbl]": 3,           // Industrial unit, needs precision
+  "barrel (US liquid) [bbl, US]": 3  // Industrial unit, needs precision
+},
+
+// Area Units Custom Precision
+area: {
+  // Metric Units (SI)
+  "square meter [m²]": 3,
+  "square kilometer [km²]": 3,
+  "square centimeter [cm²]": 3,
+  "square millimeter [mm²]": 3,
+  "square micrometer [μm²]": 4,
+  "square nanometer [nm²]": 4,
+  "square angstrom [Ų]": 5,
+  "hectare [ha]": 3,
+  "are [a]": 3,
+
+  // Imperial/US Units
+  "square foot [ft²]": 3,
+  "square inch [in²]": 3,
+  "square yard [yd²]": 3,
+  "square mile [mi²]": 3,
+  "acre [ac]": 3,
+
+  // Real Estate & Land Units
+  "square rod [rod²]": 3,
+  "perch [perch]": 3,
+  "rood [rood]": 3,
+  "township [township]": 2,
+  "section [section]": 3,
+
+  // Asian Units
+  "ping (Taiwan) [ping]": 3,
+  "tsubo (Japan) [tsubo]": 3,
+  "tan (Japan) [tan]": 3,
+  "rai (Thailand) [rai]": 3,
+  "ngan (Thailand) [ngan]": 3,
+
+  // Construction & Engineering
+  "square (construction) [sq]": 3,
+  "circular mil [cmil]": 5,
+  "circular inch [circ in]": 4,
+
+  // Agricultural Units
+  "dunam [dunam]": 3,
+  "jerib [jerib]": 3,
+  "feddan [feddan]": 3,
+  "bigha (India) [bigha]": 3,
+
+  // Historical Units
+  "yardland [yardland]": 2,
+  "hide [hide]": 2,
+  "carucate [carucate]": 2,
+  "morgen [morgen]": 3,
+
+  // Scientific Units
+  "barn [b]": 5,
+  "square astronomical unit [au²]": 2,
+  "square light year [ly²]": 2,
+
+  // Small Scale Units
+  "square micrometer [μm²]": 4,
+  "square nanometer [nm²]": 4,
+  "square angstrom [Ų]": 5,
+
+  // Additional Common Units
+  "square decimeter [dm²]": 3,
+  "square hectometer [hm²]": 3,
+  "square dekameter [dam²]": 3,
+  "centiare [ca]": 3,
+  "deciare [da]": 3,
+  
+  // Engineering Precision Units
+  "square thou [thou²]": 4,
+  "square mil [mil²]": 4,
+  "square microinch [μin²]": 5,
+  
+  // Large Scale Units
+  "square megameter [Mm²]": 2,
+  "square gigameter [Gm²]": 2,
+  "square terameter [Tm²]": 2,
 }
 };

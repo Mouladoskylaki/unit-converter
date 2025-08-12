@@ -28,30 +28,29 @@ body {
   margin: 0;
 }
 
-.menu-button {
-  display: none;
-}
-
 .home {
   text-decoration: none;
   color: white;
 }
 
+.menu-button {
+  display: none;
+}
+
 /* =======================
-   Page Container 
-=========================*/
+   Page Container
+======================= */
 .page-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
+/* =======================
+   Main Content Section
+======================= */
 .main-content {
   padding-right: 1rem;
 }
-
-/* =======================
-   Main Content Area
-======================= */
 
 main {
   margin-left: 0.5rem;
@@ -60,6 +59,7 @@ main {
   width: 600px;
 }
 
+/* Unit Converter Header */
 #unit-converter-header {
   margin-top: 1rem;
   margin-bottom: 1rem;
@@ -67,7 +67,9 @@ main {
   border-radius: 5px 5px 0 0;
 }
 
-/* Main-nav */
+/* =======================
+   Navigation Menu
+======================= */
 .conversion-menu {
   width: 100%;
   padding: 0;
@@ -95,9 +97,6 @@ main {
   outline-offset: -1px;
 }
 
-/* ===== Conversion Menu ===== */
-
-/* Override any existing button styles */
 .conversion-menu button {
   background-color: #373c58;
   color: white;
@@ -116,15 +115,14 @@ button[data-type]:hover {
   background-color: #4b5584;
 }
 
-/* Active button style */
 .conversion-menu button.active,
 button[data-type].active {
-  background-color: rgb(232, 53, 53); /* Red color for active tab */
+  background-color: rgb(232, 53, 53);
   color: white;
 }
 
 /* =======================
-   Converter Section
+   Converter Form Section
 ======================= */
 .converter-section {
   background-color: #252836;
@@ -150,9 +148,9 @@ button[data-type].active {
   width: 100%;
 }
 
+/* Form Labels */
 .type-label-select {
   display: none;
-  /* white-space: nowrap; */
 }
 
 .from-label-input,
@@ -169,6 +167,7 @@ button[data-type].active {
   display: none;
 }
 
+/* Form Inputs */
 #fromUnitInput,
 #toUnitInput {
   height: 40px;
@@ -186,10 +185,11 @@ button[data-type].active {
   outline-offset: -1px;
 }
 
+/* Form Selects */
 #fromUnitSelect,
 #toUnitSelect {
   height: 40px;
-  background-color: #5468bd; /* Slightly refined blue - matches conversion-menu */
+  background-color: #5468bd;
   color: white;
   border: none;
   border-radius: 5px;
@@ -224,7 +224,7 @@ button[data-type].active {
 }
 
 #conversion-formula {
-  background-color: #3f4873; /* Slightly darker for better contrast */
+  background-color: #3f4873;
   border-radius: 5px;
   display: flex;
   gap: 0.5rem;
@@ -236,14 +236,14 @@ button[data-type].active {
   box-sizing: border-box;
 }
 
-#formula-text::before {
-  content: "Conversion formula:";
-  font-weight: bold;
-}
-
 #formula-text {
   color: white;
   margin: 0;
+}
+
+#formula-text::before {
+  content: "Conversion formula:";
+  font-weight: bold;
 }
 
 #conversion-operation {
@@ -251,11 +251,11 @@ button[data-type].active {
 }
 
 #conversion-result {
-  color: #4dffaa; /* Adjusted green with better contrast ratio */
+  color: #4dffaa;
   font-size: 1.05rem;
   margin: 0.5rem 0;
   padding: 0.6rem;
-  background-color: rgba(77, 255, 170, 0.1); /* Matching background */
+  background-color: rgba(77, 255, 170, 0.1);
   border-radius: 5px;
   display: flex;
   align-items: baseline;
@@ -264,22 +264,18 @@ button[data-type].active {
 }
 
 #conversion-result.updated {
-  background-color: rgba(
-    77,
-    255,
-    170,
-    0.4
-  ); /* Matching background for updated state */
+  background-color: rgba(77, 255, 170, 0.4);
 }
 
 #result-label {
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
+/* Scientific Notation Toggle */
 .toggle-sn-off {
   font-size: 1.5rem;
   cursor: pointer;
@@ -299,116 +295,11 @@ button[data-type].active {
   color: white;
 }
 
-/* =========================
-   Sidebar 
-========================= */
-.sidebar {
-  margin-top: 1.5rem;
-  margin-left: 3rem;
-  justify-self: start;
-  width: 300px;
-}
-
-.all-converters-container {
-  background-color: #252836;
-  border-radius: 4px;
-  padding: 10px;
-  position: absolute;
-  width: 300px;
-}
-
-.sidebar-title {
-  margin-top: 0;
-  color: white;
-  background-color: #373c58;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  font-size: 16px;
-  font-weight: 400;
-  border-radius: 5px 5px 0 0;
-  margin-bottom: 0px;
-  width: 100%;
-}
-
-.dropdown {
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-.dropdown-button {
-  width: 100%;
-  padding: 8px 12px;
-  background-color: #5468bd;
-  color: white;
-  border: none;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  text-align: left;
-  font-weight: bold;
-  display: grid;
-  grid-template-columns: 6fr 1fr;
-}
-
-.dropdown-menu a {
-  color: white;
-  text-decoration: none;
-  width: 100%;
-  text-align: left;
-  border-radius: 0.2rem;
-  font-size: 0.85rem;
-  padding: 0.3rem;
-  display: block;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-.dropdown-menu a:hover {
-  background-color: rgb(232, 53, 53);
-  letter-spacing: 0.01rem;
-}
-
-.dropdown-arrow {
-  justify-self: end;
-}
-
-.dropdown-menu {
-  display: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  margin-top: 0.3rem;
-  background-color: rgb(63, 72, 115);
-  border-radius: 0.3rem;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.dropdown-menu.visible {
-  display: block;
-}
-
-.dropdown-menu li {
-  padding: 0;
-  margin: 0.2rem;
-}
-
-.dropdown-menu {
-  display: none;
-}
-
-.dropdown-menu.visible {
-  display: grid;
-  gap: 0rem;
-}
-
 /* =======================
    Popular Unit Conversions Section
 ======================= */
 .popular-unit-conversions {
-  background-color: #3a4968; /* Slightly refined blue for better contrast */
+  background-color: #3a4968;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -434,13 +325,13 @@ button[data-type].active {
 
 .popular-unit-conversions li::before {
   content: "•";
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   position: absolute;
   left: -1rem;
 }
 
 .popular-unit-conversions a {
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   text-decoration: none;
 }
 
@@ -452,7 +343,7 @@ button[data-type].active {
    Complete Conversion List Section
 ======================= */
 .complete-conversion-list {
-  background-color: #3a4968; /* Matching the popular-unit-conversions section */
+  background-color: #3a4968;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -478,13 +369,13 @@ button[data-type].active {
 
 .complete-conversion-list li::before {
   content: "•";
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   position: absolute;
   left: -1rem;
 }
 
 .complete-conversion-list a {
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   text-decoration: none;
 }
 
@@ -492,19 +383,12 @@ button[data-type].active {
   text-decoration: underline;
 }
 
-/* .link-to-full-length-converter {
-  display: block;
-  margin-top: 0.5rem;
-  color: #5086fa;
-  text-decoration: none;
-}
-
-.link-to-full-length-converter:hover {
-  text-decoration: underline;
-} */
-/* CSS-Only Minimal Link with Icon */
-/* Option 3: Chevron Right */
-.link-to-full-length-converter {
+/* Special Link Styles */
+.link-to-full-length-converter,
+.link-to-full-mass-weight-converter,
+.link-to-full-volume-converter,
+.link-to-full-area-converter,
+.link-to-full-digital-storage-converter {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -521,7 +405,11 @@ button[data-type].active {
   font-size: 0.9rem;
 }
 
-.link-to-full-length-converter::before {
+.link-to-full-length-converter::before,
+.link-to-full-mass-weight-converter::before,
+.link-to-full-volume-converter::before,
+.link-to-full-area-converter::before,
+.link-to-full-digital-storage-converter::before {
   content: '';
   position: absolute;
   top: 0;
@@ -533,19 +421,130 @@ button[data-type].active {
   z-index: -1;
 }
 
-.link-to-full-length-converter:hover::before {
+.link-to-full-length-converter:hover::before,
+.link-to-full-mass-weight-converter:hover::before,
+.link-to-full-volume-converter:hover::before,
+.link-to-full-area-converter:hover::before,
+.link-to-full-digital-storage-converter:hover::before {
   left: 0;
 }
 
-.link-to-full-length-converter:hover {
+.link-to-full-length-converter:hover,
+.link-to-full-mass-weight-converter:hover,
+.link-to-full-volume-converter:hover,
+.link-to-full-area-converter:hover,
+.link-to-full-digital-storage-converter:hover {
   color: white;
   transform: translateX(0.01px);
 }
 
+/* =======================
+   Sidebar Section
+======================= */
+.sidebar {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+  justify-self: start;
+  width: 300px;
+}
 
+.sidebar-title-container {
+  /* Styles defined in mobile section */
+}
+
+.sidebar-title {
+  margin-top: 0;
+  color: white;
+  background-color: #373c58;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.all-converters-container {
+  background-color: #252836;
+  border-radius: 4px;
+  padding: 10px;
+  position: absolute;
+  width: 300px;
+}
+
+.close-menu {
+  display: none;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #5468bd;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  text-align: left;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+}
+
+.dropdown-arrow {
+  justify-self: end;
+}
+
+.dropdown-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.3rem;
+  background-color: rgb(63, 72, 115);
+  border-radius: 0.3rem;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dropdown-menu.visible {
+  display: grid;
+  gap: 0rem;
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0.2rem;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 0.2rem;
+  font-size: 0.85rem;
+  padding: 0.3rem;
+  display: block;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgb(232, 53, 53);
+  letter-spacing: 0.01rem;
+}
 
 /* =======================
-   Footer
+   Footer Section
 ======================= */
 footer {
   margin-top: 2rem;
@@ -558,19 +557,37 @@ footer {
 }
 
 /* =======================
-   Responsive Design
+   Test Button (Development Only)
+======================= */
+.submit-test-button {
+  background-color: #333;
+  color: white;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.submit-test-button:hover {
+  background-color: #444;
+}
+
+/* =======================
+   Mobile Responsive Design
 ======================= */
 @media (max-width: 768px) {
+  /* Main Content Blur Effect */
   main.main-visible {
     filter: blur(3px);
     content: "";
     pointer-events: none;
   }
 
+  /* Header Mobile Styles */
   .header {
     display: grid;
     grid-template-columns: 1fr 10fr;
-    gap: 0.3rem;
     padding-left: 0.1rem;
   }
 
@@ -592,27 +609,140 @@ footer {
     align-self: center;
   }
 
+  /* Page Container Mobile */
   .page-container {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    margin: 0 auto; /* Center the container */
-    padding: 0 1rem; /* Add padding instead of margins */
-    max-width: 100%; /* Ensure it doesn't exceed viewport */
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    max-width: 100%;
     box-sizing: border-box;
   }
 
+  /* Main Content Mobile */
   .main-content {
-    padding-right: 0; /* Remove the padding that might cause offset */
+    padding-right: 0;
     width: 100%;
     max-width: 600px;
-    margin: 0 auto; /* Center the main content */
+    margin: 0 auto;
   }
 
+  main {
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+  }
+
+  /* Form Mobile Styles */
+  .main-form {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group + .form-group {
+    margin-top: -0.25rem;
+  }
+
+  /* Form Input Wrappers */
+  .fromInput-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+  }
+
+  .conversionType-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+  }
+
+  .fromSelect-wrapper,
+  .toSelect-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+  }
+
+  /* Mobile Label Visibility */
+  .type-label-select {
+    display: inline;
+    font-weight: bold;
+  }
+
+  .from-label-input,
+  .to-label-input {
+    display: none;
+  }
+
+  .from-label-input-mobile {
+    display: inline;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  .from-label-select,
+  .to-label-select {
+    display: inline-block;
+    margin-right: 0.3rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+  }
+
+  /* Hide To Input on Mobile */
+  #toUnitInput {
+    display: none;
+  }
+
+  /* Mobile Formula Text */
+  #formula-text::before {
+    content: "Formula:";
+  }
+
+  #conversion-formula {
+    margin-bottom: 0rem;
+  }
+
+  /* Navigation Mobile Styles */
+  .conversion-nav {
+    margin-bottom: 1rem;
+  }
+
+  .conversion-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: nowrap;
+  }
+
+  .conversion-menu li {
+    flex: 1;
+    text-align: center;
+  }
+
+  .conversion-menu button,
+  button[data-type] {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    padding: 3px;
+    font-size: 13px;
+    white-space: nowrap;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main-nav {
+    width: 100%;
+  }
+
+  /* Sidebar Mobile Styles */
   .sidebar {
     display: none;
     width: 100%;
-    margin: 0 auto 0 auto; /* Center the sidebar with top margin */
+    margin: 0 auto 0 auto;
     max-width: 600px;
     justify-self: center;
     background-color: #252836;
@@ -624,7 +754,6 @@ footer {
     position: absolute;
     left: 0;
     animation: fadeInScale 0.2s ease-out forwards;
-    /* background: green; */
   }
 
   @keyframes fadeInScale {
@@ -654,6 +783,7 @@ footer {
   }
 
   .close-menu {
+    display: block;
     align-self: end;
     justify-self: start;
     background: none;
@@ -667,14 +797,7 @@ footer {
     padding-left: 1rem;
   }
 
-  main {
-    width: 100%;
-    margin: 0 auto; /* Center main element */
-    max-width: 600px;
-  }
-
   .all-converters-container {
-    /* display: none; */
     width: 100%;
     box-sizing: border-box;
     margin: 0;
@@ -682,142 +805,22 @@ footer {
     background-color: #1e1e2e;
     border-top-left-radius: 0%;
     border-top-right-radius: 0%;
-    left: 0; /* Reset any positioning */
+    left: 0;
     padding-top: 0.4rem;
   }
 
-  /* .all-converters-container.visible {
-    display: block;
-  } */
-
-  main {
-    width: 96%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 600px;
+  /* Mobile Link Adjustments */
+  .link-to-full-length-converter,
+  .link-to-full-mass-weight-converter-converter,
+  .link-to-full-volume-converter,
+  .link-to-full-area-converter,
+  .link-to-full-digital-storage-converter {
+    margin-top: 0;
   }
-
-  .main-form {
-    grid-template-columns: 1fr;
-  }
-
-  .conversion-nav {
-    margin-bottom: 1rem;
-  }
-
-  .fromInput-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    align-items: center;
-  }
-
-  .conversionType-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    align-items: center;
-  }
-
-  .type-label-select {
-    display: inline;
-    font-weight: bold;
-  }
-
-  .from-label-input,
-  .to-label-input {
-    display: none;
-  }
-
-  .from-label-input-mobile {
-    display: inline;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-
-  .fromSelect-wrapper,
-  .toSelect-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    align-items: center;
-  }
-
-  .from-label-select,
-  .to-label-select {
-    display: inline-block;
-    margin-right: 0.3rem;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-
-  #toUnitInput {
-    display: none;
-  }
-
-  #formula-text::before {
-    content: "Formula:";
-  }
-
-  .form-group + .form-group {
-    margin-top: -0.25rem;
-  }
-
-  #conversion-formula {
-    margin-bottom: 0rem;
-  }
-
-  /* Make all tabs equal width in the conversion menu */
-  .conversion-menu {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-  }
-
-  .conversion-menu li {
-    flex: 1;
-    text-align: center;
-  }
-
-  .conversion-menu button,
-  button[data-type] {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 3px;
-    font-size: 13px;
-    white-space: nowrap;
-    font-weight: bold;
-    /* min-height: 30px; */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  /* Specific mobile adjustments */
-  .main-nav {
-    width: 100%;
-  }
-
-  .conversion-menu {
-    flex-wrap: nowrap;
-  }
-  
- .link-to-full-length-converter {
-  margin-top: 0;
- }
 }
 
-/* =======================
-   Test Button (can be removed in production)
-======================= */
-.submit-test-button {
-  background-color: #333;
-  color: white;
-  border: 1px solid #444;
-  padding: 8px 16px;
-  border-radius: 4px;
-  margin-top: 1rem;
-  cursor: pointer;
-}
-
-.submit-test-button:hover {
-  background-color: #444;
+.group {
+  color: rgb(42, 40, 40);
+  font-size: 1rem;
+  font-style: italic;
 }

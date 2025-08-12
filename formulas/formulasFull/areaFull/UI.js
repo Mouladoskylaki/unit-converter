@@ -18,17 +18,19 @@ export const conversionResultElem = document.getElementById("result-value");
 export let selectedFormulaObj;
 export let formulaDescription = document.getElementById("conversion-operation");
 
-// Formula Objects - import your digital storage formula objects
-import { digitalStandardStorageObj } from "./selectedFomulaObjects.js";
-import { digitalBitBasedObj } from "./selectedFomulaObjects.js";
-import { digitalDataTransferObj } from "./selectedFomulaObjects.js";
-import { digitalConnectionSpeedObj } from "./selectedFomulaObjects.js";
-import { digitalComputerMemoryObj } from "./selectedFomulaObjects.js";
-import { digitalDiskStructureObj } from "./selectedFomulaObjects.js";
-import { digitalStorageMediaObj } from "./selectedFomulaObjects.js";
-import { digitalHistoricalMediaObj } from "./selectedFomulaObjects.js";
-import { digitalPracticalStorageObj } from "./selectedFomulaObjects.js";
-import { digitalTransferTimeObj } from "./selectedFomulaObjects.js";
+// Formula Objects - import your area formula objects
+import { standardMetricObj } from "./selectedFormulaObjects.js";
+import { usCustomaryObj } from "./selectedFormulaObjects.js";
+import { imperialObj } from "./selectedFormulaObjects.js";
+import { asianObj } from "./selectedFormulaObjects.js";
+import { agriculturalObj } from "./selectedFormulaObjects.js";
+import { constructionObj } from "./selectedFormulaObjects.js";
+import { scientificObj } from "./selectedFormulaObjects.js";
+import { textileObj } from "./selectedFormulaObjects.js";
+import { realEstateObj } from "./selectedFormulaObjects.js";
+import { sportsObj } from "./selectedFormulaObjects.js";
+import { transportationObj } from "./selectedFormulaObjects.js";
+import { environmentalObj } from "./selectedFormulaObjects.js";
 
 // Populate select elements
 export const updateSelectOptions = (formulaObject) => {
@@ -64,81 +66,98 @@ conversionTypeSelect.addEventListener("change", (event) => {
   handleConversionTypeChange(selectedType);
 });
 
-// Handle conversion type change
+// Handle conversion type change - Improved defaults for better UX
 function handleConversionTypeChange(selectedType) {
-  if (selectedType === "standardstorage") {
-    updateSelectOptions(digitalStandardStorageObj);
-    selectedFormulaObj = digitalStandardStorageObj;
-    fromUnitSelect.value = "gigabyte [GB]";
-    toUnitSelect.value = "megabyte [MB]";
+  // Area Converter Categories
+  if (selectedType === "standardMetric") {
+    updateSelectOptions(standardMetricObj);
+    selectedFormulaObj = standardMetricObj;
+    fromUnitSelect.value = "square meter [m²]";
+    toUnitSelect.value = "square centimeter [cm²]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "bitbased") {
-    updateSelectOptions(digitalBitBasedObj);
-    selectedFormulaObj = digitalBitBasedObj;
-    fromUnitSelect.value = "megabit [Mb]";
-    toUnitSelect.value = "byte [B]";
+  } else if (selectedType === "usCustomary") {
+    updateSelectOptions(usCustomaryObj);
+    selectedFormulaObj = usCustomaryObj;
+    fromUnitSelect.value = "square inch [in²]";
+    toUnitSelect.value = "square foot [ft²]";
+    fromUnitInput.value = 144;
+    updateConversionResult();
+  } else if (selectedType === "imperial") {
+    updateSelectOptions(imperialObj);
+    selectedFormulaObj = imperialObj;
+    fromUnitSelect.value = "acre (Imperial) [ac UK]";
+    toUnitSelect.value = "square foot (Imperial) [ft² UK]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "datatransfer") {
-    updateSelectOptions(digitalDataTransferObj);
-    selectedFormulaObj = digitalDataTransferObj;
-    fromUnitSelect.value = "megabit per second [Mbps]";
-    toUnitSelect.value = "megabyte per second [MBps]";
-    fromUnitInput.value = 8;
-    updateConversionResult();
-  } else if (selectedType === "connectionspeed") {
-    updateSelectOptions(digitalConnectionSpeedObj);
-    selectedFormulaObj = digitalConnectionSpeedObj;
-    fromUnitSelect.value = "gigabit ethernet [GbE]";
-    toUnitSelect.value = "wireless 802.11ac [WiFi-AC]";
+  } else if (selectedType === "asian") {
+    updateSelectOptions(asianObj);
+    selectedFormulaObj = asianObj;
+    fromUnitSelect.value = "tsubo (Japan) [tsubo]";
+    toUnitSelect.value = "square meter [m²]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "computermemory") {
-    updateSelectOptions(digitalComputerMemoryObj);
-    selectedFormulaObj = digitalComputerMemoryObj;
-    fromUnitSelect.value = "DIMM (8GB) [DIMM8G]";
-    toUnitSelect.value = "DIMM (4GB) [DIMM4G]";
+  } else if (selectedType === "agricultural") {
+    updateSelectOptions(agriculturalObj);
+    selectedFormulaObj = agriculturalObj;
+    fromUnitSelect.value = "acre [ac]";
+    toUnitSelect.value = "hectare [ha]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "diskstructure") {
-    updateSelectOptions(digitalDiskStructureObj);
-    selectedFormulaObj = digitalDiskStructureObj;
-    fromUnitSelect.value = "cluster (4KB) [cluster]";
-    toUnitSelect.value = "sector (512-byte) [sector]";
+  } else if (selectedType === "construction") {
+    updateSelectOptions(constructionObj);
+    selectedFormulaObj = constructionObj;
+    fromUnitSelect.value = "square (roofing) [square]";
+    toUnitSelect.value = "square foot [ft²]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "storagemedia") {
-    updateSelectOptions(digitalStorageMediaObj);
-    selectedFormulaObj = digitalStorageMediaObj;
-    fromUnitSelect.value = "USB flash drive (32GB) [USB32G]";
-    toUnitSelect.value = "DVD (single layer) [DVD]";
+  } else if (selectedType === "scientific") {
+    updateSelectOptions(scientificObj);
+    selectedFormulaObj = scientificObj;
+    fromUnitSelect.value = "square centimeter [cm²]";
+    toUnitSelect.value = "square micrometer [μm²]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "historicalmedia") {
-    updateSelectOptions(digitalHistoricalMediaObj);
-    selectedFormulaObj = digitalHistoricalMediaObj;
-    fromUnitSelect.value = "floppy disk (3.5\") HD [floppyHD]";
-    toUnitSelect.value = "byte [B]";
+  } else if (selectedType === "textile") {
+    updateSelectOptions(textileObj);
+    selectedFormulaObj = textileObj;
+    fromUnitSelect.value = "bolt (fabric) [bolt]";
+    toUnitSelect.value = "square meter [m²]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "practicalstorage") {
-    updateSelectOptions(digitalPracticalStorageObj);
-    selectedFormulaObj = digitalPracticalStorageObj;
-    fromUnitSelect.value = "MP4 video (1 minute HD) [mp4min]";
-    toUnitSelect.value = "smartphone photo [smartphoto]";
+  } else if (selectedType === "realEstate") {
+    updateSelectOptions(realEstateObj);
+    selectedFormulaObj = realEstateObj;
+    fromUnitSelect.value = "house lot (standard) [lot std]";
+    toUnitSelect.value = "square foot [ft²]";
     fromUnitInput.value = 1;
     updateConversionResult();
-  } else if (selectedType === "transfertime") {
-    updateSelectOptions(digitalTransferTimeObj);
-    selectedFormulaObj = digitalTransferTimeObj;
-    fromUnitSelect.value = "1GB at 100Mbps [GB@100Mbps]";
-    toUnitSelect.value = "1GB at 1Gbps [GB@1Gbps]";
+  } else if (selectedType === "sports") {
+    updateSelectOptions(sportsObj);
+    selectedFormulaObj = sportsObj;
+    fromUnitSelect.value = "football field (American) [football]";
+    toUnitSelect.value = "square meter [m²]";
+    fromUnitInput.value = 1;
+    updateConversionResult();
+  } else if (selectedType === "transportation") {
+    updateSelectOptions(transportationObj);
+    selectedFormulaObj = transportationObj;
+    fromUnitSelect.value = "lane mile [lane mi]";
+    toUnitSelect.value = "square meter [m²]";
+    fromUnitInput.value = 1;
+    updateConversionResult();
+  } else if (selectedType === "environmental") {
+    updateSelectOptions(environmentalObj);
+    selectedFormulaObj = environmentalObj;
+    fromUnitSelect.value = "hectare [ha]";
+    toUnitSelect.value = "acre [ac]";
     fromUnitInput.value = 1;
     updateConversionResult();
   }
+
   console.log(`Selected conversion type: ${selectedType}`);
 }
+
 
 // Add input listeners
 export const addInputListeners = (
@@ -155,18 +174,18 @@ export const addInputListeners = (
 // On load conversion
 const initializeConversion = () => {
   // Set initial option in the dropdown
-  const initialOption = conversionTypeSelect.querySelector('option[data-type="standardstorage"]');
+  const initialOption = conversionTypeSelect.querySelector('option[data-type="standardmetric"]');
   if (initialOption) {
     initialOption.selected = true;
   }
   
-  updateSelectOptions(digitalStandardStorageObj);
-  selectedFormulaObj = digitalStandardStorageObj;
-  fromUnitSelect.value = "gigabyte [GB]";
-  toUnitSelect.value = "megabyte [MB]";
+  updateSelectOptions(standardMetricObj);
+  selectedFormulaObj = standardMetricObj;
+  fromUnitSelect.value = "square meter [m²]";
+  toUnitSelect.value = "square centimeter [cm²]";
   fromUnitInput.value = 1;
   formulaDescription.innerText =
-    digitalStandardStorageObj[fromUnitSelect.value][toUnitSelect.value].description;
+    standardMetricObj[fromUnitSelect.value][toUnitSelect.value].description;
   updateConversionResult();
 };
 

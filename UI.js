@@ -27,6 +27,8 @@ import { ancientChineseLengthFormObj } from "./selectedFormulaObjects.js";
 import { cookingFormObj } from "./selectedFormulaObjects.js";
 import { digitalStorageFormObj } from "./selectedFormulaObjects.js";
 import { massWeightFormObj } from "./selectedFormulaObjects.js";
+import { volumeFormObj } from "./selectedFormulaObjects.js";
+import { areaFormObj } from "./selectedFormulaObjects.js";
 
 // Populate select elements
 export const updateSelectOptions = (formulaObject) => {
@@ -37,6 +39,7 @@ export const updateSelectOptions = (formulaObject) => {
     if (unit.startsWith("group_")) {
       const group = document.createElement("optgroup");
       group.label = unit.substring(6);
+      group.classList.add('group');
       fromUnitSelect.appendChild(group);
       toUnitSelect.appendChild(group.cloneNode());
       return;
@@ -76,6 +79,8 @@ menuButtons.forEach((button) => {
     event.target.classList.add("active");
 
     removeLink("link-to-full-length-converter");
+    removeLink("link-to-full-volume-converter");
+    removeLink("link-to-full-area-converter");
     removeLink("link-to-full-anc-chinese-converter");
     removeLink("link-to-full-cooking-converter");
     removeLink("link-to-full-digital-storage-converter");
@@ -153,7 +158,33 @@ menuButtons.forEach((button) => {
       toUnitSelect.value = "kilogram [kg]";
       fromUnitInput.value = 1;
       updateConversionResult();
-    }
+    } else if (selectedType === "volume") {
+      addLink(
+        "link-to-full-volume-converter",
+        "Complete Volume Converter",
+        "formulas/formulasFull/volumeFull/volume-converter-full.html",
+        converterSection
+      );
+      updateSelectOptions(volumeFormObj);
+      selectedFormulaObj = volumeFormObj;
+      fromUnitSelect.value = "gallon (US liquid) [gal]";
+      toUnitSelect.value = "liter [L]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "area") {
+      addLink(
+        "link-to-full-area-converter",
+        "Complete Area Converter",
+        "formulas/formulasFull/areaFull/area-converter-full.html",
+        converterSection
+      );
+      updateSelectOptions(areaFormObj);
+      selectedFormulaObj = areaFormObj;
+      fromUnitSelect.value = "square foot [ft²]";
+      toUnitSelect.value = "square meter [m²]";
+      fromUnitInput.value = 100;
+      updateConversionResult();
+    } 
     console.log(`Selected conversion type: ${selectedType}`);
   });
 });

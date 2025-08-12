@@ -18,17 +18,20 @@ export const conversionResultElem = document.getElementById("result-value");
 export let selectedFormulaObj;
 export let formulaDescription = document.getElementById("conversion-operation");
 
-// Formula Objects - import your digital storage formula objects
-import { digitalStandardStorageObj } from "./selectedFomulaObjects.js";
-import { digitalBitBasedObj } from "./selectedFomulaObjects.js";
-import { digitalDataTransferObj } from "./selectedFomulaObjects.js";
-import { digitalConnectionSpeedObj } from "./selectedFomulaObjects.js";
-import { digitalComputerMemoryObj } from "./selectedFomulaObjects.js";
-import { digitalDiskStructureObj } from "./selectedFomulaObjects.js";
-import { digitalStorageMediaObj } from "./selectedFomulaObjects.js";
-import { digitalHistoricalMediaObj } from "./selectedFomulaObjects.js";
-import { digitalPracticalStorageObj } from "./selectedFomulaObjects.js";
-import { digitalTransferTimeObj } from "./selectedFomulaObjects.js";
+// Formula Objects - import your volume formula objects
+import { standardMetricObj } from "./selectedFomulaObjects.js"
+import { usCustomaryObj } from "./selectedFomulaObjects.js";
+import { imperialObj } from "./selectedFomulaObjects.js";
+import { internationalCookingObj } from "./selectedFomulaObjects.js";
+import { pharmaceuticalObj } from "./selectedFomulaObjects.js";
+import { historicalObj } from "./selectedFomulaObjects.js";
+import { industrialObj } from "./selectedFomulaObjects.js";
+import { engineeringObj } from "./selectedFomulaObjects.js";
+import { automotiveObj } from "./selectedFomulaObjects.js";
+import { scientificObj } from "./selectedFomulaObjects.js";
+import { traditionalObj } from "./selectedFomulaObjects.js";
+import { foodBeverageFormulasObj } from "./selectedFomulaObjects.js";
+import { technologyObj } from "./selectedFomulaObjects.js";
 
 // Populate select elements
 export const updateSelectOptions = (formulaObject) => {
@@ -66,77 +69,99 @@ conversionTypeSelect.addEventListener("change", (event) => {
 
 // Handle conversion type change
 function handleConversionTypeChange(selectedType) {
-  if (selectedType === "standardstorage") {
-    updateSelectOptions(digitalStandardStorageObj);
-    selectedFormulaObj = digitalStandardStorageObj;
-    fromUnitSelect.value = "gigabyte [GB]";
-    toUnitSelect.value = "megabyte [MB]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "bitbased") {
-    updateSelectOptions(digitalBitBasedObj);
-    selectedFormulaObj = digitalBitBasedObj;
-    fromUnitSelect.value = "megabit [Mb]";
-    toUnitSelect.value = "byte [B]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "datatransfer") {
-    updateSelectOptions(digitalDataTransferObj);
-    selectedFormulaObj = digitalDataTransferObj;
-    fromUnitSelect.value = "megabit per second [Mbps]";
-    toUnitSelect.value = "megabyte per second [MBps]";
-    fromUnitInput.value = 8;
-    updateConversionResult();
-  } else if (selectedType === "connectionspeed") {
-    updateSelectOptions(digitalConnectionSpeedObj);
-    selectedFormulaObj = digitalConnectionSpeedObj;
-    fromUnitSelect.value = "gigabit ethernet [GbE]";
-    toUnitSelect.value = "wireless 802.11ac [WiFi-AC]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "computermemory") {
-    updateSelectOptions(digitalComputerMemoryObj);
-    selectedFormulaObj = digitalComputerMemoryObj;
-    fromUnitSelect.value = "DIMM (8GB) [DIMM8G]";
-    toUnitSelect.value = "DIMM (4GB) [DIMM4G]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "diskstructure") {
-    updateSelectOptions(digitalDiskStructureObj);
-    selectedFormulaObj = digitalDiskStructureObj;
-    fromUnitSelect.value = "cluster (4KB) [cluster]";
-    toUnitSelect.value = "sector (512-byte) [sector]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "storagemedia") {
-    updateSelectOptions(digitalStorageMediaObj);
-    selectedFormulaObj = digitalStorageMediaObj;
-    fromUnitSelect.value = "USB flash drive (32GB) [USB32G]";
-    toUnitSelect.value = "DVD (single layer) [DVD]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "historicalmedia") {
-    updateSelectOptions(digitalHistoricalMediaObj);
-    selectedFormulaObj = digitalHistoricalMediaObj;
-    fromUnitSelect.value = "floppy disk (3.5\") HD [floppyHD]";
-    toUnitSelect.value = "byte [B]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "practicalstorage") {
-    updateSelectOptions(digitalPracticalStorageObj);
-    selectedFormulaObj = digitalPracticalStorageObj;
-    fromUnitSelect.value = "MP4 video (1 minute HD) [mp4min]";
-    toUnitSelect.value = "smartphone photo [smartphoto]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  } else if (selectedType === "transfertime") {
-    updateSelectOptions(digitalTransferTimeObj);
-    selectedFormulaObj = digitalTransferTimeObj;
-    fromUnitSelect.value = "1GB at 100Mbps [GB@100Mbps]";
-    toUnitSelect.value = "1GB at 1Gbps [GB@1Gbps]";
-    fromUnitInput.value = 1;
-    updateConversionResult();
-  }
+    // Volume Converter Categories
+    if (selectedType === "standardmetric") {
+      updateSelectOptions(standardMetricObj);
+      selectedFormulaObj = standardMetricObj;
+      fromUnitSelect.value = "liter [L]";
+      toUnitSelect.value = "milliliter [mL]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "uscustomary") {
+      updateSelectOptions(usCustomaryObj);
+      selectedFormulaObj = usCustomaryObj;
+      fromUnitSelect.value = "gallon (US liquid) [gal]";
+      toUnitSelect.value = "cup (US) [cup]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "imperial") {
+      updateSelectOptions(imperialObj);
+      selectedFormulaObj = imperialObj;
+      fromUnitSelect.value = "gallon (Imperial) [gal UK]";
+      toUnitSelect.value = "pint (Imperial) [pt UK]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "internationalcooking") {
+      updateSelectOptions(internationalCookingObj);
+      selectedFormulaObj = internationalCookingObj;
+      fromUnitSelect.value = "cup (metric) [cup metric]";
+      toUnitSelect.value = "tablespoon (metric) [tbsp metric]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "pharmaceutical") {
+      updateSelectOptions(pharmaceuticalObj);
+      selectedFormulaObj = pharmaceuticalObj;
+      fromUnitSelect.value = "fluid ounce (apothecary) [fl oz ap]";
+      toUnitSelect.value = "milliliter [mL]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "foodBeverage") {
+      updateSelectOptions(foodBeverageFormulasObj);
+      selectedFormulaObj = foodBeverageFormulasObj;
+      fromUnitSelect.value = "bottle (soda 12oz) [soda12]";
+      toUnitSelect.value = "milliliter [mL]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "historical") {
+      updateSelectOptions(historicalObj);
+      selectedFormulaObj = historicalObj;
+      fromUnitSelect.value = "gallon (US liquid) [gal]";
+      toUnitSelect.value = "bath (Hebrew) [bath]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "industrial") {
+      updateSelectOptions(industrialObj);
+      selectedFormulaObj = industrialObj;
+      fromUnitSelect.value = "barrel (petroleum) [bbl oil]";
+      toUnitSelect.value = "gallon (US liquid) [gal]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "engineering") {
+      updateSelectOptions(engineeringObj);
+      selectedFormulaObj = engineeringObj;
+      fromUnitSelect.value = "cubic foot [ft³]";
+      toUnitSelect.value = "cubic meter [m³]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "automotive") {
+      updateSelectOptions(automotiveObj);
+      selectedFormulaObj = automotiveObj;
+      fromUnitSelect.value = "liter (engine) [L eng]";
+      toUnitSelect.value = "cubic inch (engine) [ci]";
+      fromUnitInput.value = 2;
+      updateConversionResult();
+    } else if (selectedType === "scientific") {
+      updateSelectOptions(scientificObj);
+      selectedFormulaObj = scientificObj;
+      fromUnitSelect.value = "milliliter [mL]";
+      toUnitSelect.value = "microliter [μL]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "technology") {
+      updateSelectOptions(technologyObj);
+      selectedFormulaObj = technologyObj;
+      fromUnitSelect.value = "ink cartridge (standard) [ink]";
+      toUnitSelect.value = "milliliter [mL]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    } else if (selectedType === "traditional") {
+      updateSelectOptions(traditionalObj);
+      selectedFormulaObj = traditionalObj;
+      fromUnitSelect.value = "gallon (US liquid) [gal]";
+      toUnitSelect.value = "sheng (Chinese) [sheng]";
+      fromUnitInput.value = 1;
+      updateConversionResult();
+    }
   console.log(`Selected conversion type: ${selectedType}`);
 }
 
@@ -155,18 +180,18 @@ export const addInputListeners = (
 // On load conversion
 const initializeConversion = () => {
   // Set initial option in the dropdown
-  const initialOption = conversionTypeSelect.querySelector('option[data-type="standardstorage"]');
+  const initialOption = conversionTypeSelect.querySelector('option[data-type="standardmetric"]');
   if (initialOption) {
     initialOption.selected = true;
   }
   
-  updateSelectOptions(digitalStandardStorageObj);
-  selectedFormulaObj = digitalStandardStorageObj;
-  fromUnitSelect.value = "gigabyte [GB]";
-  toUnitSelect.value = "megabyte [MB]";
+  updateSelectOptions(standardMetricObj);
+  selectedFormulaObj = standardMetricObj;
+  fromUnitSelect.value = "liter [L]";
+  toUnitSelect.value = "milliliter [mL]";
   fromUnitInput.value = 1;
   formulaDescription.innerText =
-    digitalStandardStorageObj[fromUnitSelect.value][toUnitSelect.value].description;
+    standardMetricObj[fromUnitSelect.value][toUnitSelect.value].description;
   updateConversionResult();
 };
 

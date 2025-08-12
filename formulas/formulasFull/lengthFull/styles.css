@@ -22,18 +22,34 @@ body {
 .header {
   background-color: #1E1E2E;
   padding: 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  /* gap: 0.5rem; */
 }
 
 .header h1 {
   margin: 0;
+  grid-column: 2;
+  grid-row: 1;
 }
 
-.home {
-  text-decoration: none;
-  color: white;
+.menu-button {
+  display: none;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
 }
 
-.breadcrumb, .breadcrumb-link {
+.breadcrumb {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  color: #6272A4;
+  font-size: 0.75rem;
+  padding-left: 0.3rem;
+}
+
+.breadcrumb-link {
   color: #6272A4;
   text-decoration: none;
   font-size: 0.75rem;
@@ -44,9 +60,27 @@ body {
   font-size: 0.75rem;
 }
 
+.home {
+  text-decoration: none;
+  color: white;
+  padding-left: 0.3rem;
+}
+
+/* =======================
+   Page Container
+======================= */
+.page-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 /* =======================
    Main Content Area
 ======================= */
+.main-content {
+  padding-right: 1rem;
+}
+
 main {
   margin-left: 0.5rem;
   margin-right: 0.3rem;
@@ -57,7 +91,7 @@ main {
 #unit-converter-header {
   margin-top: 1rem;
   margin-bottom: 0;
-  background-color: #e14242; /* Refined red - slightly deeper but still vibrant */
+  background-color: #e14242;
   width: fit-content;
   border-radius: 5px 5px 0 0;
   padding: 10px 15px;
@@ -88,7 +122,7 @@ main {
   padding: 0.5rem;
   border: none;
   border-radius: 5px;
-  background-color: #5468bd; /* Slightly refined blue */
+  background-color: #5468bd;
   color: white;
   font-size: 16px;
   height: 40px;
@@ -118,7 +152,6 @@ main {
 
 .type-label-select {
   display: none;
-  /* white-space: nowrap; */
 }
 
 .from-label-input, .to-label-input {
@@ -150,7 +183,7 @@ main {
 
 #fromUnitSelect, #toUnitSelect {
   height: 40px;
-  background-color: #5468bd; /* Slightly refined blue - matches conversion-menu */
+  background-color: #5468bd;
   color: white;
   border: none;
   border-radius: 5px;
@@ -184,7 +217,7 @@ main {
 }
 
 #conversion-formula {
-  background-color: #3F4873; /* Slightly darker for better contrast */
+  background-color: #3F4873;
   border-radius: 5px;
   display: flex;
   gap: 0.5rem;
@@ -211,11 +244,11 @@ main {
 }
 
 #conversion-result {
-  color: #4dffaa; /* Adjusted green with better contrast ratio */
+  color: #4dffaa;
   font-size: 1.05rem;
   margin: 0.5rem 0;
   padding: 0.6rem;
-  background-color: rgba(77, 255, 170, 0.1); /* Matching background */
+  background-color: rgba(77, 255, 170, 0.1);
   border-radius: 5px;
   display: flex;
   align-items: baseline;
@@ -224,11 +257,11 @@ main {
 }
 
 #conversion-result.updated {
-  background-color: rgba(77, 255, 170, 0.4); /* Matching background for updated state */
+  background-color: rgba(77, 255, 170, 0.4);
 }
 
 #result-label {
-  color: #4dffaa !important; /* Matching green */
+  color: #4dffaa !important;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   font-weight: bold;
@@ -258,7 +291,7 @@ main {
    Popular Unit Conversions Section
 ======================= */
 .popular-unit-conversions {
-  background-color: #3A4968; /* Slightly refined blue for better contrast */
+  background-color: #3A4968;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -284,13 +317,13 @@ main {
 
 .popular-unit-conversions li::before {
   content: "•";
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   position: absolute;
   left: -1rem;
 }
 
 .popular-unit-conversions a {
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   text-decoration: none;
 }
 
@@ -302,7 +335,7 @@ main {
    Complete Conversion List Section
 ======================= */
 .complete-conversion-list {
-  background-color: #3A4968; /* Matching the popular-unit-conversions section */
+  background-color: #3A4968;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -328,13 +361,13 @@ main {
 
 .complete-conversion-list li::before {
   content: "•";
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   position: absolute;
   left: -1rem;
 }
 
 .complete-conversion-list a {
-  color: #4dffaa; /* Matching green */
+  color: #4dffaa;
   text-decoration: none;
 }
 
@@ -354,6 +387,111 @@ main {
 }
 
 /* =======================
+   Sidebar Section
+======================= */
+.sidebar {
+  margin-top: 1.5rem;
+  margin-left: 3rem;
+  justify-self: start;
+  width: 300px;
+}
+
+.sidebar-title-container {
+  /* Styles defined in mobile section */
+}
+
+.sidebar-title {
+  margin-top: 0;
+  color: white;
+  background-color: #373c58;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 5px 5px 0 0;
+  margin-bottom: 0px;
+  width: 100%;
+}
+
+.all-converters-container {
+  background-color: #252836;
+  border-radius: 4px;
+  padding: 10px;
+  position: absolute;
+  width: 300px;
+}
+
+.close-menu {
+  display: none;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #5468bd;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  text-align: left;
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+}
+
+.dropdown-arrow {
+  justify-self: end;
+}
+
+.dropdown-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 0.3rem;
+  background-color: rgb(63, 72, 115);
+  border-radius: 0.3rem;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+}
+
+.dropdown-menu.visible {
+  display: grid;
+  gap: 0rem;
+}
+
+.dropdown-menu li {
+  padding: 0;
+  margin: 0.2rem;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 0.2rem;
+  font-size: 0.85rem;
+  padding: 0.3rem;
+  display: block;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.dropdown-menu a:hover {
+  background-color: rgb(232, 53, 53);
+  letter-spacing: 0.01rem;
+}
+
+/* =======================
    Footer
 ======================= */
 footer {
@@ -367,9 +505,108 @@ footer {
 }
 
 /* =======================
-   Responsive Design
+   Test Button (can be removed in production)
+======================= */
+.submit-test-button {
+  background-color: #333;
+  color: white;
+  border: 1px solid #444;
+  padding: 8px 16px;
+  border-radius: 4px;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.submit-test-button:hover {
+  background-color: #444;
+}
+
+/* Breadcrumb and home link effects */
+.breadcrumb-link, .home {
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover, .home:hover {
+  color: #a5b4e2;
+}
+
+.group {
+  color: rgb(42, 40, 40);
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* =======================
+   Mobile Responsive Design
 ======================= */
 @media (max-width: 768px) {
+  /* Main Content Blur Effect */
+  main.main-visible {
+    filter: blur(3px);
+    content: "";
+    pointer-events: none;
+  }
+
+  /* Header Mobile Styles */
+  .header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.3rem;
+    padding-left: 0.5rem;
+  }
+
+  .menu-button {
+    display: block;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 1.9rem;
+    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 0.2rem;
+  }
+
+  .header h1 {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .home {
+    justify-self: center;
+    align-self: center;
+  }
+
+  .breadcrumb {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: -0.3rem;
+  }
+
+  /* Page Container Mobile */
+  .page-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Main Content Mobile */
+  .main-content {
+    padding-right: 0;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
   main {
     width: 96%;
     margin-left: auto;
@@ -379,6 +616,11 @@ footer {
   
   .main-form {
     grid-template-columns: 1fr;
+  }
+
+  .converter-section {
+    padding-top: 0.3rem;
+    padding-bottom: 0.50rem;
   }
 
   .conversion-nav {
@@ -409,6 +651,7 @@ footer {
   .from-label-input-mobile {
     display: inline;
     font-weight: bold;
+    font-size: 0.9rem;
   }
 
   .fromSelect-wrapper, .toSelect-wrapper {
@@ -421,6 +664,7 @@ footer {
     display: inline-block;
     margin-right: 0.3rem;
     font-weight: bold;
+    font-size: 0.9rem;
   }
 
   #toUnitInput {
@@ -438,37 +682,75 @@ footer {
   #conversion-formula {
     margin-bottom: 0rem;
   }
-}
 
-/* =======================
-   Test Button (can be removed in production)
-======================= */
-.submit-test-button {
-  background-color: #333;
-  color: white;
-  border: 1px solid #444;
-  padding: 8px 16px;
-  border-radius: 4px;
-  margin-top: 1rem;
-  cursor: pointer;
-}
+  /* Sidebar Mobile Styles */
+  .sidebar {
+    display: none;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    max-width: 600px;
+    justify-self: center;
+    background-color: #252836;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  }
 
-.submit-test-button:hover {
-  background-color: #444;
-}
+  .sidebar.visible {
+    display: block;
+    position: absolute;
+    left: 0;
+    animation: fadeInScale 0.2s ease-out forwards;
+  }
 
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scaleY(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scaleY(1);
+    }
+  }
 
-/* Breadcrumb and home link effects */
-.breadcrumb-link, .home {
-  transition: color 0.3s ease;
-}
+  .sidebar-title-container {
+    display: grid;
+    grid-template-columns: 10fr auto;
+  }
 
-.breadcrumb-link:hover, .home:hover {
-  color: #a5b4e2; /* More noticeable color shift */
-}
+  .sidebar-title {
+    width: 125%;
+    background-color: #1e1e2e;
+    border-radius: 0%;
+    border-top: 1px solid white;
+    font-weight: bold;
+    padding-bottom: 0.3rem;
+    padding-left: 0.7rem;
+  }
 
-.group {
-  color: rgb(42, 40, 40);
-  font-size: 1.1rem;
-  font-style: italic;
+  .close-menu {
+    display: block;
+    align-self: end;
+    justify-self: start;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: none;
+    margin-right: 0.4rem;
+    padding-left: 1rem;
+  }
+
+  .all-converters-container {
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    background-color: #1e1e2e;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    left: 0;
+    padding-top: 0.4rem;
+  }
 }

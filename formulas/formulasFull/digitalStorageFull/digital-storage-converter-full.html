@@ -4,103 +4,167 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Unit converter</title>
+    <title>Digital Storage Converter - Unit Conversion</title>
   </head>
   <body>
     <header class="header">
+      <button class="menu-button" id="menuButton" aria-label="Open menu">
+        ☰
+      </button>
       <h1><a href="../../../index.html" class="home">Unit Conversion</a></h1>
       <nav class="breadcrumb" aria-label="breadcrumb">
-        <a href="../../../index.html" class="breadcrumb-link">Home</a> / 
-        <a href="/formulas/formulasFull/lengthFull/length-converter-full.html" class="breadcrumb-link">Digital Converters</a> / 
+        <a href="/index.html" class="breadcrumb-link">Home</a> / 
+        <a href="/formulas/formulasFull/digitalFull/digital-storage-converter-full.html" class="breadcrumb-link">Essential Converters</a> / 
         <span class="breadcrumb-current">Digital Storage Converter</span>
       </nav>
     </header>
 
-    <main>
-      <h2 id="unit-converter-header">Digital Storage Converter</h2>
-      <section class="converter-section">
-        <nav aria-label="Unit conversion categories" class="conversion-nav">
-          <div class="conversionType-wrapper">
-            <label for="conversion-type-select" class="type-label-select">Type:</label>
-            <select id="conversion-type-select" class="conversion-menu" name="conversionType">
-              <option data-type="standardstorage">Standard Storage</option>
-              <option data-type="bitbased">Bit-Based Units</option>
-              <option data-type="datatransfer">Data Transfer</option>
-              <option data-type="connectionspeed">Connection Speed</option>
-              <option data-type="computermemory">Computer Memory</option>
-              <option data-type="diskstructure">Disk Structure</option>
-              <option data-type="storagemedia">Storage Media</option>
-              <option data-type="historicalmedia">Historical Media</option>
-              <option data-type="practicalstorage">Practical Storage</option>
-              <option data-type="transfertime">Transfer Time</option>
-            </select>
-          </div>
-        </nav>
-        <form class="main-form">
-          <div class="form-group">
-            <label class="from-label-input" for="fromUnitInput">From:</label>
-            <div class="fromInput-wrapper">
-              <label for="fromUnitInput" class="from-label-input-mobile">Amount:</label>
+    <div class="page-container">
+      <main class="main-content">
+        <h2 id="unit-converter-header">Digital Storage Converter</h2>
+        <section class="converter-section">
+          <nav aria-label="Unit conversion categories" class="conversion-nav">
+            <div class="conversionType-wrapper">
+              <label for="conversion-type-select" class="type-label-select">Type:</label>
+              <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+                <option data-type="standardstorage">Standard Storage</option>
+                <option data-type="bitbased">Bit-Based Units</option>
+                <option data-type="datatransfer">Data Transfer</option>
+                <option data-type="connectionspeed">Connection Speed</option>
+                <option data-type="computermemory">Computer Memory</option>
+                <option data-type="diskstructure">Disk Structure</option>
+                <option data-type="storagemedia">Storage Media</option>
+                <option data-type="historicalmedia">Historical Media</option>
+                <option data-type="practicalstorage">Practical Storage</option>
+                <option data-type="transfertime">Transfer Time</option>
+              </select>
+            </div>
+          </nav>
+          <form class="main-form">
+            <div class="form-group">
+              <label class="from-label-input" for="fromUnitInput">From:</label>
+              <div class="fromInput-wrapper">
+                <label for="fromUnitInput" class="from-label-input-mobile">Amount:</label>
+                <input
+                  type="number"
+                  id="fromUnitInput"
+                  aria-label="From unit"
+                  placeholder="Enter value"
+                />
+              </div>
+              <div class="fromSelect-wrapper">
+                <label for="fromUnitSelect" class="from-label-select">From:</label>
+                <select id="fromUnitSelect" aria-label="Select from unit"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="to-label-input" for="toUnitInput">To:</label>
               <input
-                type="number"
-                id="fromUnitInput"
-                aria-label="From unit"
-                placeholder="Enter value"
+                type="text"
+                id="toUnitInput"
+                aria-label="To Unit"
+                placeholder="Converted value"
+                readonly
               />
+              <div class="toSelect-wrapper">
+                <label for="toUnitSelect" class="to-label-select">To:</label>
+                <select id="toUnitSelect" aria-label="Select to unit"></select>
+              </div>
             </div>
-            <div class="fromSelect-wrapper">
-              <label for="fromUnitSelect" class="from-label-select">From:</label>
-              <select id="fromUnitSelect" aria-label="Select from unit"></select>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="to-label-input" for="toUnitInput">To:</label>
-            <input
-              type="text"
-              id="toUnitInput"
-              aria-label="To Unit"
-              placeholder="Converted value"
-              readonly
-            />
-            <div class="toSelect-wrapper">
-              <label for="toUnitSelect" class="to-label-select">To:</label>
-              <select id="toUnitSelect" aria-label="Select to unit"></select>
-            </div>
-          </div>
-        </form>
-        <section id="conversion-details">
-          <aside id="conversion-formula" role="note">
-            <p id="formula-text"></p>
-            <p id="conversion-operation"></p>
-          </aside>
-          <p id="conversion-result" role="status" aria-live="polite">
-            <span id="result-label">Result:</span>
-            <span id="result-value"></span>
-          </p>
+          </form>
+          <section id="conversion-details">
+            <aside id="conversion-formula" role="note">
+              <p id="formula-text"></p>
+              <p id="conversion-operation"></p>
+            </aside>
+            <p id="conversion-result" role="status" aria-live="polite">
+              <span id="result-label">Result:</span>
+              <span id="result-value"></span>
+            </p>
+          </section>
         </section>
-      </section>
-      <section class="popular-unit-conversions">
-        <h3>Popular unit conversions</h3>
-        <ul>
-          <li>
-            <a href="./digital-converters/bytes-to-kb.html">Bytes to Kilobytes</a>
-          </li>
-          <li><a href="./digital-converters/gb-to-mb.html">Gigabytes to Megabytes</a></li>
-          <li><a href="./digital-converters/mb-to-kb.html">Megabytes to Kilobytes</a></li>
-        </ul>
-      </section>
-      <section class="complete-conversion-list">
-        <h3>Complete conversion list</h3>
-        <ul>
-          <li><a href="/common">Common Converters</a></li>
-          <li><a href="/ancient">Ancient Unit Converters</a></li>
-          <li><a href="/heat">Heat Converters</a></li>
-          <li><a href="/fluids">Fluids Converters</a></li>
-          <li><a href="/light">Light Converters</a></li>
-        </ul>
-      </section>
-      <button class="submit-test-button">Test Btn</button>
-    </main>
+        <section class="popular-unit-conversions">
+          <h3>Popular unit conversions</h3>
+          <ul>
+            <li>
+              <a href="./digital-converters/bytes-to-kb.html">Bytes to Kilobytes</a>
+            </li>
+            <li><a href="./digital-converters/gb-to-mb.html">Gigabytes to Megabytes</a></li>
+            <li><a href="./digital-converters/mb-to-kb.html">Megabytes to Kilobytes</a></li>
+          </ul>
+        </section>
+        <section class="complete-conversion-list">
+          <h3>Complete conversion list</h3>
+          <ul>
+            <li><a href="/common">Common Converters</a></li>
+            <li><a href="/ancient">Ancient Unit Converters</a></li>
+            <li><a href="/heat">Heat Converters</a></li>
+            <li><a href="/fluids">Fluids Converters</a></li>
+            <li><a href="/light">Light Converters</a></li>
+          </ul>
+        </section>
+        <button class="submit-test-button">Test Btn</button>
+      </main>
+
+      <aside class="sidebar">
+        <div class="sidebar-title-container">
+          <h2 class="sidebar-title">Converter Library</h2>
+          <button class="close-menu">&times;</button>
+        </div>
+        <div class="all-converters-container">
+          <div class="dropdown">
+            <button class="dropdown-button">Essential Converters<span class="dropdown-arrow">⌵</span></button>
+            <ul class="dropdown-menu">
+              <li><a href="./length-converter-full.html">Length</a></li>
+              <li><a href="./weight-converter-full.html">Weight & Mass</a></li>
+              <li><a href="">Temperature</a></li>
+              <li><a href="">Volume</a></li>
+              <li><a href="">Area</a></li>
+              <li><a href="">Speed</a></li>
+              <li><a href="">Time</a></li>
+              <li><a href="">Digital Storage</a></li>
+              <li><a href="">Energy</a></li>
+              <li><a href="">Power</a></li>
+              <li><a href="">Pressure</a></li>
+              <li><a href="">Force</a></li>
+              <li><a href="">Angles</a></li>
+              <li><a href="">Fuel Economy</a></li>
+              <li><a href="">Number Systems</a></li>
+              <li><a href="">Dry Volume</a></li>
+              <li><a href="">Text Case</a></li>
+            </ul>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-button">Technical Converters<span class="dropdown-arrow">⌵</span></button>
+            <ul class="dropdown-menu">
+              <li><a href="">Pressure</a></li>
+              <li><a href="">Energy</a></li>
+              <li><a href="">Power</a></li>
+              <li><a href="">Force</a></li>
+              <li><a href="">Torque</a></li>
+              <li><a href="">Density</a></li>
+              <li><a href="">Temperature</a></li>
+              <li><a href="">Volume</a></li>
+              <li><a href="">Area</a></li>
+              <li><a href="">Speed</a></li>
+              <li><a href="">Acceleration</a></li>
+              <li><a href="">Angular Velocity</a></li>
+              <li><a href="">Angular Acceleration</a></li>
+              <li><a href="">Angles</a></li>
+              <li><a href="">Time</a></li>
+              <li><a href="">Fuel Economy</a></li>
+              <li><a href="">Digital Storage</a></li>
+              <li><a href="">Dry Volume</a></li>
+              <li><a href="">Specific Volume</a></li>
+              <li><a href="">Moment of Inertia</a></li>
+              <li><a href="">Moment of Force</a></li>
+              <li><a href="">Currency</a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+
     <footer>
       <p>&copy; 2025 Unit Converter</p>
     </footer>
