@@ -26,6 +26,7 @@ fromUnitSelect.addEventListener("change", () => {
   if (fromUnitSelect.value !== toUnitSelect.value) {
     fromTemp = fromUnitSelect.value;
   }
+  updateConversionResult();
 });
 
 toUnitSelect.addEventListener("focus", updateTempValues);
@@ -33,6 +34,7 @@ toUnitSelect.addEventListener("change", () => {
   if (toUnitSelect.value !== fromUnitSelect.value) {
     toTemp = toUnitSelect.value;
   }
+  updateConversionResult();
 });
 
 //Convert a value from one unit to another
@@ -69,8 +71,8 @@ export function updateConversionResult() {
   if (fromUnitSelect.value === toUnitSelect.value) {
     console.warn("Same unit detected - Swapping units");
     let temp = fromUnitInput.value;
-    fromUnitInput.value = toUnitInput.value;
-    toUnitInput.value = temp;
+    // fromUnitInput.value = toUnitInput.value;
+    // toUnitInput.value = temp;
     toUnitSelect.value = fromTemp;
     fromUnitSelect.value = toTemp;
     fromTemp = fromUnitSelect.value;

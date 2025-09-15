@@ -4,32 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
-    <title>Unit converter</title>
+    <title>Time Converter - Unit Conversion</title>
   </head>
   <body>
     <header class="header">
       <button class="menu-button" id="menuButton" aria-label="Open menu">
         ☰
       </button>
-      <h1><a class="home" href="./index.html">Unit Conversion</a></h1>
+      <h1><a href="../../../index.html" class="home">Unit Conversion</a></h1>
+      <nav class="breadcrumb" aria-label="breadcrumb">
+        <a href="/index.html" class="breadcrumb-link">Home</a> / 
+        <a href="/formulas/formulasFull/digitalFull/digital-storage-converter-full.html" class="breadcrumb-link">Essential Converters</a> / 
+        <span class="breadcrumb-current">Time Converter</span>
+      </nav>
     </header>
 
     <div class="page-container">
       <main class="main-content">
-        <h2 id="unit-converter-header">Essential Unit Conversions</h2>
-        <nav class="main-nav">
-          <ul class="conversion-menu">
-            <li><button class="tab active" data-type="length">Length</button></li>
-            <li><button data-type="temperature">Temperature</button></li>
-            <li><button data-type="weight">Weight</button></li>
-            <li><button data-type="volume">Volume</button></li>
-            <li><button data-type="area">Area</button></li>
-            <li><button data-type="time">Time</button></li>
-            <li><button data-type="digital-storage">Data</button></li>
-          </ul>
-        </nav>
+        <h2 id="unit-converter-header">Time Converter</h2>
         <section class="converter-section">
-          <!-- Keep your existing converter form here -->
+          <nav aria-label="Unit conversion categories" class="conversion-nav">
+            <div class="conversionType-wrapper">
+              <label for="conversion-type-select" class="type-label-select">Type:</label>
+              <select id="conversion-type-select" class="conversion-menu" name="conversionType">
+                <option data-type="standardtime">Standard Time Units</option>
+                <option data-type="workbusiness">Work & Business Time</option>
+                <option data-type="astronomical">Astronomical & Calendar Time</option>
+                <option data-type="historical">Historical & Traditional Time</option>
+                <option data-type="scientific">Scientific & Technical Time</option>
+                <option data-type="media">Media & Entertainment Time</option>
+                <option data-type="sports">Sports & Recreation Time</option>
+                <option data-type="cooking">Cooking & Kitchen Time</option>
+                <option data-type="transportation">Transportation & Travel Time</option>
+                <option data-type="biological">Biological & Life Time</option>
+              </select>
+            </div>
+          </nav>
           <form class="main-form">
             <div class="form-group">
               <label class="from-label-input" for="fromUnitInput">From:</label>
@@ -72,16 +82,15 @@
               <span id="result-value"></span>
             </p>
           </section>
-          <section id="links-and-buttons">
-            <div id="se"></div>
-          </section>
         </section>
         <section class="popular-unit-conversions">
           <h3>Popular unit conversions</h3>
           <ul>
-            <li><a href="./conversions/length/meters-to-cm.html">Meters to Centimeters</a></li>
-            <li><a href="./conversions/length/cm-to-meters.html">Centimeters to Meters</a></li>
-            <li><a href="/celsius-to-fahrenheit">Celsius to Fahrenheit</a></li>
+            <li>
+              <a href="./volume-converters/gallon-to-liter.html">Gallons to Liters</a>
+            </li>
+            <li><a href="./volume-converters/liter-to-quart.html">Liters to Quarts</a></li>
+            <li><a href="./volume-converters/cup-to-ml.html">Cups to Milliliters</a></li>
           </ul>
         </section>
         <section class="complete-conversion-list">
@@ -94,6 +103,7 @@
             <li><a href="/light">Light Converters</a></li>
           </ul>
         </section>
+        <button class="submit-test-button">Test Btn</button>
       </main>
 
       <aside class="sidebar">
@@ -105,8 +115,8 @@
           <div class="dropdown">
             <button class="dropdown-button">Essential Converters<span class="dropdown-arrow">⌵</span></button>
             <ul class="dropdown-menu">
-              <li><a href="./formulas/formulasFull/lengthFull/length-converter-full.html">Length</a></li>
-              <li><a href="">Weight & Mass</a></li>
+              <li><a href="./length-converter-full.html">Length</a></li>
+              <li><a href="./weight-converter-full.html">Weight & Mass</a></li>
               <li><a href="">Temperature</a></li>
               <li><a href="">Volume</a></li>
               <li><a href="">Area</a></li>
@@ -143,7 +153,7 @@
               <li><a href="">Angles</a></li>
               <li><a href="">Time</a></li>
               <li><a href="">Fuel Economy</a></li>
-              <li><a href="./formulas/formulasFull/digitalStorageFull/digital-storage-converter-full.html">Digital Storage</a></li>
+              <li><a href="">Digital Storage</a></li>
               <li><a href="">Dry Volume</a></li>
               <li><a href="">Specific Volume</a></li>
               <li><a href="">Moment of Inertia</a></li>
@@ -151,7 +161,6 @@
               <li><a href="">Currency</a></li>
             </ul>
           </div>
-          <!-- Add more dropdown categories here as needed -->
         </div>
       </aside>
     </div>

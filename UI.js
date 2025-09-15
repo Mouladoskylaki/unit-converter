@@ -15,6 +15,7 @@ const menuButton = document.querySelector(".menu-button");
 const convertersContainer = document.querySelector(".all-converters-container");
 const sidebar = document.querySelector(".sidebar");
 const main = document.querySelector(".main-content");
+const linkAndButtons = document.getElementById("links-and-buttons");
 
 export const conversionResultElem = document.getElementById("result-value");
 export let selectedFormulaObj;
@@ -29,6 +30,7 @@ import { digitalStorageFormObj } from "./selectedFormulaObjects.js";
 import { massWeightFormObj } from "./selectedFormulaObjects.js";
 import { volumeFormObj } from "./selectedFormulaObjects.js";
 import { areaFormObj } from "./selectedFormulaObjects.js";
+import { timeFormObj } from "./selectedFormulaObjects.js";
 
 // Populate select elements
 export const updateSelectOptions = (formulaObject) => {
@@ -81,6 +83,7 @@ menuButtons.forEach((button) => {
     removeLink("link-to-full-length-converter");
     removeLink("link-to-full-volume-converter");
     removeLink("link-to-full-area-converter");
+    removeLink("link-to-full-time-converter");
     removeLink("link-to-full-anc-chinese-converter");
     removeLink("link-to-full-cooking-converter");
     removeLink("link-to-full-digital-storage-converter");
@@ -98,7 +101,7 @@ menuButtons.forEach((button) => {
         "link-to-full-length-converter",
         "Full Length Converter",
         "./formulas/formulasFull/lengthFull/length-converter-full.html",
-        converterSection
+        linkAndButtons
       );
       updateSelectOptions(lengthFormObj);
       selectedFormulaObj = lengthFormObj;
@@ -184,6 +187,19 @@ menuButtons.forEach((button) => {
       toUnitSelect.value = "square meter [m²]";
       fromUnitInput.value = 100;
       updateConversionResult();
+    } else if (selectedType === "time") {
+      addLink(
+        "link-to-full-time-converter",
+        "Complete Time Converter",
+        "formulas/formulasFull/timeFull/time-converter-full.html",
+        converterSection
+      );
+      updateSelectOptions(timeFormObj);
+      selectedFormulaObj = timeFormObj;
+      fromUnitSelect.value = "hour [h]";
+      toUnitSelect.value = "minute [min]";
+      fromUnitInput.value = 2;
+      updateConversionResult();
     } 
     console.log(`Selected conversion type: ${selectedType}`);
   });
@@ -204,7 +220,7 @@ const initializeConversion = () => {
     "link-to-full-length-converter",
     "Full Length Converter",
     "./formulas/formulasFull/lengthFull/length-converter-full.html",
-    converterSection
+    linkAndButtons
   );
 };
 
@@ -260,6 +276,7 @@ export const updateConversionResultElem = () => {
     );
   }
 };
+
 
 // Mobile Autoscroll
 document.addEventListener("DOMContentLoaded", function () {

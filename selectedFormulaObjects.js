@@ -4,6 +4,7 @@ import { generateConversions } from "./utils.js";
 
 import { volumeFormulas } from "./formulas/volumeFormulas.js";
 import { areaFormulas } from "./formulas/areaFormulas.js";
+import { timeFormulas } from "./formulas/timeFormulas.js";
 import { massWeightFormulas } from "./formulas/massWeightFormulas.js";
 import { lengthFormulas } from "./formulas/lengthFormulas.js";
 import { lengthFormulasFull } from "./formulas/formulasFull/lengthFull/lengthFormulasFull.js";
@@ -15,6 +16,7 @@ import { speedFormulasFull } from "./formulas/formulasFull/speedFormulasFull.js"
 import { ancientChineseLengthFormulas } from "./formulas/ancientUnitFormulas/ancientChineseLengthFormulas.js";
 
 export const areaFormObj = generateConversions(areaFormulas, customPrecision, "area");
+export const timeFormObj = generateConversions(timeFormulas, customPrecision, "time");
 export const volumeFormObj = generateConversions(volumeFormulas, customPrecision, 'volume');
 export const massWeightFormObj = generateConversions(massWeightFormulas, customPrecision, 'weightMass');
 export const lengthFormObj = generateConversions(lengthFormulas, customPrecision, 'length');

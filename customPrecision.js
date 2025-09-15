@@ -515,5 +515,50 @@ area: {
   "square megameter [Mm²]": 2,
   "square gigameter [Gm²]": 2,
   "square terameter [Tm²]": 2,
+},
+
+time: {
+  // Basic Time Units
+  "second [s]": 0,
+  "minute [min]": 0,
+  "hour [h]": 0,
+  "day [d]": 0,
+  "week [wk]": 0,
+  "month [mo]": 0,
+  "year [yr]": 0,
+
+  // Sub-second Units
+  "millisecond [ms]": 3,
+  "microsecond [μs]": 6,
+  "nanosecond [ns]": 9,
+
+  // Extended Time Periods
+  "decade [dec]": 0,
+  "century [c]": 0,
+  "millennium [mil]": 0,
+
+  // Work & Business Time
+  "workday [wd]": 0,
+  "work week [ww]": 0,
+  "business month [bmo]": 0,
+  "quarter [qtr]": 0,
+
+  // Alternative Time Measurements
+  "fortnight [fn]": 0,
+  "lunar month [lmo]": 0,
+  "sidereal day [sd]": 0,
+  "sidereal year [syr]": 1,
+
+  // Common Cooking/Timer Units
+  "15 minutes [15min]": 0,
+  "30 minutes [30min]": 0,
+  "45 minutes [45min]": 0,
+  "1.5 hours [1.5h]": 0,
+  "2 hours [2h]": 0,
+
+  // Media & Entertainment
+  "film frame (24fps) [frame]": 8,
+  "TV frame (30fps) [tvframe]": 8,
+  "beat (music) [beat]": 1
 }
 };

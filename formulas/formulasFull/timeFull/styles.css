@@ -1,15 +1,15 @@
 /* =======================
    Font Imports
 ======================= */
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
 
 /* =======================
    Global Styles
 ======================= */
 html {
-  background-color: #2a2a49;
+  background-color: #2A2A49;
   color: white;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
@@ -20,21 +20,50 @@ body {
    Header Section
 ======================= */
 .header {
-  background-color: #1e1e2e;
+  background-color: #1E1E2E;
   padding: 0.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: auto auto;
+  /* gap: 0.5rem; */
 }
 
 .header h1 {
   margin: 0;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.menu-button {
+  display: none;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+}
+
+.breadcrumb {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  color: #6272A4;
+  font-size: 0.75rem;
+  padding-left: 0.3rem;
+}
+
+.breadcrumb-link {
+  color: #6272A4;
+  text-decoration: none;
+  font-size: 0.75rem;
+}
+
+.breadcrumb-current {
+  color: #6272A4;
+  font-size: 0.75rem;
 }
 
 .home {
   text-decoration: none;
   color: white;
-}
-
-.menu-button {
-  display: none;
+  padding-left: 0.3rem;
 }
 
 /* =======================
@@ -46,7 +75,7 @@ body {
 }
 
 /* =======================
-   Main Content Section
+   Main Content Area
 ======================= */
 .main-content {
   padding-right: 1rem;
@@ -59,70 +88,19 @@ main {
   width: 600px;
 }
 
-/* Unit Converter Header */
 #unit-converter-header {
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
+  background-color: #e14242;
   width: fit-content;
   border-radius: 5px 5px 0 0;
-}
-
-/* =======================
-   Navigation Menu
-======================= */
-.conversion-menu {
-  width: 100%;
-  padding: 0;
-  margin: 0;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  font-size: 1rem;
-  height: 40px;
-  box-sizing: border-box;
-  appearance: auto;
-  display: flex;
-  list-style: none;
-  gap: 4px;
-  justify-content: space-around;
-}
-
-.conversion-menu li {
-  margin: 0;
-  list-style-type: none;
-}
-
-.conversion-menu:focus {
-  outline: 2px solid rgba(94, 114, 189, 0.5);
-  outline-offset: -1px;
-}
-
-.conversion-menu button {
-  background-color: #373c58;
-  color: white;
-  border: none;
   padding: 10px 15px;
-  font-size: 16px;
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 5px 5px 0 0;
-  transition: background-color 0.2s;
-  min-height: 40px;
-}
-
-.conversion-menu button:hover,
-button[data-type]:hover {
-  background-color: #4b5584;
-}
-
-.conversion-menu button.active,
-button[data-type].active {
-  background-color: rgb(232, 53, 53);
-  color: white;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 /* =======================
-   Converter Form Section
+   Converter Section
 ======================= */
 .converter-section {
   background-color: #252836;
@@ -131,6 +109,30 @@ button[data-type].active {
   padding: 1rem;
   width: 100%;
   box-sizing: border-box;
+}
+
+.conversion-nav {
+  padding: 0;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+.conversion-menu {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #5468bd;
+  color: white;
+  font-size: 16px;
+  height: 40px;
+  box-sizing: border-box;
+  appearance: auto;
+}
+
+.conversion-menu:focus {
+  outline: 2px solid rgba(94, 114, 189, 0.5);
+  outline-offset: -1px;
 }
 
 .main-form {
@@ -148,13 +150,11 @@ button[data-type].active {
   width: 100%;
 }
 
-/* Form Labels */
 .type-label-select {
   display: none;
 }
 
-.from-label-input,
-.to-label-input {
+.from-label-input, .to-label-input {
   font-weight: bold;
 }
 
@@ -162,14 +162,11 @@ button[data-type].active {
   display: none;
 }
 
-.from-label-select,
-.to-label-select {
+.from-label-select, .to-label-select {
   display: none;
 }
 
-/* Form Inputs */
-#fromUnitInput,
-#toUnitInput {
+#fromUnitInput, #toUnitInput {
   height: 40px;
   padding: 0 10px;
   border: none;
@@ -179,15 +176,12 @@ button[data-type].active {
   box-sizing: border-box;
 }
 
-#fromUnitInput:focus,
-#toUnitInput:focus {
+#fromUnitInput:focus, #toUnitInput:focus {
   outline: 2px solid rgba(84, 104, 189, 0.6);
   outline-offset: -1px;
 }
 
-/* Form Selects */
-#fromUnitSelect,
-#toUnitSelect {
+#fromUnitSelect, #toUnitSelect {
   height: 40px;
   background-color: #5468bd;
   color: white;
@@ -199,8 +193,7 @@ button[data-type].active {
   box-sizing: border-box;
 }
 
-#fromUnitSelect:focus,
-#toUnitSelect:focus {
+#fromUnitSelect:focus, #toUnitSelect:focus {
   outline: 2px solid rgba(84, 104, 189, 0.6);
   outline-offset: -1px;
 }
@@ -224,7 +217,7 @@ button[data-type].active {
 }
 
 #conversion-formula {
-  background-color: #3f4873;
+  background-color: #3F4873;
   border-radius: 5px;
   display: flex;
   gap: 0.5rem;
@@ -236,14 +229,14 @@ button[data-type].active {
   box-sizing: border-box;
 }
 
-#formula-text {
-  color: white;
-  margin: 0;
-}
-
 #formula-text::before {
   content: "Conversion formula:";
   font-weight: bold;
+}
+
+#formula-text {
+  color: white;
+  margin: 0;
 }
 
 #conversion-operation {
@@ -268,78 +261,37 @@ button[data-type].active {
 }
 
 #result-label {
-  color: #4dffaa;
+  color: #4dffaa !important;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-/* Alternative: Pulse effect instead of shimmer (even safer) */
 .toggle-sn-off {
-  background: rgba(6, 182, 212, 0.15);
-  border: 1px solid rgba(6, 182, 212, 0.3);
-  color: #06b6d4;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
+  font-size: 1.5rem;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 700;
-  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
-  font-style: italic;
-  transition: all 0.3s ease;
-  min-width: 32px;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(6, 182, 212, 0.1);
 }
 
 .toggle-sn-off:hover {
-  background: rgba(6, 182, 212, 0.25);
-  color: #ffffff;
-  border-color: #06b6d4;
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.3);
-  animation: gentle 1.5s ease-in-out infinite;
+  color: gray;
 }
 
 .toggle-sn-on {
-  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-  border: 1px solid #06b6d4;
-  color: #ffffff;
-  padding: 0.25rem 0.5rem;
-  border-radius: 6px;
+  font-size: 1.5rem;
+  color: gray;
   cursor: pointer;
-  font-size: 0.9rem;
-  font-weight: 700;
-  font-family: 'SF Mono', 'Monaco', 'Cascadia Code', 'Roboto Mono', monospace;
-  font-style: italic;
-  transition: all 0.3s ease;
-  min-width: 32px;
-  text-align: center;
-  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.4);
 }
 
 .toggle-sn-on:hover {
-  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
-  transform: translateY(-1px) scale(1.05);
-  box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
-  animation: gentle 1.5s ease-in-out infinite;
-}
-
-@keyframes gentle {
-  0%, 100% { 
-      box-shadow: 0 6px 20px rgba(6, 182, 212, 0.5);
-  }
-  50% { 
-      box-shadow: 0 6px 25px rgba(6, 182, 212, 0.7);
-  }
+  color: white;
 }
 
 /* =======================
    Popular Unit Conversions Section
 ======================= */
 .popular-unit-conversions {
-  background-color: #3a4968;
+  background-color: #3A4968;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -383,7 +335,7 @@ button[data-type].active {
    Complete Conversion List Section
 ======================= */
 .complete-conversion-list {
-  background-color: #3a4968;
+  background-color: #3A4968;
   border-radius: 5px;
   padding: 1rem;
   margin-bottom: 1.25rem;
@@ -423,63 +375,15 @@ button[data-type].active {
   text-decoration: underline;
 }
 
-/* Special Link Styles */
-.link-to-full-length-converter,
-.link-to-full-mass-weight-converter,
-.link-to-full-volume-converter,
-.link-to-full-area-converter,
-.link-to-full-time-converter,
-.link-to-full-digital-storage-converter {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  border: 2px solid #3f4873;
-  color: white;
-  padding: 0.5rem 0.7rem;
-  margin-top: 0.15rem;
-  border-radius: 6px;
+.link-to-full-length-converter {
+  display: block;
+  margin-top: 0.5rem;
+  color: #5086fa;
   text-decoration: none;
-  background: transparent;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  font-size: 0.9rem;
 }
 
-.link-to-full-length-converter::before,
-.link-to-full-mass-weight-converter::before,
-.link-to-full-volume-converter::before,
-.link-to-full-area-converter::before,
-.link-to-full-time-converter::before,
-.link-to-full-digital-storage-converter::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: #3f4873;
-  transition: left 0.3s ease;
-  z-index: -1;
-}
-
-.link-to-full-length-converter:hover::before,
-.link-to-full-mass-weight-converter:hover::before,
-.link-to-full-volume-converter:hover::before,
-.link-to-full-area-converter:hover::before,
-.link-to-full-time-converter:hover::before,
-.link-to-full-digital-storage-converter:hover::before {
-  left: 0;
-}
-
-.link-to-full-length-converter:hover,
-.link-to-full-mass-weight-converter:hover,
-.link-to-full-volume-converter:hover,
-.link-to-full-area-converter:hover,
-.link-to-full-time-converter:hover,
-.link-to-full-digital-storage-converter:hover {
-  color: white;
-  transform: translateX(0.01px);
+.link-to-full-length-converter:hover {
+  text-decoration: underline;
 }
 
 /* =======================
@@ -588,20 +492,20 @@ button[data-type].active {
 }
 
 /* =======================
-   Footer Section
+   Footer
 ======================= */
 footer {
   margin-top: 2rem;
   padding: 1rem;
   text-align: center;
-  background-color: #1e1e2e;
+  background-color: #1E1E2E;
   font-size: 14px;
   width: 100%;
   box-sizing: border-box;
 }
 
 /* =======================
-   Test Button (Development Only)
+   Test Button (can be removed in production)
 ======================= */
 .submit-test-button {
   background-color: #333;
@@ -615,6 +519,21 @@ footer {
 
 .submit-test-button:hover {
   background-color: #444;
+}
+
+/* Breadcrumb and home link effects */
+.breadcrumb-link, .home {
+  transition: color 0.3s ease;
+}
+
+.breadcrumb-link:hover, .home:hover {
+  color: #a5b4e2;
+}
+
+.group {
+  color: rgb(42, 40, 40);
+  font-size: 1rem;
+  font-style: italic;
 }
 
 /* =======================
@@ -631,8 +550,10 @@ footer {
   /* Header Mobile Styles */
   .header {
     display: grid;
-    grid-template-columns: 1fr 10fr;
-    padding-left: 0.1rem;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto;
+    gap: 0.3rem;
+    padding-left: 0.5rem;
   }
 
   .menu-button {
@@ -646,11 +567,25 @@ footer {
     cursor: pointer;
     align-self: center;
     justify-self: center;
+    grid-column: 1;
+    grid-row: 1;
+    margin-left: 0.2rem;
+  }
+
+  .header h1 {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   .home {
     justify-self: center;
     align-self: center;
+  }
+
+  .breadcrumb {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: -0.3rem;
   }
 
   /* Page Container Mobile */
@@ -678,44 +613,39 @@ footer {
     margin-right: auto;
     max-width: 600px;
   }
-
-  /* Form Mobile Styles */
+  
   .main-form {
     grid-template-columns: 1fr;
   }
 
-  .form-group + .form-group {
-    margin-top: -0.25rem;
+  .converter-section {
+    padding-top: 1.2rem;
+    padding-bottom: 0.50rem;
   }
 
-  /* Form Input Wrappers */
+  .conversion-nav {
+    margin-bottom: 1rem;
+  }
+
   .fromInput-wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
   }
-
+  
   .conversionType-wrapper {
     display: grid;
     grid-template-columns: 1fr 4fr;
     align-items: center;
   }
 
-  .fromSelect-wrapper,
-  .toSelect-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    align-items: center;
-  }
-
-  /* Mobile Label Visibility */
   .type-label-select {
     display: inline;
     font-weight: bold;
+    font-size: 0.9rem;
   }
 
-  .from-label-input,
-  .to-label-input {
+  .from-label-input, .to-label-input {
     display: none;
   }
 
@@ -725,61 +655,33 @@ footer {
     font-size: 0.9rem;
   }
 
-  .from-label-select,
-  .to-label-select {
+  .fromSelect-wrapper, .toSelect-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    align-items: center;
+  }
+  
+  .from-label-select, .to-label-select {
     display: inline-block;
     margin-right: 0.3rem;
     font-weight: bold;
     font-size: 0.9rem;
   }
 
-  /* Hide To Input on Mobile */
   #toUnitInput {
     display: none;
   }
 
-  /* Mobile Formula Text */
   #formula-text::before {
     content: "Formula:";
+  }
+  
+  .form-group + .form-group {
+    margin-top: -0.25rem;
   }
 
   #conversion-formula {
     margin-bottom: 0rem;
-  }
-
-  /* Navigation Mobile Styles */
-  .conversion-nav {
-    margin-bottom: 1rem;
-  }
-
-  .conversion-menu {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    flex-wrap: nowrap;
-  }
-
-  .conversion-menu li {
-    flex: 1;
-    text-align: center;
-  }
-
-  .conversion-menu button,
-  button[data-type] {
-    width: 100%;
-    text-align: center;
-    justify-content: center;
-    padding: 3px;
-    font-size: 13px;
-    white-space: nowrap;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .main-nav {
-    width: 100%;
   }
 
   /* Sidebar Mobile Styles */
@@ -852,20 +754,4 @@ footer {
     left: 0;
     padding-top: 0.4rem;
   }
-
-  /* Mobile Link Adjustments */
-  .link-to-full-length-converter,
-  .link-to-full-mass-weight-converter-converter,
-  .link-to-full-volume-converter,
-  .link-to-full-area-converter,
-  .link-to-full-time-converter,
-  .link-to-full-digital-storage-converter {
-    margin-top: 0;
-  }
-}
-
-.group {
-  color: rgb(42, 40, 40);
-  font-size: 1rem;
-  font-style: italic;
 }
