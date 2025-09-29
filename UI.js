@@ -39,18 +39,21 @@ export const updateSelectOptions = (formulaObject) => {
   const units = Object.keys(formulaObject);
   units.forEach((unit) => {
     if (unit.startsWith("group_")) {
-      const group = document.createElement("optgroup");
-      group.label = `━ ${unit.substring(6).toUpperCase()} ━`;
-      group.classList.add('group');
-      fromUnitSelect.appendChild(group);
-      toUnitSelect.appendChild(group.cloneNode());
+      // Create disabled option instead of optgroup
+      const header = document.createElement("option");
+      header.disabled = true;
+      header.textContent = `▼ ${unit.substring(6).toUpperCase()}`;
+      
+      fromUnitSelect.appendChild(header);
+      toUnitSelect.appendChild(header.cloneNode(true));
       return;
     }
+    
     const fromOption = document.createElement("option");
     fromOption.value = unit;
     fromOption.textContent = unit.charAt(0).toUpperCase() + unit.slice(1);
     fromUnitSelect.appendChild(fromOption);
-
+    
     const toOption = document.createElement("option");
     toOption.classList.add("to-option");
     toOption.value = unit;
