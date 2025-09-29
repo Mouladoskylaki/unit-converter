@@ -943,7 +943,7 @@ footer {
   font-weight: bold;
   font-style: normal;
   padding: 0.5rem;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 }
 
 
