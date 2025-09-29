@@ -279,38 +279,38 @@ export const updateConversionResultElem = () => {
 
 
 // Mobile Autoscroll
-document.addEventListener("DOMContentLoaded", function () {
-  const fromUnitInput = document.getElementById("fromUnitInput");
-  const converterSection = document.querySelector(".converter-section");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const fromUnitInput = document.getElementById("fromUnitInput");
+//   const converterSection = document.querySelector(".converter-section");
 
-  function isMobileDevice() {
-    return window.innerWidth <= 768;
-  }
+//   function isMobileDevice() {
+//     return window.innerWidth <= 768;
+//   }
 
-  fromUnitInput.addEventListener("focus", function () {
-    if (isMobileDevice()) {
-      setTimeout(function () {
-        const scrollPosition =
-          converterSection.getBoundingClientRect().top +
-          window.pageYOffset -
-          50;
+//   fromUnitInput.addEventListener("focus", function () {
+//     if (isMobileDevice()) {
+//       setTimeout(function () {
+//         const scrollPosition =
+//           converterSection.getBoundingClientRect().top +
+//           window.pageYOffset -
+//           50;
 
-        window.scrollTo({
-          top: scrollPosition,
-          behavior: "smooth",
-        });
-      }, 300);
-    }
-  });
+//         window.scrollTo({
+//           top: scrollPosition,
+//           behavior: "smooth",
+//         });
+//       }, 300);
+//     }
+//   });
 
-  document.body.addEventListener("click", function (event) {
-    if (isMobileDevice()) {
-      if (!event.target.closest("#fromUnitInput")) {
-        fromUnitInput.blur();
-      }
-    }
-  });
-});
+//   document.body.addEventListener("click", function (event) {
+//     if (isMobileDevice()) {
+//       if (!event.target.closest("#fromUnitInput")) {
+//         fromUnitInput.blur();
+//       }
+//     }
+//   });
+// });
 
 // DropDown Menu
 const dropdown = document.querySelector(".dropdown");
