@@ -936,20 +936,13 @@ footer {
   padding: 0.3rem 0.5rem;
 }
 
-/* #fromUnitSelect optgroup,
+#fromUnitSelect optgroup,
 #toUnitSelect optgroup {
   background: #15192c;
   color: white;
   font-weight: bold;
   font-style: normal;
   padding: 0.5rem;
-} */
-#fromUnitSelect option:disabled,
-#toUnitSelect option:disabled {
-  font-weight: bold;
-  font-style: italic;
-  color: white; /* Or adjust to match your dark theme */
-  background: #1a1f3a; /* Slightly lighter than your background */
 }
 
 
